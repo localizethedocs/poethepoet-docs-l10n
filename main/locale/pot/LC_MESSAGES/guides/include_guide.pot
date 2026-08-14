@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/include_guide.rst:2
+msgid "Loading tasks from another file"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:4
+msgid ""
+"There are some scenarios where one might wish to define tasks outside of "
+"pyproject.toml, or to collect tasks from multiple projects into one. For "
+"example, if you want to share tasks between projects via git modules, "
+"generate tasks definitions dynamically, organize your code in a monorepo, or "
+"simply have a lot of tasks and don't want the pyproject.toml to get too "
+"large. This can be achieved by creating a toml, yaml, or json file including "
+"the same structure for tasks as used in pyproject.toml"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:8
+msgid ""
+"Imported toml, yaml, or json files are not required to namespace config "
+"under ``tool.poe``. However if config exists under this structure then it "
+"will be used."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:10
+msgid "For example:"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:12
+msgid "./pyproject.toml"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:12
+msgid ""
+"[tool.poe]\n"
+"include = \"modules/acme_common/shared_tasks.toml\" # include tasks from a "
+"git submodule"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:18
+msgid "./modules/acme_common/shared_tasks.toml"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:18
+msgid ""
+"[tool.poe.tasks.build-image]\n"
+"cmd = \"docker build\""
+msgstr ""
+
+#: ../../../guides/include_guide.rst:24
+msgid ""
+"Imported files may also specify environment variables via ``tool.poe."
+"envfile`` or entries for ``tool.poe.env``."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:29
+msgid ""
+"If a referenced file is missing then poe ignores it without error, though "
+"failure to read the contents will result in failure."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:32
+msgid "Disabling recursion"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:34
+msgid ""
+"By default, includes are followed recursively. You can disable this for a "
+"specific include by setting ``recursive = false``:"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:36
+msgid ""
+"[[tool.poe.include]]\n"
+"path = \"external/tasks.toml\"\n"
+"recursive = false"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:42
+msgid ""
+"When ``recursive`` is ``false``, the included file's own tasks and "
+"environment variables are still loaded, but any ``include`` entries within "
+"that file are not followed."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:46
+msgid "Including tasks from a python package"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:48
+msgid ""
+"You can also include tasks from a python function originating either within "
+"the current project or from a dependency. This makes it much easier to share "
+"tasks across projects by distributing them as a python package, or to "
+"dynamically generate tasks depending on the context."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:50
+msgid ""
+"For more details see the :doc:`include_script<../guides/packaged_tasks>` "
+"global option."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:52
+msgid ""
+"The ``include_script`` option is ignored in included files due to the "
+"complexity of coordinating executors (for loading the scripts) across config "
+"files. So ``include_script`` can only be used in the main pyproject.toml "
+"file."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:56
+msgid "Including multiple files"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:58
+msgid ""
+"It's also possible to include tasks from multiple files by providing a list "
+"like so:"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:60
+msgid ""
+"[tool.poe]\n"
+"include = [\"modules/acme_common/shared_tasks.toml\", \"generated_tasks."
+"json\"]"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:65
+msgid ""
+"Files are loaded in the order specified. If an item already exists then the "
+"included value is ignored."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:67
+msgid ""
+"Included files can themselves include other files, and these will be loaded "
+"before the parent file is loaded. Therefore if there are multiple includes "
+"then they are loaded depth first in the order specified."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:71
+msgid "Setting a working directory for included tasks"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:73
+msgid ""
+"When including files from another location, you can also specify that tasks "
+"from that other file should be run from within a specific directory. For "
+"example with the following configuration, when tasks imported from "
+"*my_subproject* are run from the root, the task will actually execute as if "
+"it had been run from the *my_subproject* subdirectory."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:75
+msgid ""
+"[[tool.poe.include]]\n"
+"path = \"my_subproject/pyproject.toml\"\n"
+"cwd  = \"my_subproject\""
+msgstr ""
+
+#: ../../../guides/include_guide.rst:81
+msgid ""
+"The directory indicated by the ``cwd`` option will also be used as the base "
+"directory for global or task level ``envfile`` imports for tasks defined "
+"within an included file."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:83
+msgid ""
+"Tasks and config in an included file can access the ``cwd`` value via the "
+"``POE_CONF_DIR`` environment variable. When no ``cwd`` is set on the include "
+"then ``POE_CONF_DIR`` refers to the parent directory of the config file "
+"where a task is defined."
+msgstr ""
+
+#: ../../../guides/include_guide.rst:85
+msgid ""
+"You can still specify that an envfile referenced within an included file "
+"should be imported relative to the main project root, using the ``POE_ROOT`` "
+"environment variable like so:"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:87
+msgid ""
+"[tool.poe]\n"
+"envfile = \"${POE_ROOT}/.env\""
+msgstr ""
+
+#: ../../../guides/include_guide.rst:94
+msgid "Including files relative to the git repo"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:96
+msgid ""
+"Normally include paths are resolved relative to the project root (that is "
+"the parent directory of the pyproject.toml). However when working with a "
+"monorepo it can also be useful to specify the file to include relative to "
+"the root of the git repository, which can be done by referenceing the "
+"``POE_GIT_DIR`` or ``POE_GIT_ROOT`` variables like so:"
+msgstr ""
+
+#: ../../../guides/include_guide.rst:98
+msgid ""
+"[tool.poe]\n"
+"include = \"${POE_GIT_DIR}/tasks.toml\""
+msgstr ""
+
+#: ../../../guides/include_guide.rst:103
+msgid ""
+"See the documentation on :ref:`Special variables<Special variables>` for a "
+"full explanation of how these variables work."
+msgstr ""

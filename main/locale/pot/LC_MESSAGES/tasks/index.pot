@@ -1,0 +1,213 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tasks/index.rst:75
+msgid "Standard task options"
+msgstr ""
+
+#: ../../../tasks/index.rst:75
+msgid "Command tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:75
+msgid "Script tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:75
+msgid "Shell tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:75
+msgid "Sequence tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:75
+msgid "Parallel tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:75
+msgid "Expression tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:75
+msgid "Switch tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:75
+msgid "Reference tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:2
+msgid "Defining tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:4
+msgid ""
+"Poe the Poet supports several ways of defining tasks under :toml:`[tool.poe."
+"tasks]`, trading off simplicity against configurability. Furthermore toml "
+"syntax supports both more terse or more expressive alternative ways of "
+"writing the same thing, see the guide on :doc:`../guides/toml_guide` for "
+"details."
+msgstr ""
+
+#: ../../../tasks/index.rst:6
+msgid ""
+"A task defined as a string will by default be interpreted as a single "
+"command to be executed without a shell (aka a :doc:`cmd task <task_types/"
+"cmd>`)."
+msgstr ""
+
+#: ../../../tasks/index.rst:8
+msgid ""
+"[tool.poe.tasks]\n"
+"test = \"pytest\""
+msgstr ""
+
+#: ../../../tasks/index.rst:13
+msgid ""
+"A task defined as an array will by default be interpreted as a :doc:"
+"`sequence <task_types/sequence>` of :doc:`references<task_types/ref>` to "
+"other tasks."
+msgstr ""
+
+#: ../../../tasks/index.rst:15
+msgid ""
+"[tool.poe.tasks]\n"
+"test   = \"pytest\"\n"
+"_build = \"poetry build\"\n"
+"build  = [\"test\", \"_build\"] # this task runs the two referenced tasks in "
+"sequence"
+msgstr ""
+
+#: ../../../tasks/index.rst:24
+msgid ""
+"Task with names starting with an underscore ``_`` are excluded from "
+"documentation and cannot be run directly from the command line. They can "
+"only be run when referenced by another task."
+msgstr ""
+
+#: ../../../tasks/index.rst:26
+msgid ""
+"Tasks can also be defined as sub-tables, which allows for specifying the "
+"task type and various configuration options on the task. The type of a task "
+"defined as a table is determined by the presence of a particular key that is "
+"unique to a certain task type and corresponds to the name of the task type."
+msgstr ""
+
+#: ../../../tasks/index.rst:28
+msgid ""
+"[tool.poe.tasks.test-quick]\n"
+"help = \"Run tests excluding those makes as slow.\"\n"
+"cmd  = \"pytest -m \\\"not slow\\\"\" # here the cmd key identifies the task "
+"type and content"
+msgstr ""
+
+#: ../../../tasks/index.rst:34
+msgid ""
+"This implies that you can also define tasks of other types on a single line, "
+"like so:"
+msgstr ""
+
+#: ../../../tasks/index.rst:36
+msgid ""
+"[tool.poe.tasks]\n"
+"tunnel.shell = \"ssh -N -L 0.0.0.0:8080:$PROD:8080 $PROD &\" # (posix) shell "
+"based task"
+msgstr ""
+
+#: ../../../tasks/index.rst:41
+msgid ""
+":doc:`Some options <options>` are applicable to all tasks, whereas other are "
+"only applicable to :ref:`specific types of tasks<Types of task>`."
+msgstr ""
+
+#: ../../../tasks/index.rst:45
+msgid ""
+"Top level tasks are defined as members of :toml:`[tool.poe.tasks]`, but "
+"sometimes tasks can be defined as children of other tasks, for example as "
+"items within a :doc:`sequence <task_types/sequence>` task, or as the "
+"``control`` or ``case`` roles within a :doc:`switch <task_types/switch>` "
+"task."
+msgstr ""
+
+#: ../../../tasks/index.rst:48
+msgid "Types of task"
+msgstr ""
+
+#: ../../../tasks/index.rst:50
+msgid ""
+"There are two categories of task each including four types: *Execution "
+"tasks* that run task content in a subprocess, and *Orchestration tasks* that "
+"run other tasks."
+msgstr ""
+
+#: ../../../tasks/index.rst:53
+msgid "Execution tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:55
+msgid ""
+":doc:`Command tasks <task_types/cmd>` :code:`cmd` : for simple commands that "
+"are executed as a subprocess without a shell"
+msgstr ""
+
+#: ../../../tasks/index.rst:57
+msgid ""
+":doc:`Script tasks<task_types/script>` :code:`script` : for python function "
+"calls"
+msgstr ""
+
+#: ../../../tasks/index.rst:59
+msgid ""
+":doc:`Shell tasks<task_types/shell>` :code:`shell` : for scripts to be "
+"executed with via an external interpreter (such as bash)."
+msgstr ""
+
+#: ../../../tasks/index.rst:61
+msgid ""
+":doc:`Expression tasks<task_types/expr>` :code:`expr` : which consist of a "
+"python expression to evaluate"
+msgstr ""
+
+#: ../../../tasks/index.rst:64
+msgid "Orchestration tasks"
+msgstr ""
+
+#: ../../../tasks/index.rst:66
+msgid ""
+":doc:`Sequence tasks<task_types/sequence>` :code:`sequence` : for composing "
+"multiple tasks into a sequence"
+msgstr ""
+
+#: ../../../tasks/index.rst:68
+msgid ""
+":doc:`Parallel tasks<task_types/parallel>` :code:`parallel` : for running "
+"multiple tasks concurrently"
+msgstr ""
+
+#: ../../../tasks/index.rst:70
+msgid ""
+":doc:`Switch tasks<task_types/switch>` :code:`switch` : for running "
+"different tasks depending on the output of a *control* task"
+msgstr ""
+
+#: ../../../tasks/index.rst:72
+msgid ""
+":doc:`Reference tasks<task_types/ref>` :code:`ref` : for defining a task as "
+"an alias of another task, such as in a sequence task"
+msgstr ""

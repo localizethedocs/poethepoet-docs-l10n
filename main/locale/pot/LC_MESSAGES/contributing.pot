@@ -1,0 +1,292 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../contributing.rst:2
+msgid "Contributing"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:1
+msgid ""
+"So you’d like to contribute? Awesome! Here are some things worth knowing."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:5
+msgid "Reporting a bug / requesting a feature / asking a question"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:7
+msgid ""
+"Go `open an issue <https://github.com/nat-n/poethepoet/issues>`_ or `start a "
+"discussion <https://github.com/nat-n/poethepoet/discussions>`_ and I’ll "
+"probably reply soon."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:10
+msgid "Contributing to the docs"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:12
+msgid ""
+"Just make a PR with your proposed changes targeting the main branch. The "
+"`documentation website <https://poethepoet.natn.io/>`_ will update once your "
+"PR is merged."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:15
+msgid "Contributing code"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:18
+msgid "Preface"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:20
+msgid ""
+"If you’re willing to contribute your ideas and effort to making poethepoet "
+"better, then that’s awesome and I’m grateful. I don’t have all the answers "
+"so it’s particularly important for this project to benefit from diverse "
+"perspectives and technical expertise."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:22
+msgid ""
+"However please be aware that a lot of thought has gone into the architecture "
+"of poethepoet, and whilst I know it’s not perfect, and I am very interested "
+"in alternative perspectives, I do have strong (and I hope reasonable) "
+"opinions about how certain things should work. This particularly applies to "
+"naming and internal APIs. There is a lot to consider in terms of making sure "
+"the tool stays simple, flexible, and performant. So please don’t be offended "
+"if there is some push back."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:25
+msgid "Development process"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:27
+msgid ""
+"If your planned changes entail non-trivial UI or internal API changes then "
+"it’s a good idea to bring them up for discussion as a `GitHub issue <https://"
+"github.com/nat-n/poethepoet/issues>`_ first."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:29
+msgid ""
+"Fork and clone the repo, and create a feature or bugfix branch off of the "
+"*development* branch."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:31
+msgid ""
+"Double check that you’re starting from the *development* branch, and not "
+"from the the *main* branch."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:33
+msgid ""
+"Run ``poetry install`` to setup your development environment. (`install "
+"poetry <https://python-poetry.org/docs/#installation>`__)"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:35
+msgid ""
+"The ``poe schema-build`` task — also invoked by ``poe check`` via ``poe "
+"schema-check-drift`` — postprocesses the generated JSON Schema with prettier "
+"(run through ``npx``). This requires `Node.js <https://nodejs.org>`__ on "
+"your PATH. Install Node.js if you plan to touch anything that affects schema "
+"generation."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:37
+msgid "Do your code."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:39
+msgid ""
+"If you’ve added a feature then before it can be including in a release we "
+"will need:"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:41
+msgid "a feature test along the same lines as the examples in the tests dir,"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:42
+msgid "to update documentation."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:44
+msgid ""
+"Run ``poe check`` to check that you haven’t broken anything that will block "
+"the CI pipeline."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:46
+msgid ""
+"Create a commit with a clear commit message that describes the commit "
+"contents."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:48
+msgid "Open a PR on GitHub."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:52
+msgid ""
+"You can also open a draft PR proposing incomplete changes to recieve "
+"feedback."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:55
+msgid "Pull requests"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:57
+msgid ""
+"There isn’t currently a pull request template, but please try and be "
+"descriptive about what problem you’re solving and how, and reference related "
+"issues."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:59
+msgid ""
+"In some cases it might be acceptable to merge code to *development* to make "
+"a pre-release from it without including full automated tests and "
+"documentation. However this is a special case, because it blocks further "
+"releases from the *development* branch until the tests and docs are there."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:63
+msgid "Branching model"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:65
+msgid "This project implements something like git flow."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:67
+msgid ""
+"*TL;DR* branch off of *development* for new features, or *main* for "
+"documentation improvements."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:69
+msgid ""
+"We like to keep a clean history, so squash-rebase merges are preferred for "
+"the *development* or *main* branches."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:72
+msgid "Overview of branches"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:75
+msgid "Historic branches"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:77
+msgid ""
+"**main** the primary branch containing released code and up to date docs."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:78
+msgid ""
+"**development** in progress and pre-released features that are expected to "
+"be included in a release when ready."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:81
+msgid "Working branches"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:83
+msgid "**hotfix/** branches for minor/urgent bug fixes from main"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:84
+msgid "**feature/** branches for new feature development from development"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:85
+msgid "**bugfix/** for new bug fixes from development"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:86
+msgid "**doc/** branches for documentation changes"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:89
+msgid "How to add a new feature"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:91
+msgid "Create your branch from *development*"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:93
+msgid ""
+"git fetch\n"
+"git checkout origin/development\n"
+"git checkout -b feature/my_new_feature"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:99
+msgid "Create a pull request back to *development*"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:102
+msgid "How to add a hot fix"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:104
+msgid "Create your branch from *main*"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:106
+msgid ""
+"git fetch\n"
+"git checkout origin/main\n"
+"git checkout -b feature/my_new_feature"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:112
+msgid "Create a pull request back to *main*, and one to *development*"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:115
+msgid "How to create release"
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:117
+msgid ""
+"From the head of the *development* branch, use the ``bump-version`` poe task "
+"to bump the version, then commit the result."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:118
+msgid ""
+"Create a release (and tag) on GitHub, following the existing convention for "
+"naming and release notes format (use the *Generate release notes* button as "
+"a starting point), and the GitHub CI will do the rest."
+msgstr ""
+
+#: ../../../../.github/CONTRIBUTING.rst:119
+msgid ""
+"Unless it is a pre-release then the final step is to merge *development* "
+"into *main*."
+msgstr ""
