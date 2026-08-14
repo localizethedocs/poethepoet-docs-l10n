@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/ai_agents_guide.rst:2
+msgid "Using poethepoet with AI Agents"
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:4
+msgid ""
+"Poe the Poet is a good fit with agentic coding workflows, as a way to "
+"standardize allowed agent actions within a project. This page collects some "
+"tips to help get the most from poethepoet when working with coding agents."
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:8
+msgid ""
+"Add a section to your CLAUDE.md or AGENTS.md to instruct the agent to always "
+"check for and use available poe tasks when performing common actions like "
+"testing, linting, formatting, or whatever is relevant for your project."
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:10
+msgid ""
+"This helps the agent avoid running with incorrect configuration or "
+"dependencies, and makes it easier to manage permissions for these actions."
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:13
+msgid "Agent Skill"
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:15
+msgid ""
+"The official poethepoet skill can help your AI Agent use poethepoet more "
+"effectively. It covers discovering and executing tasks, as well as more in-"
+"depth guidance on creating them."
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:17
+msgid ""
+"See the :ref:`full installation instructions<Install the poethepoet AI Agent "
+"skill>`, or simply run the interactive installer with:"
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:19
+msgid "poe _install_skill"
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:25
+msgid "Claude Code"
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:27
+msgid ""
+"Include the following in your ``.claude/settings.json`` to grant your agent "
+"permission to run any poe task, assuming you only define poe tasks for "
+"benign actions."
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:29
+msgid ""
+"{\n"
+"  \"permissions\": {\n"
+"    \"allow\": [\n"
+"      \"Bash(poe *)\"\n"
+"    ]\n"
+"  }\n"
+"}"
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:39
+msgid ""
+"If you have a lightweight poe task for code formatting, then you might want "
+"to configure your agent to run that task whenever it finishes making changes:"
+msgstr ""
+
+#: ../../../guides/ai_agents_guide.rst:41
+msgid ""
+"{\n"
+"  \"hooks\": {\n"
+"    \"Stop\": [\n"
+"      {\n"
+"        \"hooks\": [\n"
+"          {\n"
+"            \"type\": \"command\",\n"
+"            \"command\": \"poe format\"\n"
+"          }\n"
+"        ]\n"
+"      }\n"
+"    ]\n"
+"  }\n"
+"}"
+msgstr ""

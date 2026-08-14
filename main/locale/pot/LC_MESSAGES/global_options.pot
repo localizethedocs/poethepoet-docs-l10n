@@ -1,0 +1,809 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../global_options.rst:2
+msgid "Global options"
+msgstr ""
+
+#: ../../../global_options.rst:4
+msgid ""
+"The following options can be set for all tasks in a project directly under "
+"``[tool.poe]``. These are called global options, in contrast with :doc:`task "
+"options<tasks/options>`."
+msgstr ""
+
+#: ../../../global_options.rst:6
+msgid "**env** : ``dict[str, str]`` :ref:`📖<Global environment variables>`"
+msgstr ""
+
+#: ../../../global_options.rst:5 ../../../global_options.rst:26
+msgid "dict[str, str] 📖"
+msgstr ""
+
+#: ../../../global_options.rst:7
+msgid ""
+"Define environment variables to be exposed to all tasks. These can be :ref:"
+"`extended on the task level<Setting task specific environment variables>`."
+msgstr ""
+
+#: ../../../global_options.rst:9
+msgid ""
+"**envfile** : ``str`` | ``list[str]`` :ref:`📖<Global environment variables>`"
+msgstr ""
+
+#: ../../../global_options.rst:8 ../../../global_options.rst:20
+#: ../../../global_options.rst:190 ../../../global_options.rst:193
+#: ../../../global_options.rst:196 ../../../global_options.rst:199
+msgid "str | list[str] 📖"
+msgstr ""
+
+#: ../../../global_options.rst:10
+msgid ""
+"Link to one or more files defining environment variables to be exposed to "
+"all tasks."
+msgstr ""
+
+#: ../../../global_options.rst:12
+msgid ""
+"**executor** : ``str`` | ``dict[str, str]`` :ref:`📖<Configure the executor>`"
+msgstr ""
+
+#: ../../../global_options.rst:11
+msgid "str | dict[str, str] 📖"
+msgstr ""
+
+#: ../../../global_options.rst:13
+msgid ""
+"Specify the default executor type and/or configuration for all tasks in this "
+"project."
+msgstr ""
+
+#: ../../../global_options.rst:15
+msgid ""
+"**include** : ``str`` | ``dict[str, str]`` | ``list[str | dict[str, str]]`` "
+"| :doc:`📖<../guides/include_guide>`"
+msgstr ""
+
+#: ../../../global_options.rst:14
+msgid "str | dict[str, str] | list[str | dict[str, str]] | 📖"
+msgstr ""
+
+#: ../../../global_options.rst:16
+msgid ""
+"Specify one or more other toml or json files to load tasks from. By default "
+"includes are followed recursively, unless the ``recursive`` option is set to "
+"``false`` for a specific include."
+msgstr ""
+
+#: ../../../global_options.rst:18
+msgid ""
+"**include_script** : ``str`` | ``dict[str, str]`` | ``list[str | dict[str, "
+"str]]`` :doc:`📖<../guides/packaged_tasks>`"
+msgstr ""
+
+#: ../../../global_options.rst:17
+msgid "str | dict[str, str] | list[str | dict[str, str]] 📖"
+msgstr ""
+
+#: ../../../global_options.rst:19
+msgid ""
+"Load dynamically generated tasks from one or more python functions. This is "
+"similar to the :doc:`include global option<../guides/include_guide>`, except "
+"instead of providing paths to config files, one can reference python "
+"functions that generate task config, using the same syntax as for :doc:"
+"`script tasks<../tasks/task_types/script>`."
+msgstr ""
+
+#: ../../../global_options.rst:21
+msgid ""
+"**shell_interpreter** : ``str`` | ``list[str]`` :ref:`📖<Change the default "
+"shell interpreter>`"
+msgstr ""
+
+#: ../../../global_options.rst:22
+msgid ""
+"Change the default interpreter to use for executing :doc:`shell tasks<../"
+"tasks/task_types/shell>`."
+msgstr ""
+
+#: ../../../global_options.rst:24
+msgid "**poetry_command** : ``str`` :ref:`📖<Configuring the plugin>`"
+msgstr ""
+
+#: ../../../global_options.rst:23 ../../../global_options.rst:220
+msgid "str 📖"
+msgstr ""
+
+#: ../../../global_options.rst:25
+msgid ""
+"Change the name of the task poe registers with poetry when used as a plugin."
+msgstr ""
+
+#: ../../../global_options.rst:27
+msgid ""
+"**poetry_hooks** : ``dict[str, str]`` :ref:`📖<Hooking into poetry commands>`"
+msgstr ""
+
+#: ../../../global_options.rst:28
+msgid ""
+"Register tasks to run automatically before or after other poetry CLI "
+"commands."
+msgstr ""
+
+#: ../../../global_options.rst:30
+msgid "**verbosity** : ``int``"
+msgstr ""
+
+#: ../../../global_options.rst:29
+msgid "int"
+msgstr ""
+
+#: ../../../global_options.rst:31
+msgid ""
+"Set the default verbosity level for tasks in this project. The default value "
+"is ``0``, providing the ``-v`` global CLI option increases it by ``1``, "
+"whereas the ``-q`` global CLI option decreases it by ``1``."
+msgstr ""
+
+#: ../../../global_options.rst:33
+msgid ""
+"**default_task_type** : ``\"cmd\" | \"expr\" | \"ref\" | \"script\" | "
+"\"shell\"``"
+msgstr ""
+
+#: ../../../global_options.rst:32 ../../../global_options.rst:38
+msgid "\"cmd\" | \"expr\" | \"ref\" | \"script\" | \"shell\""
+msgstr ""
+
+#: ../../../global_options.rst:34
+msgid ""
+"When a task is declared as a string (instead of a table), then it is "
+"interpreted as the default task type, which will be ``\"cmd\"`` unless "
+"otherwise specified."
+msgstr ""
+
+#: ../../../global_options.rst:36
+msgid "**default_array_task_type** : ``str``"
+msgstr ""
+
+#: ../../../global_options.rst:35
+msgid "str"
+msgstr ""
+
+#: ../../../global_options.rst:37
+msgid ""
+"When a task is declared as an array (instead of a table), then it is "
+"interpreted as the default array task type, which will be ``\"sequence\"`` "
+"unless otherwise specified. Valid options are ``\"sequence\"`` or "
+"``\"parallel\"``."
+msgstr ""
+
+#: ../../../global_options.rst:39
+msgid ""
+"**default_array_item_task_type** : ``\"cmd\" | \"expr\" | \"ref\" | "
+"\"script\" | \"shell\"``"
+msgstr ""
+
+#: ../../../global_options.rst:40
+msgid ""
+"When a task is declared as a string inside an array (e.g. inline in a "
+"sequence task), then it is interpreted as the default array item task type, "
+"which will be ``\"ref\"`` unless otherwise specified."
+msgstr ""
+
+#: ../../../global_options.rst:43
+msgid "Global environment variables"
+msgstr ""
+
+#: ../../../global_options.rst:45
+msgid ""
+"You can configure environment variables to be set for all poe tasks in the "
+"pyproject.toml file by specifying :toml:`tool.poe.env` like so"
+msgstr ""
+
+#: ../../../global_options.rst:47
+msgid ""
+"[tool.poe.env]\n"
+"VAR1 = \"FOO\"\n"
+"VAR2 = \"BAR BAR BLACK ${FARM_ANIMAL}\""
+msgstr ""
+
+#: ../../../global_options.rst:53
+msgid ""
+"The example above also demonstrates how – as with env vars defined at the "
+"task level – posix variable interpolation syntax may be used to define "
+"global env vars with reference to variables already defined in the host "
+"environment or in a referenced env file."
+msgstr ""
+
+#: ../../../global_options.rst:55
+msgid ""
+"As with the task level option, you can indicated that a variable should only "
+"be set if not already set like so:"
+msgstr ""
+
+#: ../../../global_options.rst:57
+msgid ""
+"[tool.poe.env]\n"
+"VAR1.default = \"FOO\""
+msgstr ""
+
+#: ../../../global_options.rst:63
+msgid "Loading external environment variables"
+msgstr ""
+
+#: ../../../global_options.rst:65
+msgid ""
+"You can also specify an env file (with bash-like syntax) to load for all "
+"tasks like so:"
+msgstr ""
+
+#: ../../../global_options.rst:67
+msgid ".env"
+msgstr ""
+
+#: ../../../global_options.rst:67
+msgid ""
+" STAGE=dev\n"
+" PASSWORD='!@#$%^&*('"
+msgstr ""
+
+#: ../../../global_options.rst:73
+msgid "pyproject.toml"
+msgstr ""
+
+#: ../../../global_options.rst:73
+msgid ""
+" [tool.poe]\n"
+" envfile = \".env\""
+msgstr ""
+
+#: ../../../global_options.rst:79
+msgid "The envfile global option also accepts a list of env files like so:"
+msgstr ""
+
+#: ../../../global_options.rst:81
+msgid ""
+"[tool.poe]\n"
+"envfile = [\"standard.env\", \"local.env\"]"
+msgstr ""
+
+#: ../../../global_options.rst:86
+msgid "In this case the referenced files will be loaded in the given order."
+msgstr ""
+
+#: ../../../global_options.rst:90
+msgid ""
+"The envfile option is also available with the same capabilities at :ref:`the "
+"task level<Loading environment variables from an env file>`."
+msgstr ""
+
+#: ../../../global_options.rst:93
+msgid "Parameter expansion in env files"
+msgstr ""
+
+#: ../../../global_options.rst:95
+msgid ""
+"Env file values support bash-style parameter expansion. Each variable can "
+"reference variables defined earlier in the same file using ``$VAR`` or "
+"``${VAR}``, as well as variables already set in the environment (host env "
+"vars, global env, or parent task env vars). The standard default/alternate "
+"operators are supported:"
+msgstr ""
+
+#: ../../../global_options.rst:97
+msgid ""
+"BASE=/opt/myapp\n"
+"DATA_DIR=${BASE}/data         # expands to /opt/myapp/data\n"
+"LOG_DIR=${BASE}/logs          # expands to /opt/myapp/logs\n"
+"\n"
+"# Use a default when a variable is unset\n"
+"HOST=${APP_HOST:-localhost}\n"
+"\n"
+"# Use an alternate value when a variable is set\n"
+"DEBUG_FLAG=${DEBUG:+--debug}"
+msgstr ""
+
+#: ../../../global_options.rst:109
+msgid ""
+"Expansion is applied in unquoted values and inside double-quoted values. "
+"Single-quoted values are never expanded — ``'${VAR}'`` is always the literal "
+"string ``${VAR}``."
+msgstr ""
+
+#: ../../../global_options.rst:112
+msgid "Optional env files"
+msgstr ""
+
+#: ../../../global_options.rst:114
+msgid ""
+"Normally poe will emit a warning if a specified envfile is not found. If you "
+"consider an envfile to be optional, you can suppress these warnings by "
+"configuring the file path (or paths) under the ``optional`` prefix like so:"
+msgstr ""
+
+#: ../../../global_options.rst:116
+msgid ""
+"[tool.poe]\n"
+"envfile.optional = \".env\""
+msgstr ""
+
+#: ../../../global_options.rst:121
+msgid "You can combine optional and expected envfiles like so:"
+msgstr ""
+
+#: ../../../global_options.rst:123
+msgid ""
+"[tool.poe.envfile]\n"
+"expected = [\"shared.env\"]\n"
+"optional = [\"local.env\"]"
+msgstr ""
+
+#: ../../../global_options.rst:129
+msgid ""
+"In this example ``shared.env`` is considered mandatory, whereas ``local."
+"env`` may be absent without generating noise. Using :toml:`envfile = \"."
+"env\"` remains equivalent to setting :toml:`envfile.expected = \".env\"` "
+"explicitly."
+msgstr ""
+
+#: ../../../global_options.rst:132
+msgid "Resolving env file paths"
+msgstr ""
+
+#: ../../../global_options.rst:134
+msgid ""
+"Normally envfile paths are resolved relative to the project root (that is "
+"the parent directory of the pyproject.toml). However when working with a "
+"monorepo it can also be useful to specify the path relative to the root of "
+"the git repository, which can be done by referencing the ``POE_GIT_DIR`` or "
+"``POE_GIT_ROOT`` variables like so:"
+msgstr ""
+
+#: ../../../global_options.rst:136
+msgid ""
+"[tool.poe]\n"
+"envfile = \"${POE_GIT_DIR}/.env\""
+msgstr ""
+
+#: ../../../global_options.rst:141
+msgid ""
+"See the documentation on :ref:`Special variables<Special variables>` for a "
+"full explanation of how these variables work."
+msgstr ""
+
+#: ../../../global_options.rst:145
+msgid ""
+"Environment variables loaded from env files have higher precedence than any "
+"inherited from the host environment, but lower precedence than env defined "
+"directly in the pyproject.toml file. Similarly ``optional`` env files are "
+"loaded after ``expected`` ones, so variables defined in ``optional`` files "
+"can override those defined in ``expected`` files."
+msgstr ""
+
+#: ../../../global_options.rst:147
+msgid ""
+"During parameter expansion within an env file, variables from lower-"
+"precedence sources (host env, previously loaded env files, and task-level "
+"env vars set before this file is loaded) are visible and can be referenced. "
+"In-file definitions always take precedence over these during expansion."
+msgstr ""
+
+#: ../../../global_options.rst:151
+msgid "Configure the executor"
+msgstr ""
+
+#: ../../../global_options.rst:153
+msgid ""
+"You can configure poe to use a specific executor by setting :toml:`tool.poe."
+"executor`. Valid values include:"
+msgstr ""
+
+#: ../../../global_options.rst:156
+msgid ""
+"**auto**: to automatically use the most appropriate of the following "
+"executors in order"
+msgstr ""
+
+#: ../../../global_options.rst:157
+msgid "**poetry**: to run tasks in the poetry managed environment"
+msgstr ""
+
+#: ../../../global_options.rst:158
+msgid "**uv**: to run tasks in an uv environment"
+msgstr ""
+
+#: ../../../global_options.rst:159
+msgid ""
+"**virtualenv**: to run tasks in the indicated virtualenv (or else \"./."
+"venv\" or \"./venv\" if present)"
+msgstr ""
+
+#: ../../../global_options.rst:160
+msgid "**simple**: to run tasks without doing any specific environment setup"
+msgstr ""
+
+#: ../../../global_options.rst:162
+msgid "The default behavior is **auto**."
+msgstr ""
+
+#: ../../../global_options.rst:164
+msgid ""
+"You specify a different executor to use as a global option, task level "
+"option, or at runtime with the ``--executor`` cli option."
+msgstr ""
+
+#: ../../../global_options.rst:166
+msgid ""
+"For example you can make your whole project use the simple executor (no "
+"environment integration) by default like so:"
+msgstr ""
+
+#: ../../../global_options.rst:168
+msgid ""
+"[tool.poe]\n"
+"executor = \"simple\""
+msgstr ""
+
+#: ../../../global_options.rst:173
+msgid ""
+"Which is a short hand for the following table form which is required in "
+"order to pass options to the executor:"
+msgstr ""
+
+#: ../../../global_options.rst:175
+msgid ""
+"[tool.poe.executor]\n"
+"type = \"simple\""
+msgstr ""
+
+#: ../../../global_options.rst:182
+msgid ""
+"You can also configure the executor at the :ref:`task group level<Grouping "
+"tasks>`, or at the :ref:`task level<Configure the executor for a task>`, "
+"which will have higher precedence. Alternatively you can override the "
+"executor type at runtime by passing the ``--executor`` CLI option (before "
+"the task name) with the name of the executor to use, and pass executor "
+"options via the ``--executor-opt`` global CLI option."
+msgstr ""
+
+#: ../../../global_options.rst:187
+msgid "Uv Executor"
+msgstr ""
+
+#: ../../../global_options.rst:189
+msgid ""
+"The uv executor can be configured with the following options, which "
+"translate into passing the corresponding CLI option to the `uv run command "
+"<https://docs.astral.sh/uv/reference/cli/#uv-run>`_:"
+msgstr ""
+
+#: ../../../global_options.rst:191
+msgid ""
+"**extra** : ``str`` | ``list[str]`` `📖 <https://docs.astral.sh/uv/reference/"
+"cli/#uv-run--extra>`__"
+msgstr ""
+
+#: ../../../global_options.rst:192
+msgid "Include optional dependencies from the specified extra name."
+msgstr ""
+
+#: ../../../global_options.rst:194
+msgid ""
+"**group** : ``str`` | ``list[str]`` `📖 <https://docs.astral.sh/uv/reference/"
+"cli/#uv-run--group>`__"
+msgstr ""
+
+#: ../../../global_options.rst:195
+msgid "Include dependencies from the specified dependency group."
+msgstr ""
+
+#: ../../../global_options.rst:197
+msgid ""
+"**no-group** : ``str`` | ``list[str]`` `📖 <https://docs.astral.sh/uv/"
+"reference/cli/#uv-run--no-group>`__"
+msgstr ""
+
+#: ../../../global_options.rst:198
+msgid "Disable the specified dependency group."
+msgstr ""
+
+#: ../../../global_options.rst:200
+msgid ""
+"**with** : ``str`` | ``list[str]`` `📖 <https://docs.astral.sh/uv/reference/"
+"cli/#uv-run--with>`__"
+msgstr ""
+
+#: ../../../global_options.rst:201
+msgid "Run with the given packages installed."
+msgstr ""
+
+#: ../../../global_options.rst:203
+msgid ""
+"**isolated** : ``bool`` `📖 <https://docs.astral.sh/uv/reference/cli/#uv-"
+"run--isolated>`__"
+msgstr ""
+
+#: ../../../global_options.rst:202 ../../../global_options.rst:205
+#: ../../../global_options.rst:208 ../../../global_options.rst:211
+#: ../../../global_options.rst:214 ../../../global_options.rst:217
+msgid "bool 📖"
+msgstr ""
+
+#: ../../../global_options.rst:204
+msgid ""
+"Run the command in a fresh emphemeral virtual environment, instead of the "
+"usual in-project .venv"
+msgstr ""
+
+#: ../../../global_options.rst:206
+msgid ""
+"**exact** : ``bool`` `📖 <https://docs.astral.sh/uv/reference/cli/#uv-run--"
+"exact>`__"
+msgstr ""
+
+#: ../../../global_options.rst:207
+msgid ""
+"Sync the environment exactly, removing extraneous packages not in the "
+"requested groups (unlike the default inexact sync which only adds missing "
+"packages)."
+msgstr ""
+
+#: ../../../global_options.rst:209
+msgid ""
+"**no-sync** : ``bool`` `📖 <https://docs.astral.sh/uv/reference/cli/#uv-run--"
+"no-sync>`__"
+msgstr ""
+
+#: ../../../global_options.rst:210
+msgid "Avoid syncing the virtual environment."
+msgstr ""
+
+#: ../../../global_options.rst:212
+msgid ""
+"**locked** : ``bool`` `📖 <https://docs.astral.sh/uv/reference/cli/#uv-run--"
+"locked>`__"
+msgstr ""
+
+#: ../../../global_options.rst:213 ../../../global_options.rst:216
+msgid "Run without updating the uv.lock file."
+msgstr ""
+
+#: ../../../global_options.rst:215
+msgid ""
+"**frozen** : ``bool`` `📖 <https://docs.astral.sh/uv/reference/cli/#uv-run--"
+"frozen>`__"
+msgstr ""
+
+#: ../../../global_options.rst:218
+msgid ""
+"**no-project** : ``bool`` `📖 <https://docs.astral.sh/uv/reference/cli/#uv-"
+"run--no-project>`__"
+msgstr ""
+
+#: ../../../global_options.rst:219
+msgid "Avoid discovering the project or workspace."
+msgstr ""
+
+#: ../../../global_options.rst:221
+msgid ""
+"**python** : ``str`` `📖 <https://docs.astral.sh/uv/reference/cli/#uv-run--"
+"python>`__"
+msgstr ""
+
+#: ../../../global_options.rst:222
+msgid "The Python interpreter to use for the run environment."
+msgstr ""
+
+#: ../../../global_options.rst:224
+msgid ""
+"You can combine project and task level executor options and inheritance will "
+"work as you would expect:"
+msgstr ""
+
+#: ../../../global_options.rst:226
+msgid ""
+"[tool.poe.executor]\n"
+"type = \"uv\"\n"
+"\n"
+"[tool.poe.tasks.test-py311]\n"
+"cmd = \"pytest tests\"\n"
+"executor = {isolated = true, python = \"3.11\", with = [\"pytest\"]}\n"
+"\n"
+"[tool.poe.tasks.test-py312]\n"
+"cmd = \"pytest tests\"\n"
+"executor = {isolated = true, python = \"3.12\", with = [\"pytest\"]}"
+msgstr ""
+
+#: ../../../global_options.rst:239
+msgid ""
+"This feature enables you to replace tools like tox by creating task variants "
+"for different Python versions or environments. See the :doc:`../guides/"
+"tox_replacement_guide` for a detailed guide on using poethepoet in this way."
+msgstr ""
+
+#: ../../../global_options.rst:241
+msgid ""
+"This kind of task level executor config will even work seamlessly in "
+"projects that don't otherwise use `uv` if the executor type is specified at "
+"the task level."
+msgstr ""
+
+#: ../../../global_options.rst:244
+msgid "Virtualenv Executor"
+msgstr ""
+
+#: ../../../global_options.rst:246
+msgid "The virtualenv executor can be configured with the following options:"
+msgstr ""
+
+#: ../../../global_options.rst:248
+msgid "**location** : ``bool``"
+msgstr ""
+
+#: ../../../global_options.rst:247
+msgid "bool"
+msgstr ""
+
+#: ../../../global_options.rst:249
+msgid ""
+"The path of the virtual environment to use. Defaults to ``./venv`` or ``./."
+"venv``."
+msgstr ""
+
+#: ../../../global_options.rst:251
+msgid ""
+"[tool.poe.executor]\n"
+"type = \"virtualenv\"\n"
+"location = \"myvenv\""
+msgstr ""
+
+#: ../../../global_options.rst:257
+msgid ""
+"If the virtualenv location is a relative path then it is resolved relative "
+"to the project root (the parent directory of the pyproject.toml file. "
+"However in a monorepo project it may also be defined relative to the git "
+"repo root by templating :ref:`these  special environment variables<Special "
+"variables>` like so:"
+msgstr ""
+
+#: ../../../global_options.rst:259
+msgid ""
+"[tool.poe.executor]\n"
+"type = \"virtualenv\"\n"
+"location = \"${POE_GIT_DIR}/myvenv\""
+msgstr ""
+
+#: ../../../global_options.rst:267
+msgid "Change the default shell interpreter"
+msgstr ""
+
+#: ../../../global_options.rst:269
+msgid ""
+"Normally shell tasks are executed using a posix shell by default (see "
+"section for shell tasks above). This default can be overridden to something "
+"else by setting the *shell_interpreter* global option. In the following "
+"example we configure all shell tasks to use *fish* by default."
+msgstr ""
+
+#: ../../../global_options.rst:274
+msgid ""
+"tool.poe.shell_interpreter = \"fish\"\n"
+"\n"
+"[tool.poe.tasks.fibonacci]\n"
+"help = \"Output the fibonacci sequence up to 89\"\n"
+"shell = \"\"\"\n"
+"  function fib --argument-names max n0 n1\n"
+"    if test $max -ge $n0\n"
+"      echo $n0\n"
+"      fib $max $n1 (math $n0 + $n1)\n"
+"    end\n"
+"  end\n"
+"\n"
+"  fib 89 1 1\n"
+"\"\"\""
+msgstr ""
+
+#: ../../../global_options.rst:292
+msgid "Default command verbosity"
+msgstr ""
+
+#: ../../../global_options.rst:294
+msgid ""
+"You can alter the verbosity level for poe commands by passing :bash:`--"
+"quiet` / :bash:`-q` (which decreases verbosity) or :bash:`--verbose` / :bash:"
+"`-v` (which increases verbosity) on the CLI."
+msgstr ""
+
+#: ../../../global_options.rst:298
+msgid ""
+"If you want to change the default verbosity level for all commands, you can "
+"use the :toml:`tool.poe.verbose` option in pyproject.toml like so:"
+msgstr ""
+
+#: ../../../global_options.rst:301
+msgid ""
+"[tool.poe]\n"
+"verbosity = -1"
+msgstr ""
+
+#: ../../../global_options.rst:306
+msgid ""
+":toml:`-1` is the quietest and :toml:`1` is the most verbose. :toml:`0` is "
+"the default."
+msgstr ""
+
+#: ../../../global_options.rst:309
+msgid ""
+"Note that the command line arguments are incremental: :bash:`-q` subtracts "
+"one from the default verbosity, and :bash:`-v` adds one. So setting the "
+"default verbosity to :toml:`-1` and passing :bash:`-v -v` on the command "
+"line is equivalent to setting the verbosity to :toml:`0` and just passing :"
+"bash:`-v`."
+msgstr ""
+
+#: ../../../global_options.rst:315
+msgid "Change the default task type"
+msgstr ""
+
+#: ../../../global_options.rst:317
+msgid ""
+"By default tasks defined as strings are interpreted as shell commands, and "
+"script tasks require the more verbose table syntax to specify. For example:"
+msgstr ""
+
+#: ../../../global_options.rst:320
+msgid ""
+"my_cmd_task = \"cmd args\"\n"
+"my_script_task = { \"script\" = \"my_package.my_module:run\" }"
+msgstr ""
+
+#: ../../../global_options.rst:325
+msgid ""
+"This behaviour can be reversed by setting the :toml:`default_task_type` "
+"option in your pyproject.toml like so:"
+msgstr ""
+
+#: ../../../global_options.rst:328
+msgid ""
+"[tool.poe]\n"
+"default_task_type = \"script\"\n"
+"\n"
+"[tool.poe.tasks]\n"
+"my_cmd_task = { \"cmd\" = \"cmd args\" }\n"
+"my_script_task = \"my_package.my_module:run\""
+msgstr ""
+
+#: ../../../global_options.rst:338
+msgid "Run poe from anywhere"
+msgstr ""
+
+#: ../../../global_options.rst:340
+msgid ""
+"By default poe will detect when you're inside a project with a pyproject."
+"toml in the root. However if you want to run it from elsewhere then that is "
+"supported by using the :bash:`-C` option to specify an alternate location "
+"for the toml file. The task will run with the given location as the current "
+"working directory."
+msgstr ""
+
+#: ../../../global_options.rst:345
+msgid ""
+"In all cases the path to project root (where the pyproject.toml resides) "
+"will be available as :bash:`$POE_ROOT` within the command line and process."
+msgstr ""

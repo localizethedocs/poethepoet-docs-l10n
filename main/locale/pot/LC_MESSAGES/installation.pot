@@ -1,0 +1,394 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../installation.rst:2
+msgid "Installation"
+msgstr ""
+
+#: ../../../installation.rst:5
+msgid "Installing Poe the Poet"
+msgstr ""
+
+#: ../../../installation.rst:7
+msgid ""
+"There are a few ways to install Poe the Poet depending on your preferences."
+msgstr ""
+
+#: ../../../installation.rst:10
+msgid "1. Install the CLI globally *(recommended)*"
+msgstr ""
+
+#: ../../../installation.rst:12
+msgid ""
+"The following methods will make the ``poe`` executable available anywhere on "
+"your system."
+msgstr ""
+
+#: ../../../installation.rst:15
+msgid "With |pipx_link|"
+msgstr ""
+
+#: ../../../installation.rst:235
+msgid "<a href=\"https://pypa.github.io/pipx/\" target=\"_blank\">pipx</a>"
+msgstr ""
+
+#: ../../../installation.rst:17
+msgid "pipx install poethepoet"
+msgstr ""
+
+#: ../../../installation.rst:23
+msgid "With |uv_link|"
+msgstr ""
+
+#: ../../../installation.rst:239
+msgid "<a href=\"https://docs.astral.sh/uv/\" target=\"_blank\">uv</a>"
+msgstr ""
+
+#: ../../../installation.rst:25
+msgid "uv tool install poethepoet"
+msgstr ""
+
+#: ../../../installation.rst:30
+msgid "With |brew_link|"
+msgstr ""
+
+#: ../../../installation.rst:243
+msgid "<a href=\"https://brew.sh/\" target=\"_blank\">homebrew</a>"
+msgstr ""
+
+#: ../../../installation.rst:32
+msgid ""
+"brew tap nat-n/poethepoet\n"
+"brew install nat-n/poethepoet/poethepoet"
+msgstr ""
+
+#: ../../../installation.rst:37
+msgid "See the |formula_link|."
+msgstr ""
+
+#: ../../../installation.rst:247
+msgid ""
+"<a href=\"https://github.com/nat-n/homebrew-poethepoet\" "
+"target=\"_blank\">homebrew formula</a>"
+msgstr ""
+
+#: ../../../installation.rst:40
+msgid "With pip"
+msgstr ""
+
+#: ../../../installation.rst:42
+msgid ""
+"Of course you can also install it with pip – assuming your current python "
+"environment is global."
+msgstr ""
+
+#: ../../../installation.rst:44
+msgid "pip install poethepoet"
+msgstr ""
+
+#: ../../../installation.rst:49
+msgid "2. Install poethepoet as a :doc:`poetry plugin<poetry_plugin>`"
+msgstr ""
+
+#: ../../../installation.rst:51
+msgid "You can install the poethepoet poetry plugin globally like so:"
+msgstr ""
+
+#: ../../../installation.rst:53
+msgid "poetry self add 'poethepoet[poetry_plugin]'"
+msgstr ""
+
+#: ../../../installation.rst:57
+msgid ""
+"Or add it to poetry on a per project basis by adding the following to your "
+"*pyproject.toml*:"
+msgstr ""
+
+#: ../../../installation.rst:59
+msgid ""
+"[tool.poetry.requires-plugins]\n"
+"poethepoet = { version = \"~0.35.0\", extras = [\"poetry_plugin\"]}"
+msgstr ""
+
+#: ../../../installation.rst:64
+msgid ""
+"See the |poetry_plugin_link| for more installation options, or see the :doc:"
+"`poetry plugin docs <poetry_plugin>` for more details about this option."
+msgstr ""
+
+#: ../../../installation.rst:251
+msgid ""
+"<a href=\"https://python-poetry.org/docs/main/plugins/#using-plugins\" "
+"target=\"_blank\">poetry docs</a>"
+msgstr ""
+
+#: ../../../installation.rst:68
+msgid "3. Install poethepoet into your project"
+msgstr ""
+
+#: ../../../installation.rst:71
+msgid "With poetry"
+msgstr ""
+
+#: ../../../installation.rst:73 ../../../installation.rst:86
+msgid "Add poethepoet as a dev dependency"
+msgstr ""
+
+#: ../../../installation.rst:73
+msgid "poetry add --group dev poethepoet"
+msgstr ""
+
+#: ../../../installation.rst:78 ../../../installation.rst:91
+msgid "And run it"
+msgstr ""
+
+#: ../../../installation.rst:78
+msgid "poetry run poe"
+msgstr ""
+
+#: ../../../installation.rst:84
+msgid "With uv"
+msgstr ""
+
+#: ../../../installation.rst:86
+msgid "uv add --dev poethepoet"
+msgstr ""
+
+#: ../../../installation.rst:91
+msgid "uv run poe"
+msgstr ""
+
+#: ../../../installation.rst:99
+msgid "Enable tab completion for your shell"
+msgstr ""
+
+#: ../../../installation.rst:101
+msgid ""
+"Poe comes with tab completion scripts for bash, zsh, and fish to save you "
+"keystrokes. How to install them will depend on your shell setup."
+msgstr ""
+
+#: ../../../installation.rst:106
+msgid ""
+"We believe installing the poe CLI globally offers the best developer "
+"experience. However if for some reason you prefer *not* to then you can "
+"still benefit from shell completions if you create an appropriate alias in "
+"your shell, such as one of:"
+msgstr ""
+
+#: ../../../installation.rst:108
+msgid ":sh:`alias poe=\"poetry run poe\"`"
+msgstr ""
+
+#: ../../../installation.rst:109
+msgid ":sh:`alias poe=\"poetry poe\"`"
+msgstr ""
+
+#: ../../../installation.rst:110
+msgid ":sh:`alias poe=\"uv run poe\"`"
+msgstr ""
+
+#: ../../../installation.rst:113
+msgid "Zsh"
+msgstr ""
+
+#: ../../../installation.rst:115
+msgid ""
+"# oh-my-zsh\n"
+"mkdir -p ~/.oh-my-zsh/completions\n"
+"poe _zsh_completion > ~/.oh-my-zsh/completions/_poe\n"
+"\n"
+"# without oh-my-zsh\n"
+"mkdir -p ~/.zfunc/\n"
+"poe _zsh_completion > ~/.zfunc/_poe"
+msgstr ""
+
+#: ../../../installation.rst:125
+msgid "Zsh completion includes:"
+msgstr ""
+
+#: ../../../installation.rst:127 ../../../installation.rst:159
+#: ../../../installation.rst:189
+msgid "Global CLI options (``-v``, ``-C``, etc.)"
+msgstr ""
+
+#: ../../../installation.rst:128
+msgid "Task names with help text descriptions"
+msgstr ""
+
+#: ../../../installation.rst:129
+msgid "Task-specific arguments (options and positional args)"
+msgstr ""
+
+#: ../../../installation.rst:133
+msgid ""
+"You'll need to start a new shell for the new completion script to be loaded. "
+"If it still doesn't work try adding a call to :sh:`compinit` to the end of "
+"your zshrc file."
+msgstr ""
+
+#: ../../../installation.rst:135
+msgid ""
+"In some cases when upgrading to a newer version of the completion script it "
+"may be necessary to clean the zsh completions cache with `rm ~/.zcompdump*`"
+msgstr ""
+
+#: ../../../installation.rst:138
+msgid "Bash"
+msgstr ""
+
+#: ../../../installation.rst:140
+msgid ""
+"# Quick setup - add to ~/.bashrc\n"
+"eval \"$(poe _bash_completion)\"\n"
+"\n"
+"# Or install to a file (requires new shell to take effect):\n"
+"\n"
+"# User local (recommended)\n"
+"mkdir -p ~/.local/share/bash-completion/completions\n"
+"poe _bash_completion > ~/.local/share/bash-completion/completions/poe\n"
+"\n"
+"# System-wide\n"
+"poe _bash_completion | sudo tee /etc/bash_completion.d/poe > /dev/null\n"
+"\n"
+"# Homebrew bash\n"
+"poe _bash_completion > $(brew --prefix)/etc/bash_completion.d/poe"
+msgstr ""
+
+#: ../../../installation.rst:157
+msgid "Bash completion includes:"
+msgstr ""
+
+#: ../../../installation.rst:160 ../../../installation.rst:190
+msgid "Task names"
+msgstr ""
+
+#: ../../../installation.rst:161 ../../../installation.rst:191
+msgid "Task-specific arguments and choices"
+msgstr ""
+
+#: ../../../installation.rst:165
+msgid ""
+"If completions don't work after installing to a file, ensure you have the "
+"``bash-completion`` package installed and that it's sourced in your ``~/."
+"bashrc``. You may need to start a new shell session."
+msgstr ""
+
+#: ../../../installation.rst:168
+msgid "Fish"
+msgstr ""
+
+#: ../../../installation.rst:170
+msgid ""
+"# Fish\n"
+"poe _fish_completion > ~/.config/fish/completions/poe.fish\n"
+"\n"
+"# Homebrew fish\n"
+"poe _fish_completion > (brew --prefix)/share/fish/vendor_completions.d/poe."
+"fish"
+msgstr ""
+
+#: ../../../installation.rst:179
+msgid "Powershell"
+msgstr ""
+
+#: ../../../installation.rst:181
+msgid ""
+"# add to $PROFILE\n"
+"poe _powershell_completion | out-string | invoke-expression"
+msgstr ""
+
+#: ../../../installation.rst:187
+msgid "Powershell completion includes:"
+msgstr ""
+
+#: ../../../installation.rst:195
+msgid ""
+"You'll need to start a new shell for the new completion script to be loaded. "
+"Alternatively, you can invoke ``. $PROFILE`` to reload your profile."
+msgstr ""
+
+#: ../../../installation.rst:199
+msgid "Install the poethepoet AI Agent skill"
+msgstr ""
+
+#: ../../../installation.rst:201
+msgid ""
+"The official poethepoet skill can help your AI Agent use poethepoet more "
+"effectively. It covers discovering and executing tasks, as well as more in-"
+"depth guidance on creating them."
+msgstr ""
+
+#: ../../../installation.rst:204
+msgid "Install via the built in ``_install_skill`` task"
+msgstr ""
+
+#: ../../../installation.rst:206
+msgid ""
+"Poe ships with a task to install the skill (similar to how shell completions "
+"are installed):"
+msgstr ""
+
+#: ../../../installation.rst:208
+msgid ""
+"poe _install_skill                         # auto-detects .claude/.codex/."
+"pi/.agents and prompts\n"
+"poe _install_skill ~/.claude/skills        # explicit path (substitute your "
+"agent's dir)\n"
+"poe _install_skill <skills-dir> --upgrade  # non-interactive upgrade (skips "
+"if same/newer)"
+msgstr ""
+
+#: ../../../installation.rst:215
+msgid "Install from GitHub"
+msgstr ""
+
+#: ../../../installation.rst:217
+msgid ""
+"You can also install the skill directly from github, such as by using |"
+"vercel_skills_link|:"
+msgstr ""
+
+#: ../../../installation.rst:255
+msgid ""
+"<a href=\"https://vercel.com/docs/agent-resources/skills\" "
+"target=\"_blank\">Vercel Agent Skills</a>"
+msgstr ""
+
+#: ../../../installation.rst:219
+msgid ""
+"npx skills add https://github.com/nat-n/poethepoet/tree/v0.46.0/poethepoet/"
+"skills/poethepoet"
+msgstr ""
+
+#: ../../../installation.rst:225
+msgid ""
+"The skill is versioned in step with poe. After upgrading poe, re-run the "
+"install task with ``--upgrade`` (shown above) to refresh the installed copy "
+"— it skips the copy if the installed version is already current."
+msgstr ""
+
+#: ../../../installation.rst:229
+msgid "Supported python versions"
+msgstr ""
+
+#: ../../../installation.rst:231
+msgid ""
+"Poe the Poet officially supports python >=3.10, and is tested with python "
+"3.10 to 3.14 on macOS, linux and windows."
+msgstr ""
