@@ -1,0 +1,870 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/args_guide.rst:2
+msgid "Configuring CLI arguments"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:4
+msgid ""
+"By default extra arguments passed to the poe CLI following the task name are "
+"appended to the end of a :doc:`cmd task<../tasks/task_types/cmd>`, or "
+"exposed as ``sys.argv`` in a :doc:`script task<../tasks/task_types/script>`, "
+"but will cause an error for other task types. Alternatively it is possible "
+"to define named arguments that a task should accept, which will be "
+"documented in the help for that task, and exposed to the task in a way that "
+"makes the most sense for that task type."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:6
+msgid "In general named arguments can take one of the following three forms:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:8
+msgid ""
+"**positional arguments** which are provided directly following the name of "
+"the task like"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:9
+msgid ":bash:`poe task-name arg-value`"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:11
+msgid "**option arguments** which consist of a key and one or more values like"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:12
+msgid ":bash:`poe task-name --option-name arg-value`"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:14
+msgid ""
+"**flags** which are either provided or not, but don't accept a value like"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:15
+msgid ":bash:`poe task-name --flag`"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:17
+msgid ""
+"The value for the named argument is then accessible by name within the task "
+"content, also in most cases as an environment variable, and sometimes also "
+"as a native variable depending on the task type as detailed below."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:21
+msgid ""
+"You can indicate that a variable should be private, and not propagated to "
+"the task subprocess for use at runtime by naming it in lowercase with a "
+"prefix of ``_``."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:23
+msgid ""
+"Private variables can be used via parameter expansion in :doc:`cmd tasks<../"
+"tasks/task_types/cmd>`, as variables in :doc:`expr tasks<../tasks/task_types/"
+"expr>` or :doc:`script tasks<../tasks/task_types/script>`, but not in :doc:"
+"`shell tasks<../tasks/task_types/shell>` tasks which can only evaluate "
+"variables from the environment at runtime."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:27
+msgid "Configuration syntax"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:29
+msgid ""
+"Named arguments are configured by declaring the ``args`` task option as "
+"either an array or a sub-table."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:33
+msgid "Abbreviated form"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:35
+msgid ""
+"The array form may contain string items which are interpreted as an option "
+"argument with the given name."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:37
+msgid ""
+"[tool.poe.tasks.serve]\n"
+"script = \"myapp:run\"\n"
+"args   = [\"host\", \"port\"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:43 ../../../guides/args_guide.rst:59
+msgid "This example can be invoked as"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:45
+msgid "poe serve --host 0.0.0.0 --port 8001"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:49
+msgid ""
+"When used with a :doc:`script task<../tasks/task_types/script>` in this way "
+"the ``run`` function from the ``myapp`` module will be called passing the "
+"``host`` and ``port`` as keyword arguments with whatever values are provided "
+"on the CLI, in addition to ``host`` and ``port`` being set as environment "
+"variables on the task subprocess, and the ``sys.argv`` being populated with "
+"the full invocation."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:51
+msgid ""
+"The following example demonstrates a slightly different form where the "
+"private ``_food`` arg is explicitly passed to the ``frying_pan`` function."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:53
+msgid ""
+"[tool.poe.tasks.cook]\n"
+"script = \"kitchen:frying_pan(_food)\"\n"
+"args   = [\"_food\"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:61
+msgid "poe cook --food eggs"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:65
+msgid ""
+"Note that the leading underscore is stripped from the inferred CLI option. "
+"The same stripping applies to positional args: a private positional arg "
+"called ``_food`` is displayed as ``food`` in help while still being treated "
+"as a private variable inside the task."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:69
+msgid "Array of inline tables"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:71
+msgid ""
+"Items in the array can also be inline tables to allow for more configuration "
+"to be provided to the task like so:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:73
+msgid ""
+"[tool.poe.tasks.serve]\n"
+"cmd = \"myapp:run\"\n"
+"args = [\n"
+"  { name = \"host\", default = \"localhost\" },\n"
+"  { name = \"port\", default = \"9000\" }\n"
+"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:84
+msgid "Array of tables"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:86
+msgid ""
+"If you want to provide more configuration per argument then the following "
+"toml syntax can be used to declare an array of tables with each key on a "
+"separate line:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:88
+msgid ""
+"[tool.poe.tasks.serve]\n"
+"cmd = \"myapp:run\"\n"
+"help = \"Run the application server\"\n"
+"\n"
+"  [[tool.poe.tasks.serve.args]]\n"
+"  name = \"host\"\n"
+"  options = [\"-h\", \"--host\"]\n"
+"  help = \"The host on which to expose the service\"\n"
+"  default = \"localhost\"\n"
+"\n"
+"  [[tool.poe.tasks.serve.args]]\n"
+"  name = \"port\"\n"
+"  options = [\"-p\", \"--port\"]\n"
+"  help = \"The port on which to expose the service\"\n"
+"  default = \"8000\""
+msgstr ""
+
+#: ../../../guides/args_guide.rst:108
+msgid "The double square brackets are toml syntax for a table within an array."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:111
+msgid "Subtable configuration syntax"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:113
+msgid ""
+"The following toml syntax structure achieves exactly the same result as the "
+"previous example but instead of ``args`` being an array of tables, it is a "
+"table of tables like so:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:115
+msgid ""
+"[tool.poe.tasks.serve]\n"
+"cmd = \"myapp:run\"\n"
+"help = \"Run the application server\"\n"
+"\n"
+"  [tool.poe.tasks.serve.args.host]\n"
+"  options = [\"-h\", \"--host\"]\n"
+"  help = \"The host on which to expose the service\"\n"
+"  default = \"localhost\"\n"
+"\n"
+"  [tool.poe.tasks.serve.args.port]\n"
+"  options = [\"-p\", \"--port\"]\n"
+"  help = \"The port on which to expose the service\"\n"
+"  default = \"8000\""
+msgstr ""
+
+#: ../../../guides/args_guide.rst:131
+msgid ""
+"When using this form the ``name`` option is no longer applicable because the "
+"key for the argument within the args table is taken as the name."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:134
+msgid "Task argument options"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:136
+msgid "Named arguments support the following configuration options:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:138
+msgid "**default** : ``str`` | ``int`` | ``float`` | ``bool``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:137
+msgid "str | int | float | bool"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:139
+msgid ""
+"The value to use if the argument is not provided. This option has no "
+"significance if the ``required`` option is set to true."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:141
+msgid ""
+"For string values, environment variables can be referenced using the usual "
+"templating syntax as in the following example."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:143
+msgid ""
+"[tool.poe.tasks.deploy]\n"
+"cmd = \"...\"\n"
+"env.AWS_REGION.default = \"eu-central-1\"\n"
+"\n"
+"[[tool.poe.tasks.deploy.args]]\n"
+"name    = \"region\"\n"
+"help    = \"The region to deploy to\"\n"
+"default = \"${AWS_REGION}\""
+msgstr ""
+
+#: ../../../guides/args_guide.rst:154
+msgid ""
+"As in the above example, this can be combined with setting an :doc:`env "
+"value<../tasks/options>` on the task with the ``default`` specifier to get "
+"the following precedence of values for the arg:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:156
+msgid "the value passed on the command line"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:157
+msgid "the value of the variable set on the environment"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:158
+msgid "the default value for the environment variable configured on the task"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:160
+msgid "**help** : ``str``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:159 ../../../guides/args_guide.rst:162
+msgid "str"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:161
+msgid ""
+"A short description of the argument to include in the documentation of the "
+"task."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:163
+msgid "**name** : ``str``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:164
+msgid "The name of the argument. Only applicable when *args* is an array."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:166
+msgid "**options** : ``list[str]``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:165
+msgid "list[str]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:167
+msgid ""
+"A list of options to accept for this argument, similar to `argparse name or "
+"flags <https://docs.python.org/3/library/argparse.html#name-or-flags>`_. If "
+"not provided then the name of the argument is used. You can use this option "
+"to expose a different name to the CLI vs the name that is used inside the "
+"task, or to specify long and short forms of the CLI option, e.g. ``[\"-h\", "
+"\"--help\"]``."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:169
+msgid "**positional** : ``bool``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:168 ../../../guides/args_guide.rst:199
+msgid "bool"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:170
+msgid ""
+"If set to true then the argument becomes a positional argument instead of an "
+"option argument. Note that positional arguments may not have ``type = "
+"\"boolean\"``."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:172
+msgid "**multiple** : ``bool`` | ``int``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:171
+msgid "bool | int"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:173
+msgid ""
+"If the ``multiple`` option is set to true on a positional or option argument "
+"then that argument will accept multiple values."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:175
+msgid ""
+"If set to a number, then the argument will accept *exactly* that number of "
+"values in total."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:177
+msgid ""
+"For positional arguments, only the last positional argument may have the "
+"``multiple`` option set."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:179
+msgid ""
+"This option is not compatible with arguments with ``type = \"boolean\"`` "
+"since these are interpreted as flags. However multiple ones or zeros can be "
+"passed to an argument of type \"integer\" for similar effect."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:181
+msgid ""
+"For option arguments (flags), multiple values may be supplied in any of the "
+"following styles, which can also be freely mixed in a single invocation:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:183
+msgid "**Space-separated** after a single flag: ``--engines v2 v8``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:184
+msgid ""
+"**Repeated flag**, each with its own value(s): ``--engines v2 --engines v8``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:185
+msgid "**Mixed**: ``--engines v2 v8 --engines v10``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:187
+msgid ""
+"When ``multiple = N`` (an exact count), the *total* number of values across "
+"all occurrences must equal N — e.g. with ``multiple = 2`` both ``--widgets a "
+"b`` and ``--widgets a --widgets b`` are valid."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:189
+msgid ""
+"The values provided to an argument with the ``multiple`` option set are "
+"available on the environment as a string of whitespace separated values. For "
+"script tasks, the values will be provided to your Python function as a list "
+"of values. A ``multiple`` argument always resolves to a list: when it is "
+"omitted it resolves to an empty list, or — if a ``default`` is configured — "
+"to a single-item list containing that default. Supplying values on the "
+"command line replaces the default rather than adding to it. In a cmd task "
+"the values can be passed as separate arguments to the task via templating as "
+"in the following example."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:193
+msgid ""
+"[tool.poe.tasks.save] cmd  = \"echo ${FILE_PATHS}\" args = [{ name = "
+"\"FILE_PATHS\", positional = true, multiple = true }]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:197
+msgid "**choices** : ``list[str | int | float]``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:196
+msgid "list[str | int | float]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:198
+msgid ""
+"Constrain the accepted values for an argument to a fixed set. The choices "
+"are shown in task help output. For non-string argument types, the choices "
+"must be specified using the same type (e.g. ``integer`` choices should be "
+"numbers). This option is not compatible with ``type = \"boolean\"``."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:200
+msgid "**required** : ``bool``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:201
+msgid ""
+"If true then not providing the argument will result in an error. Arguments "
+"are not required by default."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:203
+msgid "**type** : ``Literal[\"string\", \"float\", \"integer\", \"boolean\"]``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:202
+msgid "Literal[\"string\", \"float\", \"integer\", \"boolean\"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:204
+msgid ""
+"The type that the provided value will be cast to. If not provided then the "
+"default behaviour is to keep values as strings. Setting the type to "
+"``\"boolean\"`` makes the resulting argument a flag that if provided will "
+"set the value to the boolean opposite of the default value – i.e. :toml:"
+"`true` if no default value is given, or :toml:`false` if :toml:`default = "
+"true`."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:206
+msgid ""
+"When ``type = \"boolean\"``, the ``default`` option (if set) must be a TOML "
+"boolean, or one of the following case-insensitive string literals (also "
+"accepting surrounding whitespace): ``\"t\"``, ``\"true\"``, ``\"1\"`` for "
+"true, and ``\"f\"``, ``\"false\"``, ``\"0\"``, ``\"\"`` for false. A "
+"templated string (e.g. ``\"${SOME_VAR}\"``) is also accepted and re-checked "
+"against this same set once the template has been resolved."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:210
+msgid ""
+"When a :toml:`type = \"boolean\"` flag arg evaluates to :toml:`false`, this "
+"results in the corresponding environment variable (if any) being *unset* for "
+"the task, even if it was previously set by some other means. This ensures "
+"consistent *non-truthy* semantics for :ref:`parameter expansion "
+"operators<Parameter expansion operators>`, in config, shells or other "
+"subprocesses."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:212
+msgid ""
+"If the flag value is :toml:`true` then it is exposed as a python variable "
+"with the value ``True`` in expr or script tasks, and an environment variable "
+"with the string value ``True``."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:216
+msgid "Constraining argument values"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:218
+msgid ""
+"You can document and enforce that only specific values should be accepted "
+"for an argument by specifying the ``choices`` option like so:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:220
+msgid ""
+" [tool.poe.tasks.share]\n"
+" help = \"Share some personal information\"\n"
+" cmd = \"echo \\\"My favorite ice cream is ${flavor}\\\"\"\n"
+"[[tool.poe.tasks.share.args]]\n"
+"name = \"flavor\"\n"
+"help = \"Favorite ice cream\"\n"
+"positional = true\n"
+"choices = [\"chocolate\", \"pistachio\", \"vanilla\"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:231
+msgid "The resulting help output includes the choices:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:233
+msgid ""
+"$ poe --help share\n"
+"\n"
+"Description:\n"
+"  Run Share some personal information\n"
+"\n"
+"Usage:\n"
+"  poe [global options] check [named arguments] -- [free arguments]\n"
+"\n"
+"Named arguments:\n"
+"  flavor               Favorite ice cream [choices: 'chocolate', "
+"'pistachio', 'vanilla']"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:247
+msgid "Arguments for cmd and shell tasks"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:249
+msgid ""
+"For :doc:`cmd<../tasks/task_types/cmd>` and :doc:`shell<../tasks/task_types/"
+"shell>` tasks the values are exposed to the task as environment variables. "
+"For example given the following configuration:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:251
+msgid ""
+"[tool.poe.tasks.passby]\n"
+"shell = \"\"\"\n"
+"echo \"hello $planet\";\n"
+"echo \"goodbye $planet\";\n"
+"\"\"\"\n"
+"help = \"Pass by a planet!\"\n"
+"\n"
+"  [[tool.poe.tasks.passby.args]]\n"
+"  name = \"planet\"\n"
+"  help = \"Name of the planet to pass\"\n"
+"  default = \"earth\"\n"
+"  options = [\"-p\", \"--planet\"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:266
+msgid "The resulting task can be run like:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:268
+msgid "poe passby --planet mars"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:273
+msgid ""
+"For PowerShell tasks, the variable needs to be referenced as an environment "
+"variable in the shell code, e.g., :code:`$env:planet`."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:276
+msgid "Arguments for script tasks"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:278
+msgid ""
+"Arguments can be defined for :doc:`script<../tasks/task_types/script>` tasks "
+"in the same way, but how they are exposed to the underlying Python function "
+"depends on how the script is defined."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:280
+msgid ""
+"In the following example, since no parenthesis are included for the "
+"referenced function, all provided args will be passed to the function as "
+"keyword arguments:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:282
+msgid ""
+"[tool.poe.tasks.build]\n"
+"script = \"my_app.util:build\"\n"
+"args = [\"dest\", \"version\"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:288
+msgid ""
+"You can also control exactly how values are passed to the Python function as "
+"demonstrated in the following example:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:290
+msgid ""
+"[tool.poe.tasks.build]\n"
+"script = \"my_app.util:build(_dest, build_version=_version, verbose=True)\"\n"
+"args = [\n"
+"  { name = \"_dest\" },\n"
+"  { name = \"_version\", type = \"integer\" }\n"
+"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:299
+msgid ""
+"In the second example, the arg names are prefixed with an underscore, which "
+"combined with the fact that they're all lowercase makes them private, i.e. "
+"they are not propagated to environment variables on the task subprocess."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:301
+msgid ""
+"Note also that because the type of _version is integer, the value passed to "
+"the ``--version`` CLI argument will be parsed to an int and passed as such "
+"when calling the build function in python."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:304
+msgid "Arguments for sequence tasks"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:306
+msgid ""
+"Arguments can be passed to the tasks referenced from a sequence task as in "
+"the following example."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:309
+msgid ""
+"[tool.poe.tasks.build]\n"
+"script = \"util:build_app\"\n"
+"args = [{ name = \"target\", positional = true }]\n"
+"\n"
+"[tool.poe.tasks.check]\n"
+"sequence = [\"build ${_target}\", { script = \"util:run_tests(_target)\" }]\n"
+"args = [\"_target\"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:319
+msgid ""
+"This works by setting the argument values as either private or environment "
+"variables for the subtasks, which can be referenced in the task definition "
+"as demonstrated in the above example for a :doc:`ref<../tasks/task_types/"
+"ref>` task and :doc:`script<../tasks/task_types/script>` task. Non-private "
+"variables can be accessed as environment variables at runtime."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:321
+msgid ""
+"Notice that the argument is accessible like a python variable in the script "
+"subtask."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:324
+msgid "Passing free arguments in addition to named arguments"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:326
+msgid ""
+"If no args are defined for a cmd task then any cli arguments that are "
+"provided are simply appended to the command. If named arguments are defined "
+"then one can still provide additional free arguments to the command by "
+"separating them from the defined arguments with a double dash token :sh:`--`."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:328
+msgid "For example given a task like:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:330
+msgid ""
+"[tool.poe.tasks.lint]\n"
+"cmd  = \"ruff check ${target_dir}\"\n"
+"args = { target_dir = { options = [\"--target\", \"-t\"], default = \".\" }}"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:336
+msgid "calling the task like so:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:338
+msgid "poe lint -t tests -- --fix"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:342
+msgid ""
+"will result in poe parsing the target_dir cli option, but appending the :sh:"
+"`--fix` flag to the ruff command without attempting to interpret it."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:346
+msgid ""
+"Passing :sh:`--` in the arguments list to any other task type will simply "
+"result in any subsequent arguments being ignored."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:352
+msgid "Forwarding free arguments via ``$POE_EXTRA_ARGS``"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:354
+msgid ""
+"When a task receives free arguments (i.e. arguments not matched by any named "
+"arg definition, or arguments passed after :sh:`--`), poe sets a special "
+"environment variable ``$POE_EXTRA_ARGS`` containing those arguments as a "
+"shell-quoted, space-delimited string. This variable is inherited by all "
+"subtasks and can be referenced explicitly wherever an environment variable "
+"can be used."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:356
+msgid ""
+"``$POE_EXTRA_ARGS`` can be used in any task type that supports environment "
+"variable expansion: :doc:`cmd<../tasks/task_types/cmd>`, :doc:`ref<../tasks/"
+"task_types/ref>`, :doc:`shell<../tasks/task_types/shell>`. In :doc:"
+"`script<../tasks/task_types/script>` and :doc:`expr<../tasks/task_types/"
+"expr>` tasks free arguments are also accessible as the ``_extra_args`` "
+"variable (a ``list[str]``)."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:360
+msgid "Sequence, parallel and switch tasks"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:362
+msgid ""
+"Free arguments passed to a :doc:`sequence<../tasks/task_types/sequence>`, :"
+"doc:`parallel<../tasks/task_types/parallel>`, or :doc:`switch<../tasks/"
+"task_types/switch>` task are not forwarded to subtasks automatically. By "
+"referencing ``$POE_EXTRA_ARGS`` in individual subtask definitions you can "
+"choose which subtasks in the group receive the extra arguments:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:364
+msgid ""
+"[tool.poe.tasks.test-py39]\n"
+"cmd = \"pytest tests\"\n"
+"executor = { type = \"uv\", isolated = true, python = \"3.9\" }\n"
+"\n"
+"[tool.poe.tasks.test-py310]\n"
+"cmd = \"pytest tests\"\n"
+"executor = { type = \"uv\", isolated = true, python = \"3.10\" }\n"
+"\n"
+"[tool.poe.tasks.lint]\n"
+"cmd = \"ruff check .\"\n"
+"\n"
+"[tool.poe.tasks.test-all]\n"
+"sequence = [\"test-py39 $POE_EXTRA_ARGS\", \"test-py310 $POE_EXTRA_ARGS\", "
+"\"lint\"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:380
+msgid "Calling this like:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:382
+msgid "poe test-all --cov=mypackage -v"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:386
+msgid ""
+"forwards ``--cov=mypackage -v`` to ``test-py39`` and ``test-py310``, but not "
+"to ``lint``."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:388
+msgid ""
+"``$POE_EXTRA_ARGS`` can appear anywhere in the subtask command string — "
+"including between other arguments — so it is possible to add fixed options "
+"before *and* after the forwarded arguments:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:390
+msgid ""
+"[tool.poe.tasks.test-all]\n"
+"sequence = [\n"
+"  \"test-py39 --timeout=30 $POE_EXTRA_ARGS --tb=short\",\n"
+"  \"test-py310 --timeout=30 $POE_EXTRA_ARGS --tb=short\",\n"
+"  \"lint\",\n"
+"]"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:401
+msgid "Cmd tasks"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:403
+msgid ""
+"For :doc:`cmd<../tasks/task_types/cmd>` tasks, free arguments are appended "
+"to the end of the command by default. By referencing ``$POE_EXTRA_ARGS`` "
+"explicitly in the command string, poe expands it in place and does *not* "
+"additionally append the extra args at the end. This is useful when fixed "
+"options must follow the free arguments:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:405
+msgid ""
+"[tool.poe.tasks.coverage]\n"
+"cmd = \"pytest $POE_EXTRA_ARGS --cov=mypackage\""
+msgstr ""
+
+#: ../../../guides/args_guide.rst:410
+msgid ""
+"Calling :sh:`poe coverage tests/unit -x` produces ``pytest tests/unit -x --"
+"cov=mypackage`` instead of ``pytest --cov=mypackage tests/unit -x``."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:414
+msgid "Script and expr tasks"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:416
+msgid ""
+"In :doc:`script<../tasks/task_types/script>` tasks free arguments are "
+"available as the ``_extra_args`` variable (a ``list[str]``) that can be "
+"referenced directly in the function call expression:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:418
+msgid ""
+"[tool.poe.tasks.run-tests]\n"
+"script = \"pytest:main(_extra_args)\""
+msgstr ""
+
+#: ../../../guides/args_guide.rst:423
+msgid ""
+"Calling :sh:`poe run-tests tests/unit -x -v` will call ``pytest."
+"main([\"tests/unit\", \"-x\", \"-v\"])``."
+msgstr ""
+
+#: ../../../guides/args_guide.rst:425
+msgid ""
+":doc:`Expr<../tasks/task_types/expr>` tasks work the same way — "
+"``_extra_args`` is available as a Python variable inside the expression:"
+msgstr ""
+
+#: ../../../guides/args_guide.rst:427
+msgid ""
+"[tool.poe.tasks.count-args]\n"
+"expr = \"len(_extra_args)\""
+msgstr ""

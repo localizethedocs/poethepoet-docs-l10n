@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../index.rst:15
+msgid "Poe the Poet Documentation"
+msgstr ""
+
+#: ../../../index.rst:17
+msgid "GitHub repo"
+msgstr ""
+
+#: ../../../index.rst:21 ../../../index.rst:25
+msgid "PyPI"
+msgstr ""
+
+#: ../../../index.rst:29
+msgid "PyPI - Downloads"
+msgstr ""
+
+#: ../../../index.rst:33
+msgid "MIT"
+msgstr ""
+
+#: ../../../index.rst:37
+msgid ""
+"Poe the Poet is a batteries included task runner that works well with |"
+"poetry_link| or with :ref:`uv<Usage with uv>`."
+msgstr ""
+
+#: ../../../index.rst:143
+msgid "<a href=\"https://python-poetry.org/\" target=\"_blank\">poetry</a>"
+msgstr ""
+
+#: ../../../index.rst:39
+msgid ""
+"It provides a simple way to define project tasks within your pyproject.toml, "
+"and either a standalone CLI or a poetry plugin to run them using your "
+"project's virtual environment."
+msgstr ""
+
+#: ../../../index.rst:41
+msgid ""
+"`\"Simple things should be simple, complex things should be possible.\" --  "
+"Alan Kay`"
+msgstr ""
+
+#: ../../../index.rst:45
+msgid "Top features"
+msgstr ""
+
+#: ../../../index.rst:47
+msgid ""
+"|V| Straight forward declaration of project tasks in your pyproject.toml "
+"(or :doc:`poe_tasks.toml<./guides/without_poetry>`)"
+msgstr ""
+
+#: ../../../index.rst:49
+msgid ""
+"|V| Tasks are run in poetry, or uv's virtualenv (or another env you specify)"
+msgstr ""
+
+#: ../../../index.rst:51
+msgid ""
+"|V| :ref:`Shell completion<shell_completion>` of task names and arguments"
+msgstr ""
+
+#: ../../../index.rst:53
+msgid ""
+"|V| The poe CLI can be used standalone, or as a :doc:`plugin for poetry<./"
+"poetry_plugin>`"
+msgstr ""
+
+#: ../../../index.rst:55
+msgid ""
+"|V| Tasks can be :doc:`commands<./tasks/task_types/cmd>`, :doc:`shell "
+"scripts<./tasks/task_types/shell>`, :doc:`python expressions<./tasks/"
+"task_types/expr>`, or references to :doc:`python functions<./tasks/"
+"task_types/script>`"
+msgstr ""
+
+#: ../../../index.rst:57
+msgid ""
+"|V| Concise commands with extra arguments passed to the task :sh:`poe "
+"[options] task [task_args]`"
+msgstr ""
+
+#: ../../../index.rst:59
+msgid ""
+"|V| Easily :doc:`declare named CLI arguments<./guides/args_guide>` for your "
+"tasks"
+msgstr ""
+
+#: ../../../index.rst:61
+msgid ""
+"|V| Tasks can specify and :ref:`reference environment "
+"variables<ref_env_vars>`, even without a shell"
+msgstr ""
+
+#: ../../../index.rst:63
+msgid ""
+"|V| Tasks are :doc:`self documenting<./guides/help_guide>`, with optional "
+"help messages and task grouping (just run :sh:`poe` with no arguments)"
+msgstr ""
+
+#: ../../../index.rst:65
+msgid ""
+"|V| Tasks can be composed to run in :ref:`sequence<sequence_composition>`, "
+"in :ref:`parallel<Composing tasks to run in parallel>`, or as a :ref:"
+"`DAG<graph_composition>`"
+msgstr ""
+
+#: ../../../index.rst:67
+msgid "|V| Works with :ref:`.env files<envfile_option>`"
+msgstr ""
+
+#: ../../../index.rst:69
+msgid ""
+"|V| Can be :doc:`used as a library<./guides/library_guide>` to embed in "
+"other tools"
+msgstr ""
+
+#: ../../../index.rst:71
+msgid ""
+"|V| Tasks can be :doc:`defined in python packages<./guides/packaged_tasks>` "
+"for ease of reuse across projects"
+msgstr ""
+
+#: ../../../index.rst:73
+msgid ""
+"|V| Also works fine as a :doc:`general purpose task runner<./guides/"
+"without_poetry>`"
+msgstr ""
+
+#: ../../../index.rst:75
+msgid ""
+"|V| Ships with an official :doc:`Agent Skill<./guides/ai_agents_guide>` to "
+"help AI coding agents use poe effectively"
+msgstr ""
+
+#: ../../../index.rst:79
+msgid "Quick start"
+msgstr ""
+
+#: ../../../index.rst:82
+msgid ""
+"Install the CLI *globally* from PyPI using |pipx_link| (or via :doc:`another "
+"method <installation>`):"
+msgstr ""
+
+#: ../../../index.rst:139
+msgid "<a href=\"https://pypa.github.io/pipx/\" target=\"_blank\">pipx</a>"
+msgstr ""
+
+#: ../../../index.rst:84
+msgid "pipx install poethepoet"
+msgstr ""
+
+#: ../../../index.rst:89
+msgid "Add a section for poe tasks to your pyproject.toml"
+msgstr ""
+
+#: ../../../index.rst:91
+msgid ""
+"[tool.poe.tasks]\n"
+"test         = \"pytest --cov=my_app\"                         # a simple "
+"command task\n"
+"serve.script = \"my_app.service:run(debug=True)\"              # python "
+"script based task\n"
+"tunnel.shell = \"ssh -N -L 0.0.0.0:8080:$PROD:8080 $PROD &\"   # (posix) "
+"shell based task\n"
+"\n"
+"# A more complete example with documentation and named arguments\n"
+"[tool.poe.tasks.count-incomplete]\n"
+"help = \"Count incomplete tasks in DynamoDB\"\n"
+"cmd  = \"\"\"\n"
+"aws dynamodb scan --table-name tasks\n"
+"                  --select \"COUNT\"\n"
+"                  --filter-expression \"status >= :status\"\n"
+"                  --expression-attribute-values '{\":status\":{\"S\":"
+"\"incomplete\"}}'\n"
+"                  --no-cli-pager\n"
+"\"\"\"\n"
+"args = [\n"
+"   # Allow $AWS_REGION to be overridden with a CLI option when calling the "
+"task\n"
+"   {name = \"AWS_REGION\", options = [\"--region\", \"-r\"], default = "
+"\"${AWS_REGION}\"}\n"
+"]"
+msgstr ""
+
+#: ../../../index.rst:113
+msgid ""
+"`Click here for a real example <https://github.com/nat-n/poethepoet/blob/"
+"main/pyproject.toml>`_."
+msgstr ""
+
+#: ../../../index.rst:116
+msgid "Run one of your tasks using the CLI"
+msgstr ""
+
+#: ../../../index.rst:118
+msgid "poe test -v"
+msgstr ""
+
+#: ../../../index.rst:122
+msgid "The extra argument is appended to the task command."
+msgstr ""
+
+#: ../../../index.rst:126
+msgid ""
+"If you're using |poetry_link| or |uv_link|, then poe will automatically use "
+"the managed virtualenv to find executables and python libraries, without "
+"needing to use ``poetry run``/``uv run``."
+msgstr ""
+
+#: ../../../index.rst:147
+msgid "<a href=\"https://docs.astral.sh/uv/\" target=\"_blank\">uv</a>"
+msgstr ""
+
+#: ../../../index.rst:130
+msgid "Run poe from anywhere"
+msgstr ""
+
+#: ../../../index.rst:132
+msgid ""
+"By default poe will detect when you're inside a project with a pyproject."
+"toml or poe_tasks file in the root. However if you want to run it from "
+"elsewhere then that is supported by using the :sh:`-C/--directory` option to "
+"specify an alternate location for the toml file. The task will run with the "
+"given location as the current working directory."
+msgstr ""
+
+#: ../../../index.rst:134
+msgid ""
+"In all cases the path to project root (where the pyproject.toml resides) "
+"will be available as :sh:`$POE_ROOT` within the command line and process. "
+"The variable :sh:`$POE_PWD` contains the original working directory from "
+"which poe was run."
+msgstr ""
+
+#: ../../../index.rst:136
+msgid ""
+"Using this feature you can also define :doc:`global tasks<./guides/"
+"global_tasks>` that are not associated with any particular project."
+msgstr ""

@@ -1,0 +1,309 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/tox_replacement_guide.rst:2
+msgid "Replacing tox with uv and Poe the Poet"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:4
+msgid ""
+"This guide demonstrates how Poe the Poet and |uv_link| can replace |"
+"tox_link| for running tests across multiple python versions and environments."
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:190
+msgid "<a href=\"https://docs.astral.sh/uv/\" target=\"_blank\">uv</a>"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:194
+msgid "<a href=\"https://tox.wiki/\" target=\"_blank\">tox</a>"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:8
+msgid "Why replace tox?"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:10
+msgid ""
+"While tox is a powerful tool for test automation, using Poe the Poet with uv "
+"offers comparable expressiveness for many use cases, and several compelling "
+"advantages:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:12
+msgid ""
+"**Faster execution**: uv is significantly faster than traditional virtualenv "
+"tools"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:13
+msgid "**Unified configuration**: everything in ``pyproject.toml``"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:14
+msgid "**Better integration**: works seamlessly with your existing uv workflow"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:15
+msgid ""
+"**More flexible**: leverage all of Poe the Poet's task composition features"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:16
+msgid "**Simpler syntax**: more intuitive task oriented configuration"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:20
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:22
+msgid "Install both uv and Poe the Poet:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:24
+msgid ""
+"# Install uv\n"
+"curl -LsSf https://astral.sh/uv/install.sh | sh\n"
+"\n"
+"# Install Poe the Poet\n"
+"uv tool install poethepoet"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:32
+msgid ""
+"See other installation methods in the `uv installation guide <https://docs."
+"astral.sh/uv/getting-started/installation/>`_ and :ref:`Poe the Poet "
+"installation guide<Installation>`."
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:36
+msgid "Basic migration"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:38
+msgid "A typical ``tox.ini`` file might look like this:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:40
+msgid ""
+"[tox]\n"
+"envlist = py310,py311,py312,py313\n"
+"\n"
+"[testenv]\n"
+"deps = pytest\n"
+"       pytest-cov\n"
+"commands = pytest tests --cov=mypackage"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:50
+msgid ""
+"Here's the equivalent configuration using Poe the Poet with the :ref:`uv "
+"executor <Uv Executor>`:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:52
+msgid ""
+"[tool.poe.executor]\n"
+"type = \"uv\" # Use the uv executor for all tasks by default\n"
+"\n"
+"[tool.poe.tasks.test-py39]\n"
+"cmd = \"pytest tests --cov=mypackage\"\n"
+"executor = {isolated = true, python = \"3.9\"} # Specify python version, and "
+"that we want an isolated env\n"
+"\n"
+"[tool.poe.tasks.test-py310]\n"
+"cmd = \"pytest tests --cov=mypackage\"\n"
+"executor = {isolated = true, python = \"3.10\"}\n"
+"\n"
+"[tool.poe.tasks.test-py311]\n"
+"cmd = \"pytest tests --cov=mypackage\"\n"
+"executor = {isolated = true, python = \"3.11\"}\n"
+"\n"
+"[tool.poe.tasks.test-py312]\n"
+"cmd = \"pytest tests --cov=mypackage\"\n"
+"executor = {isolated = true, python = \"3.12\"}\n"
+"\n"
+"[tool.poe.tasks.test-all]\n"
+"sequence = [\"test-py39\", \"test-py310\", \"test-py311\", \"test-py312\"]"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:76
+msgid "Run all tests with:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:78
+msgid "poe test-all"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:82
+msgid "Or run tests for a specific version:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:84
+msgid "poe test-py311"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:90
+msgid ""
+"See the :ref:`uv executor documentation <Uv Executor>` for a full "
+"explanation of these and other available executor options."
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:94
+msgid "Advanced configurations"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:97
+msgid "Testing with different dependency sets"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:99
+msgid ""
+"If you need to test against different versions of dependencies (like tox's "
+"factors):"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:101
+msgid ""
+"[tool.poe.tasks.test-django32]\n"
+"cmd = \"pytest tests\"\n"
+"executor = { isolated = true, python = \"3.11\", group = \"dev\", with = "
+"\"django==3.2.*\" }\n"
+"\n"
+"[tool.poe.tasks.test-django42]\n"
+"cmd = \"pytest tests\"\n"
+"executor = { isolated = true, python = \"3.11\", group = \"dev\", with = "
+"\"django==4.2.*\" }"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:112
+msgid "Testing with optional dependencies"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:114
+msgid ""
+"Pick and choose optional or dev dependency groups defined in your "
+"``pyproject.toml``:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:116
+msgid ""
+"[tool.poe.tasks.test-with-extras]\n"
+"cmd = \"pytest tests\"\n"
+"executor = { extra = \"all\", group = [\"ci\", \"debug\"], no-group = "
+"\"docs\" }"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:123
+msgid "Compose testing with other tasks"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:125
+msgid "Use sequence tasks to run commands before and after tests:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:127
+msgid ""
+"[tool.poe.tasks.lint]\n"
+"cmd = \"ruff check .\"\n"
+"\n"
+"[tool.poe.tasks.test-py311]\n"
+"cmd = \"pytest tests --cov=mypackage\"\n"
+"executor = { isolated = true, python = \"3.11\" }\n"
+"\n"
+"[tool.poe.tasks.coverage-report]\n"
+"cmd = \"coverage report\"\n"
+"\n"
+"[tool.poe.tasks.ci]\n"
+"sequence = [\"lint\", \"test-py311\", \"coverage-report\""
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:142
+msgid "Or define a DAG of tasks with task ``deps``:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:144
+msgid ""
+"[tool.poe.tasks.lint]\n"
+"cmd = \"ruff check .\"\n"
+"\n"
+"[tool.poe.tasks.test-py311]\n"
+"cmd = \"pytest tests --cov=mypackage\"\n"
+"executor = { isolated = true, python = \"3.11\" }\n"
+"deps = [\"lint\"]"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:154
+msgid ""
+"See the :doc:`guide on task composition<../guides/composition_guide>` for "
+"more examples."
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:157
+msgid "Parallel execution"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:159
+msgid ""
+"tox supports running tests in parallel using the ``-p`` option. Poe the Poet "
+"lets you define a parallel task that runs all your test variants "
+"concurrently:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:161
+msgid ""
+"[tool.poe.tasks.test-parallel]\n"
+"parallel = [\"test-py39\", \"test-py310\", \"test-py311\", \"test-py312\"]"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:167
+msgid "Environment variables"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:169
+msgid ""
+"tox allows setting environment variables for test runs using the ``setenv`` "
+"option. You can achieve the same with Poe the Poet using the ``env`` or "
+"``envfile`` options."
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:171
+msgid "Set environment variables directly:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:173
+msgid ""
+"[tool.poe.tasks.test-integration]\n"
+"cmd = \"pytest tests/integration\"\n"
+"executor = { isolated = true, python = \"3.11\" }\n"
+"env = { DATABASE_URL = \"postgresql://localhost/test_db\" }"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:180
+msgid "Or load an envfile for the task:"
+msgstr ""
+
+#: ../../../guides/tox_replacement_guide.rst:182
+msgid ""
+"[tool.poe.tasks.test-integration]\n"
+"cmd = \"pytest tests/integration\"\n"
+"executor = { isolated = true, python = \"3.11\" }\n"
+"envfile = \".env.test\""
+msgstr ""

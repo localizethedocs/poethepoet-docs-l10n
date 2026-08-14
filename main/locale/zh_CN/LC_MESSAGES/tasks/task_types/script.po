@@ -1,0 +1,381 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tasks/task_types/script.rst:2
+msgid "``script`` tasks"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:4
+msgid ""
+"**Script tasks** consist of a reference to a python callable to import and "
+"execute, and optionally values or expressions to pass as arguments, for "
+"example:"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:6
+msgid ""
+"[tool.poe.tasks]\n"
+"fetch-assets.script = \"my_pkg.assets:fetch\"\n"
+"fetch-images.script = \"my_pkg.assets:fetch(only='images', "
+"log=environ['LOG_PATH'])\""
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:12
+msgid ""
+"As in the second example, it is possible to hard code literal arguments to "
+"the target callable. In fact a subset of Python syntax, operators, and "
+"globals can be used inline to define the arguments to the function using "
+"normal Python syntax, including environ (from the os package) to access "
+"environment variables that are available to the task."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:14
+msgid ""
+"If extra arguments are passed to task on the command line (and no CLI args "
+"are declared), then they will be available within the called Python function "
+"via :python:`sys.argv`. If :doc:`args <../options>` are configured for the "
+"task then they will be available as Python variables."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:16
+msgid ""
+"If the target Python function is an async function then it will be executed "
+"with :python:`asyncio.run`."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:20
+msgid "Available task options"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:22
+msgid ""
+"``script`` tasks support all of the :doc:`standard task options <../"
+"options>`."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:24
+msgid "The following options are also accepted:"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:26
+msgid "**print_result** : ``bool`` :ref:`📖<Output the return value>`"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:25
+msgid "bool 📖"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:27
+msgid ""
+"If true then the return value of the python callable will be output to "
+"stdout, unless it is ``None``."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:29
+msgid ""
+"**ignore_fail** : ``bool`` | ``list[int]``  :ref:`📖<Ignore task failure>`"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:28
+msgid "bool | list[int]  📖"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:30
+msgid ""
+"Return exit code 0 even if the task fails, or specify a list of task exit "
+"codes to ignore."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:34
+msgid "Update the PYTHONPATH to access scripts"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:36
+msgid ""
+"The module containing the function for the ``script`` task to call must be "
+"importable by the task subprocess running with whatever environment the "
+"PoeExecutor uses (e.g. the uv or poetry managed venv)."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:38
+msgid ""
+"This is fine if functions for poe tasks are defined alongside other source "
+"in a `./src/tasks` directory for instance, but sometimes it's convenient to "
+"place scripts for a project somewhere like ``./scripts/my_script.py``, which "
+"will not normally be on the python path. We can still call functions from "
+"the ``my_script`` module by setting the standard ``PYTHONPATH`` environment "
+"variable on the task like so:"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:40
+msgid ""
+"[tool.poe.tasks.my-task]\n"
+"script = \"my_script:my_function\"\n"
+"env.PYTHONPATH = \"scripts\""
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:48
+msgid "Run a ``__main__`` module as a script task"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:50
+msgid ""
+"A script task may reference a package instead of a specific callable, in "
+"which case the package's ``__main__.py`` module will be executed as a script "
+"task, or the module itself if it's not a package (the usual behavior from "
+"``python -m``). This is useful for running a package or module that has been "
+"designed to be run as a script."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:52
+msgid ""
+"For example, the following task will run the ``http.server`` module as a "
+"script task, which will start a simple HTTP server. Any command line "
+"arguments passed to the task will be forwarded to the script."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:54
+msgid ""
+"[tool.poe.tasks.serve]\n"
+"script = \"http.server\"\n"
+"args = [\n"
+"  { name = \"port\", options = [\"-p\"], default = \"8000\" },\n"
+"  { name = \"bind\", options = [\"-b\", \"--bind\"], default = "
+"\"127.0.0.1\" },\n"
+"]"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:63
+msgid ""
+"When :doc:`args <../options>` are declared on the task, the parsed values "
+"(with defaults applied) are re-emitted onto the module's :python:`sys.argv`. "
+"CLI tokens that aren't matched by a declared arg, and any tokens that "
+"follow :sh:`--`, are forwarded to the module verbatim."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:65
+msgid ""
+"Like the callable form, the module form also implicitly adds :sh:"
+"`<project_root>/src` to the subprocess :sh:`PYTHONPATH` so that modules "
+"placed in a ``src/`` directory at the project root are importable without "
+"extra configuration."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:69
+msgid "Output the return value"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:71
+msgid ""
+"Script tasks can be configured to output the return value of the python "
+"callable using the :toml:`print_result` option."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:73
+msgid ""
+"[tool.poe.tasks.create-secret]\n"
+"script = \"django.core.management.utils:get_random_secret_key()\"\n"
+"print_result = true"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:79
+msgid ""
+"Given the above configuration running the following command would output "
+"just the generated key."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:82
+msgid "poe -q create-secret"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:86
+msgid ""
+"Note that if the return value is None then the :toml:`print_result` option "
+"has no effect."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:91
+msgid "Calling standard library functions"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:93
+msgid ""
+"Any python callable accessible via the python path can be referenced, "
+"including the standard library. This can be useful for ensuring that tasks "
+"work across platforms."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:96
+msgid "For example, the following task will not always work on windows:"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:98
+msgid ""
+"[tool.poe.tasks.build]\n"
+"cmd = \"mkdir -p build/assets\""
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:103
+msgid "whereas the same behaviour can be reliably achieved like so:"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:105
+msgid ""
+"[tool.poe.tasks.build]\n"
+"script = \"os:makedirs('build/assets', exist_ok=True)\""
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:112
+msgid "Poe scripts library"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:114
+msgid ""
+"Poe the Poet includes the ``poethepoet.scripts`` package including the "
+"following functions as convenient cross-platform implementations of common "
+"task capabilities. These functions can be referenced from script tasks if "
+"``poethepoet`` is available in the project virtual environment."
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/scripts/_rm.py:docstring
+#: of poethepoet.scripts._rm.rm:1
+msgid ""
+"This function is intended for use in a script task to delete files and "
+"directories matching any of the given patterns, as a platform agnostic "
+"alternative to ``rm -rf [patterns]``"
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/scripts/_rm.py:docstring
+#: of poethepoet.scripts._rm.rm:5
+msgid "Example usage:"
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/scripts/_rm.py:docstring
+#: of poethepoet.scripts._rm.rm:7
+msgid ""
+"[tool.poe.tasks.clean]\n"
+"script = \"poethepoet.scripts:rm('.mypy_cache', '.pytest_cache', './**/"
+"__pycache__')\""
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:0
+msgid "Parameters"
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/scripts/_rm.py:docstring
+#: of poethepoet.scripts._rm.rm:12 poethepoet.scripts._rm.rm:13
+msgid ""
+"One or more paths to delete. `Glob patterns <https://docs.python.org/3/"
+"library/glob.html>`_ are supported."
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/scripts/_rm.py:docstring
+#: of poethepoet.scripts._rm.rm:15
+msgid ""
+"The directory relative to which patterns are evaluated. Defaults to ``.``."
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/scripts/_rm.py:docstring
+#: of poethepoet.scripts._rm.rm:17
+msgid ""
+"An integer for setting the function's verbosity. This can be set to "
+"``environ.get('POE_VERBOSITY')`` to match the verbosity of the poe "
+"invocation."
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/scripts/_rm.py:docstring
+#: of poethepoet.scripts._rm.rm:20
+msgid ""
+"If true then nothing will be deleted, but output to stdout will be "
+"unaffected. This can be set to ``_dry_run`` to make poe delegate dry_run "
+"control to the function."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:121
+msgid "Delegating dry-run behavior to a script"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:123
+msgid ""
+"Normally if the ``--dry-run`` global option is passed to the CLI then poe "
+"will go through the motions of running the given task, including logging to "
+"stdout, without actually running the task."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:125
+msgid ""
+"However it is possible to configure poe to delegate respecting this dry run "
+"flag to an invoked script task, by passing it the ``_dry_run`` variable. "
+"When this variable is passed as an argument to the Python function called "
+"within a script task then poe will always call the task, and delegate "
+"responsibility to the script for making sure that no side effects occur when "
+"run in dry-run mode."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:129
+msgid "Task arguments"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:131
+msgid ""
+"As with other task types, script tasks support configuring named arguments "
+"via the ``args`` option. Arguments are accessible in the referenced Python "
+"function in three ways:"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:133
+msgid ""
+"As **Python variables** that can be referenced directly in the function call "
+"expression. Values retain their configured type — booleans are ``True``/"
+"``False``, integers are ``int``, multiple args are ``list``, etc."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:134
+msgid ""
+"Via **sys.argv** which is populated with the full invocation including any "
+"extra arguments."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:135
+msgid ""
+"As **keyword arguments** when the script reference doesn't include explicit "
+"parentheses — in this case all declared args are passed as kwargs."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:137
+msgid "See :ref:`Arguments for script tasks` for more details and examples."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:141
+msgid "Accessing free arguments via ``_extra_args``"
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:143
+msgid ""
+"Free arguments (arguments not matched by any named arg definition, or "
+"arguments passed after :sh:`--`) are available inside script tasks as the "
+"``_extra_args`` variable — a ``list[str]`` — in addition to the "
+"``$POE_EXTRA_ARGS`` environment variable."
+msgstr ""
+
+#: ../../../tasks/task_types/script.rst:145
+msgid ""
+"See the :ref:`forwarding-free-arguments-via-poe-extra-args` section of the "
+"args guide for details and examples."
+msgstr ""

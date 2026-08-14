@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/running_guide.rst:2
+msgid "Running tasks"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:5
+msgid "An example task"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:7
+msgid ""
+"Poe tasks are defined in your **pyproject.toml** file under ``tool.poe."
+"tasks``"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:9
+msgid ""
+"The following toml example defines a task called `test` that consists of the "
+"associated command."
+msgstr ""
+
+#: ../../../guides/running_guide.rst:11
+msgid ""
+"[tool.poe.tasks]\n"
+"test = \"pytest --cov=poethepoet\""
+msgstr ""
+
+#: ../../../guides/running_guide.rst:16
+msgid "This task can the be run via the poe cli as ``poe test``."
+msgstr ""
+
+#: ../../../guides/running_guide.rst:20
+msgid ""
+"If your pyproject defines pytest as a dependency with poetry, then poe will "
+"run the task with pytest from the poetry managed virtualenv, so you don't "
+"need to explicitly activate the virtualenv via ``poetry shell`` or ``poetry "
+"run``."
+msgstr ""
+
+#: ../../../guides/running_guide.rst:23
+msgid ""
+"`Click here for a real example <https://github.com/nat-n/poethepoet/blob/"
+"main/pyproject.toml>`_."
+msgstr ""
+
+#: ../../../guides/running_guide.rst:27
+msgid "Run a task with the poe CLI"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:29
+msgid "The preferred way to run poe is via the standalone CLI."
+msgstr ""
+
+#: ../../../guides/running_guide.rst:31
+msgid "poe test"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:35
+msgid ""
+"The above command can only be ran if you've :doc:`installed Poe globally<../"
+"installation>`, or if you've sourced the venv that Poe the Poet is installed "
+"in (e.g. using ``poetry shell``)."
+msgstr ""
+
+#: ../../../guides/running_guide.rst:39
+msgid "Running Poe as a Python module"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:41
+msgid "You can also run poe as a python module"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:43
+msgid "python -m poethepoet [options] test [task_args]"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:49
+msgid "Running Poe as a Poetry plugin"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:50
+msgid ""
+"If you've installed it as a :doc:`poetry plugin<../poetry_plugin>` (for "
+"poetry >= 1.2), you can run it like so"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:52
+msgid ""
+"poetry self add poethepoet[poetry_plugin]\n"
+"poetry poe [options] test [task_args]"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:59
+msgid "Running Poe as a Poetry dependency"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:60
+msgid ""
+"If you've installed it as a dev dependency with poetry, you can run it like "
+"so"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:62
+msgid ""
+"poetry add --group dev poethepoet\n"
+"poetry run poe [options] test [task_args]"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:69
+msgid ""
+"In this case you might want create an alias like :sh:`alias poe='poetry run "
+"poe'`."
+msgstr ""
+
+#: ../../../guides/running_guide.rst:73
+msgid "Passing arguments"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:75
+msgid "By default additional arguments are passed to the task so"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:77
+msgid "poe test -v tests/favorite_test.py"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:81
+msgid "will result in the following being run inside poetry's virtualenv"
+msgstr ""
+
+#: ../../../guides/running_guide.rst:83
+msgid "pytest --cov=poethepoet -v tests/favorite_test.py"
+msgstr ""
