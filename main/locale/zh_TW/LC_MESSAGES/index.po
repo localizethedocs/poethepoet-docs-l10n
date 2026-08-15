@@ -19,33 +19,35 @@ msgstr ""
 
 #: ../../../index.rst:15
 msgid "Poe the Poet Documentation"
-msgstr ""
+msgstr "Poe the Poet 文件"
 
 #: ../../../index.rst:17
 msgid "GitHub repo"
-msgstr ""
+msgstr "GitHub 儲存庫"
 
 #: ../../../index.rst:21 ../../../index.rst:25
 msgid "PyPI"
-msgstr ""
+msgstr "PyPI"
 
 #: ../../../index.rst:29
 msgid "PyPI - Downloads"
-msgstr ""
+msgstr "PyPI - 下載"
 
 #: ../../../index.rst:33
 msgid "MIT"
-msgstr ""
+msgstr "MIT"
 
 #: ../../../index.rst:37
 msgid ""
 "Poe the Poet is a batteries included task runner that works well with |"
 "poetry_link| or with :ref:`uv<Usage with uv>`."
 msgstr ""
+"Poe the Poet 是一款功能齊全的任務執行工具，能與 |poetry_link| 或 :ref:"
+"`uv<Usage with uv>` 良好搭配使用。"
 
 #: ../../../index.rst:143
 msgid "<a href=\"https://python-poetry.org/\" target=\"_blank\">poetry</a>"
-msgstr ""
+msgstr "<a href=\"https://python-poetry.org/\" target=\"_blank\">poetry</a>"
 
 #: ../../../index.rst:39
 msgid ""
@@ -53,12 +55,14 @@ msgid ""
 "and either a standalone CLI or a poetry plugin to run them using your "
 "project's virtual environment."
 msgstr ""
+"它提供了一種簡單的方式，讓您在 pyproject.toml 中定義專案任務，並可透過獨立的 "
+"CLI 或 Poetry 插件，使用專案的虛擬環境執行這些任務。"
 
 #: ../../../index.rst:41
 msgid ""
 "`\"Simple things should be simple, complex things should be possible.\" --  "
 "Alan Kay`"
-msgstr ""
+msgstr "`「簡單的事情應該簡單，複雜的事情應該可行。」– Alan Kay`"
 
 #: ../../../index.rst:45
 msgid "Top features"
@@ -78,7 +82,7 @@ msgstr ""
 #: ../../../index.rst:51
 msgid ""
 "|V| :ref:`Shell completion<shell_completion>` of task names and arguments"
-msgstr ""
+msgstr "|V| 任務名稱與引數的\\ :ref:`外殼補全 <shell_completion>`"
 
 #: ../../../index.rst:53
 msgid ""
@@ -169,7 +173,7 @@ msgstr ""
 
 #: ../../../index.rst:84
 msgid "pipx install poethepoet"
-msgstr ""
+msgstr "pipx install poethepoet"
 
 #: ../../../index.rst:89
 msgid "Add a section for poe tasks to your pyproject.toml"
@@ -212,7 +216,7 @@ msgstr ""
 
 #: ../../../index.rst:116
 msgid "Run one of your tasks using the CLI"
-msgstr ""
+msgstr "使用 CLI 執行其中一項任務"
 
 #: ../../../index.rst:118
 msgid "poe test -v"
@@ -235,7 +239,7 @@ msgstr ""
 
 #: ../../../index.rst:130
 msgid "Run poe from anywhere"
-msgstr ""
+msgstr "從任意位置執行 poe"
 
 #: ../../../index.rst:132
 msgid ""

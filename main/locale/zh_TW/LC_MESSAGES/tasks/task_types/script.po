@@ -79,7 +79,7 @@ msgstr ""
 
 #: ../../../tasks/task_types/script.rst:25
 msgid "bool 📖"
-msgstr ""
+msgstr "bool 📖"
 
 #: ../../../tasks/task_types/script.rst:27
 msgid ""

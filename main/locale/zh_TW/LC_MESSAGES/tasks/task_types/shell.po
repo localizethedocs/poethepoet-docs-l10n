@@ -82,7 +82,7 @@ msgstr ""
 
 #: ../../../tasks/task_types/shell.rst:30
 msgid "str | list[str] 📖"
-msgstr ""
+msgstr "str | list[str] 📖"
 
 #: ../../../tasks/task_types/shell.rst:32
 msgid ""

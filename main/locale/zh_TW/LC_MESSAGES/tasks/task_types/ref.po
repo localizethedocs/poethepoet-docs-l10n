@@ -76,7 +76,7 @@ msgstr ""
 
 #: ../../../tasks/task_types/ref.rst:36
 msgid "bool 📖"
-msgstr ""
+msgstr "bool 📖"
 
 #: ../../../tasks/task_types/ref.rst:38
 msgid ""

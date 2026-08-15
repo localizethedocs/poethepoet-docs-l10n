@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../env_vars.rst:2
 msgid "Environment variables"
-msgstr ""
+msgstr "環境變數"
 
 #: ../../../env_vars.rst:6
 msgid "How Poe the Poet uses environment variables"
@@ -84,7 +84,7 @@ msgstr ""
 
 #: ../../../env_vars.rst:24
 msgid "Private variables"
-msgstr ""
+msgstr "私有變數"
 
 #: ../../../env_vars.rst:26
 msgid ""
@@ -117,11 +117,11 @@ msgstr ""
 
 #: ../../../env_vars.rst:40
 msgid "Variables managed by Poe the Poet"
-msgstr ""
+msgstr "由 Poe the Poet 管理的變數"
 
 #: ../../../env_vars.rst:43
 msgid "Internal Environment variables"
-msgstr ""
+msgstr "內部環境變數"
 
 #: ../../../env_vars.rst:45
 msgid ""
@@ -162,7 +162,7 @@ msgstr ""
 
 #: ../../../env_vars.rst:54
 msgid "Special variables"
-msgstr ""
+msgstr "特殊變數"
 
 #: ../../../env_vars.rst:56
 msgid ""
@@ -190,7 +190,7 @@ msgstr ""
 
 #: ../../../env_vars.rst:63
 msgid "External Environment variables"
-msgstr ""
+msgstr "外部環境變數"
 
 #: ../../../env_vars.rst:65
 msgid ""

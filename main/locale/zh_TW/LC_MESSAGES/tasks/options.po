@@ -70,7 +70,7 @@ msgstr ""
 
 #: ../../../tasks/options.rst:14 ../../../tasks/options.rst:27
 msgid "dict[str, str] 📖"
-msgstr ""
+msgstr "dict[str, str] 📖"
 
 #: ../../../tasks/options.rst:16
 msgid "A map of environment variables to be set for this task."
@@ -84,7 +84,7 @@ msgstr ""
 
 #: ../../../tasks/options.rst:17 ../../../tasks/options.rst:31
 msgid "str | list[str] 📖"
-msgstr ""
+msgstr "str | list[str] 📖"
 
 #: ../../../tasks/options.rst:19
 msgid "Provide one or more env files to be loaded before running this task."
@@ -158,7 +158,7 @@ msgstr ""
 
 #: ../../../tasks/options.rst:37
 msgid "str | dict[str, str] 📖"
-msgstr ""
+msgstr "str | dict[str, str] 📖"
 
 #: ../../../tasks/options.rst:39
 msgid "Specify executor type and/or configuration for this task."
@@ -170,7 +170,7 @@ msgstr ""
 
 #: ../../../tasks/options.rst:40
 msgid "int 📖"
-msgstr ""
+msgstr "int 📖"
 
 #: ../../../tasks/options.rst:42
 msgid ""
@@ -187,7 +187,7 @@ msgstr ""
 
 #: ../../../tasks/options.rst:43
 msgid "bool 📖"
-msgstr ""
+msgstr "bool 📖"
 
 #: ../../../tasks/options.rst:45
 msgid ""
@@ -263,7 +263,7 @@ msgstr ""
 
 #: ../../../tasks/options.rst:85
 msgid "env.PORT.default = \"9001\""
-msgstr ""
+msgstr "env.PORT.default = \"9001\""
 
 #: ../../../tasks/options.rst:91
 msgid "Templating environment variables"
@@ -286,10 +286,13 @@ msgid ""
 "cmd = \"flask run\"\n"
 "env = { FLASK_RUN_PORT = \"${TF_VAR_service_port}\" }"
 msgstr ""
+"[tool.poe.tasks.serve]\n"
+"cmd = \"flask run\"\n"
+"env = { FLASK_RUN_PORT = \"${TF_VAR_service_port}\" }"
 
 #: ../../../tasks/options.rst:105
 msgid "Loading environment variables from an env file"
-msgstr ""
+msgstr "從 env 檔案載入環境變數"
 
 #: ../../../tasks/options.rst:107
 msgid ""
@@ -303,6 +306,9 @@ msgid ""
 "STAGE=dev\n"
 "PASSWORD='!@#$%^&*('"
 msgstr ""
+"# .env\n"
+"STAGE=dev\n"
+"PASSWORD='!@#$%^&*('"
 
 #: ../../../tasks/options.rst:115
 msgid ""
@@ -310,6 +316,9 @@ msgid ""
 "serve.script  = \"myapp:run\"\n"
 "serve.envfile = \".env\""
 msgstr ""
+"[tool.poe.tasks]\n"
+"serve.script  = \"myapp:run\"\n"
+"serve.envfile = \".env\""
 
 #: ../../../tasks/options.rst:121
 msgid ""
@@ -319,7 +328,7 @@ msgstr ""
 
 #: ../../../tasks/options.rst:123
 msgid "serve.envfile = [\".env\", \"local.env\"]"
-msgstr ""
+msgstr "serve.envfile = [\".env\", \"local.env\"]"
 
 #: ../../../tasks/options.rst:127
 msgid ""
@@ -334,6 +343,9 @@ msgid ""
 "optional = [\"local.env\"]\n"
 "expected = [\"base.env\"]"
 msgstr ""
+"[tool.poe.tasks.serve.envfile]\n"
+"optional = [\"local.env\"]\n"
+"expected = [\"base.env\"]"
 
 #: ../../../tasks/options.rst:135
 msgid ""
@@ -355,6 +367,8 @@ msgid ""
 "[tool.poe]\n"
 "envfile = \"${POE_GIT_DIR}/.env\""
 msgstr ""
+"[tool.poe]\n"
+"envfile = \"${POE_GIT_DIR}/.env\""
 
 #: ../../../tasks/options.rst:144
 msgid ""
@@ -397,6 +411,9 @@ msgid ""
 "cmd = \"npx ts-node -T ./build.ts\"\n"
 "cwd = \"./client\""
 msgstr ""
+"[tool.poe.tasks.build-client]\n"
+"cmd = \"npx ts-node -T ./build.ts\"\n"
+"cwd = \"./client\""
 
 #: ../../../tasks/options.rst:164
 msgid ""
@@ -428,6 +445,9 @@ msgid ""
 "script = \"my_project.conversion_tool:main\"\n"
 "cwd = \"${POE_PWD}\""
 msgstr ""
+"[tool.poe.tasks.convert]\n"
+"script = \"my_project.conversion_tool:main\"\n"
+"cwd = \"${POE_PWD}\""
 
 #: ../../../tasks/options.rst:178
 msgid "Redirect task output to a file"
@@ -555,6 +575,22 @@ msgid ""
 "help     = \"Run tests for all python versions\"\n"
 "sequence = [\"test-py311\", \"test-py312\"]"
 msgstr ""
+"[tool.poe]\n"
+"executor = \"uv\"\n"
+"\n"
+"[tool.poe.tasks.test-py311]\n"
+"help     = \"An alias for the test task that runs with python 3.11\"\n"
+"cmd      = \"pytest\"\n"
+"executor = {isolated = true, python = \"3.11\"}\n"
+"\n"
+"[tool.poe.tasks.test-py312]\n"
+"help     = \"An alias for the test task that runs with python 3.12\"\n"
+"cmd      = \"pytest\"\n"
+"executor = {isolated = true, python = \"3.12\"}\n"
+"\n"
+"[tool.poe.tasks.test-matrix]\n"
+"help     = \"Run tests for all python versions\"\n"
+"sequence = [\"test-py311\", \"test-py312\"]"
 
 #: ../../../tasks/options.rst:250
 msgid ""
@@ -576,6 +612,10 @@ msgid ""
 "cmd      = \"pytest\"\n"
 "executor = {type = \"uv\", with = [\"pytest\"], isolated = true}"
 msgstr ""
+"[tool.poe.tasks.test]\n"
+"help     = \"Run the tests\"\n"
+"cmd      = \"pytest\"\n"
+"executor = {type = \"uv\", with = [\"pytest\"], isolated = true}"
 
 #: ../../../tasks/options.rst:261
 msgid ""
@@ -589,6 +629,8 @@ msgid ""
 "poe --executor uv --executor-opt with=pytest --executor-opt isolated --"
 "executor-opt with=pytest-cov --executor-opt python=3.12 test --cov my_package"
 msgstr ""
+"poe --executor uv --executor-opt with=pytest --executor-opt isolated --"
+"executor-opt with=pytest-cov --executor-opt python=3.12 test --cov my_package"
 
 #: ../../../tasks/options.rst:267
 msgid ""
@@ -613,6 +655,10 @@ msgid ""
 "'SecretString'\"\n"
 "verbosity = -1"
 msgstr ""
+"[tool.poe.tasks.credentials]\n"
+"cmd       = \"aws secretsmanager get-secret-value --secret-id creds --query "
+"'SecretString'\"\n"
+"verbosity = -1"
 
 #: ../../../tasks/options.rst:281
 msgid ""

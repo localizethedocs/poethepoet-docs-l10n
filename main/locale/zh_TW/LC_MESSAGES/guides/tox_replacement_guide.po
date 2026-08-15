@@ -275,7 +275,7 @@ msgstr ""
 
 #: ../../../guides/tox_replacement_guide.rst:167
 msgid "Environment variables"
-msgstr ""
+msgstr "環境變數"
 
 #: ../../../guides/tox_replacement_guide.rst:169
 msgid ""

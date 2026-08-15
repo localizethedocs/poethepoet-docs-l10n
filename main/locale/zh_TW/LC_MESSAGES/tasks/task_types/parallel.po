@@ -159,7 +159,7 @@ msgstr ""
 
 #: ../../../tasks/task_types/parallel.rst:51
 msgid "int 📖"
-msgstr ""
+msgstr "int 📖"
 
 #: ../../../tasks/task_types/parallel.rst:53
 msgid ""

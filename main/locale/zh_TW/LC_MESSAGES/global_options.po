@@ -34,7 +34,7 @@ msgstr ""
 
 #: ../../../global_options.rst:5 ../../../global_options.rst:26
 msgid "dict[str, str] 📖"
-msgstr ""
+msgstr "dict[str, str] 📖"
 
 #: ../../../global_options.rst:7
 msgid ""
@@ -51,7 +51,7 @@ msgstr ""
 #: ../../../global_options.rst:190 ../../../global_options.rst:193
 #: ../../../global_options.rst:196 ../../../global_options.rst:199
 msgid "str | list[str] 📖"
-msgstr ""
+msgstr "str | list[str] 📖"
 
 #: ../../../global_options.rst:10
 msgid ""
@@ -66,7 +66,7 @@ msgstr ""
 
 #: ../../../global_options.rst:11
 msgid "str | dict[str, str] 📖"
-msgstr ""
+msgstr "str | dict[str, str] 📖"
 
 #: ../../../global_options.rst:13
 msgid ""
@@ -381,6 +381,8 @@ msgid ""
 "[tool.poe]\n"
 "envfile = \"${POE_GIT_DIR}/.env\""
 msgstr ""
+"[tool.poe]\n"
+"envfile = \"${POE_GIT_DIR}/.env\""
 
 #: ../../../global_options.rst:141
 msgid ""
@@ -544,7 +546,7 @@ msgstr ""
 #: ../../../global_options.rst:208 ../../../global_options.rst:211
 #: ../../../global_options.rst:214 ../../../global_options.rst:217
 msgid "bool 📖"
-msgstr ""
+msgstr "bool 📖"
 
 #: ../../../global_options.rst:204
 msgid ""
@@ -792,7 +794,7 @@ msgstr ""
 
 #: ../../../global_options.rst:338
 msgid "Run poe from anywhere"
-msgstr ""
+msgstr "從任意位置執行 poe"
 
 #: ../../../global_options.rst:340
 msgid ""
