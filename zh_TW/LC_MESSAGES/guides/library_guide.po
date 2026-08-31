@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/library_guide.rst:2
+msgid "Using poethepoet as a library"
+msgstr ""
+
+#: ../../../guides/library_guide.rst:4
+msgid ""
+"Normally poethepoet would be installed as a tool or poetry plugin, but it "
+"can also be used as a library to embed task runner capabilities into another "
+"tool."
+msgstr ""
+
+#: ../../../guides/library_guide.rst:7
+msgid ""
+"The following script replicates the main functionality of the `poe` "
+"standalone cli."
+msgstr ""
+
+#: ../../../guides/library_guide.rst:9
+msgid ""
+"import sys\n"
+"\n"
+"from poethepoet.app import PoeThePoet\n"
+"\n"
+"\n"
+"if __name__ == \"__main__\":\n"
+"    app = PoeThePoet()\n"
+"    result = app(cli_args=sys.argv[1:])\n"
+"    if result:\n"
+"        sys.exit(result)"
+msgstr ""
+
+#: ../../../guides/library_guide.rst:22
+msgid ""
+"The `PoeThePoet <https://github.com/nat-n/poethepoet/blob/main/poethepoet/"
+"app.py>`_ class accepts various optional arguments to customize its behavior "
+"as described below."
+msgstr ""
+
+#: ../../../guides/library_guide.rst:0
+msgid "Parameters"
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
+#: of poethepoet.app.PoeThePoet:1
+msgid ""
+"The directory that poe should take as the current working directory, this "
+"determines where to look for a pyproject.toml file, defaults to ``Path()."
+"resolve()``"
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
+#: of poethepoet.app.PoeThePoet:7
+msgid ""
+"Either a dictionary with the same schema as a pyproject.toml file, or a "
+"`PoeConfig <https://github.com/nat-n/poethepoet/blob/main/poethepoet/config/"
+"config.py>`_ object to use as an alternative to loading config from a file."
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
+#: of poethepoet.app.PoeThePoet:13
+msgid ""
+"A stream for the application to write its own output to, defaults to sys."
+"stdout"
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
+#: of poethepoet.app.PoeThePoet:17
+msgid ""
+"The path to the poetry virtualenv. If provided then it is used by the "
+"`PoetryExecutor <https://github.com/nat-n/poethepoet/blob/main/poethepoet/"
+"executor/poetry.py>`_, instead of having to execute poetry in a subprocess "
+"to determine this."
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
+#: of poethepoet.app.PoeThePoet:23
+msgid ""
+"The name of the file to load tasks and configuration from. If not set then "
+"poe will search for config by the following file names: pyproject.toml "
+"poe_tasks.toml poe_tasks.yaml poe_tasks.json"
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
+#: of poethepoet.app.PoeThePoet:29
+msgid ""
+"The name of the program that is being run. This is used primarily when "
+"outputting help messages, defaults to \"poe\""
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
+#: of poethepoet.app.PoeThePoet:34
+msgid ""
+"Optionally provide an alternative base environment for tasks to run with. If "
+"no mapping is provided then ``os.environ`` is used."
+msgstr ""
+
+#: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
+#: of poethepoet.app.PoeThePoet:39
+msgid ""
+"A sequence of identifiers for global arguments that should not be displayed "
+"in the help message."
+msgstr ""
