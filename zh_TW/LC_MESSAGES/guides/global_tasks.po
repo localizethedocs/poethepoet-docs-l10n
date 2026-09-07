@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/global_tasks.rst:2
+msgid "Global tasks"
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:4
+msgid ""
+"This guide covers how to use poethepoet as a global task runner, for private "
+"user level tasks instead of shared project level tasks. Global tasks are "
+"available anywhere, and serve a similar purpose to shell aliases or scripts "
+"on the ``PATH`` — but as poe tasks."
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:6
+msgid "There are two steps required to make this work:"
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:8
+msgid ""
+"Create a project somewhere central such as ``~/.poethepoet`` where you "
+"define tasks that you want to have globally accessible"
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:9
+msgid ""
+"Configure an alias in your shell's startup script such as ``alias "
+"edgar=\"poe -C ~/.poethepoet\"``."
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:13
+msgid ""
+"This document suggests calling your alias `edgar` — because it's a pun... "
+"but you can use any alternative name you fancy."
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:15
+msgid ""
+"The project at ``~/.poethepoet`` can be a regular poetry project including "
+"dependencies or just a file with tasks."
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:17
+msgid ""
+"You can choose any location to define the tasks, and whatever name you like "
+"for the global poe alias."
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:21
+msgid ""
+"For this to work Poe the Poet must be installed globally such as via pipx or "
+"homebrew."
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:25
+msgid "Shell completions for global tasks"
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:27
+msgid ""
+"If you use zsh or fish then the usual completion script should just work "
+"with your alias (as long as it was created with poethepoet >=0.28.0)."
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:29
+msgid ""
+"However for bash you'll need to generate a new completion script for the "
+"alias specifying the alias and the path to you global tasks like so:"
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:31
+msgid ""
+"# System bash\n"
+"poe _bash_completion edgar ~/.poethepoet > /etc/bash_completion.d/edgar.bash-"
+"completion\n"
+"\n"
+"# Homebrew bash\n"
+"poe _bash_completion edgar ~/.poethepoet > $(brew --prefix)/etc/"
+"bash_completion.d/edgar.bash-completion"
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:41
+msgid ""
+"These examples assume your global poe alias is ``edgar``, and your global "
+"tasks live at ``~/.poethepoet``."
+msgstr ""
+
+#: ../../../guides/global_tasks.rst:43
+msgid ""
+"How to ensure installed bash completions are enabled may vary depending on "
+"your system."
+msgstr ""

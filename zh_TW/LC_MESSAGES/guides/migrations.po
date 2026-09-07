@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/migrations.rst:2
+msgid "Migration Guides"
+msgstr ""
+
+#: ../../../guides/migrations.rst:4
+msgid ""
+"As a rule we avoid making breaking changes to poethepoet. However once in a "
+"while it is deemed necessary to make some minor breaking changes, which may "
+"impact a small minority of users, in order to make significant improvements "
+"overall. This guide details instances when this has occurred and gives "
+"advice on how to avoid or mitigate the impacts."
+msgstr ""
+
+#: ../../../guides/migrations.rst:7
+msgid "0.46.0"
+msgstr ""
+
+#: ../../../guides/migrations.rst:9
+msgid ""
+"This release rewrites the envfile parser to align with standard dotenv "
+"conventions and bash assignment syntax, and adds support for parameter "
+"expansion in env file values. Two edge-case behaviours changed."
+msgstr ""
+
+#: ../../../guides/migrations.rst:12
+msgid "Whitespace in unquoted values is now preserved"
+msgstr ""
+
+#: ../../../guides/migrations.rst:14
+msgid ""
+"Previously, whitespace terminated an unquoted value, making it possible to "
+"write multiple assignments on a single line:"
+msgstr ""
+
+#: ../../../guides/migrations.rst:16
+msgid ""
+"# OLD: two assignments on one line (no longer supported)\n"
+"FOO=bar BAZ=qux"
+msgstr ""
+
+#: ../../../guides/migrations.rst:21
+msgid ""
+"This is now parsed as a single assignment ``FOO`` with the value ``bar "
+"BAZ=qux``. Move such assignments to separate lines, or quote the value:"
+msgstr ""
+
+#: ../../../guides/migrations.rst:23 ../../../guides/migrations.rst:41
+msgid ""
+"# NEW: one assignment per line\n"
+"FOO=bar\n"
+"BAZ=qux"
+msgstr ""
+
+#: ../../../guides/migrations.rst:30
+msgid "Semicolons are no longer assignment separators"
+msgstr ""
+
+#: ../../../guides/migrations.rst:32
+msgid ""
+"Previously, ``;`` acted as an assignment separator (similar to shell "
+"statement separators), allowing constructs like:"
+msgstr ""
+
+#: ../../../guides/migrations.rst:34
+msgid ""
+"# OLD: two assignments separated by ; (no longer supported)\n"
+"FOO=bar;BAZ=qux"
+msgstr ""
+
+#: ../../../guides/migrations.rst:39
+msgid ""
+"Semicolons are now treated as regular characters in unquoted values, so the "
+"above assigns ``bar;BAZ=qux`` to ``FOO``. Move assignments to separate lines:"
+msgstr ""
+
+#: ../../../guides/migrations.rst:47
+msgid ""
+"If you have a value that contains a literal semicolon, it now works without "
+"escaping:"
+msgstr ""
+
+#: ../../../guides/migrations.rst:49
+msgid ""
+"# NEW: semicolons in values need no special treatment\n"
+"JDBC_URL=jdbc:postgresql://localhost:5432/mydb?options=first;second"
+msgstr ""
+
+#: ../../../guides/migrations.rst:56
+msgid "0.44.0"
+msgstr ""
+
+#: ../../../guides/migrations.rst:58
+msgid ""
+"This release adds support for recursive includes, which allows included "
+"files to themselves include other files. If a project includes config from "
+"another file which in turn includes config from other files then these "
+"transitive includes will now also be included in the main project by "
+"default. This new behavior can be disabled by setting ``recursive = false`` "
+"for a specific include, which will prevent any includes from that file from "
+"being followed. For more details see the :doc:`include guide<../guides/"
+"include_guide>`."
+msgstr ""
+
+#: ../../../guides/migrations.rst:60
+msgid ""
+"[tool.poe]\n"
+" include = [{ path = \"external/tasks.toml\", recursive = false }]"
+msgstr ""
+
+#: ../../../guides/migrations.rst:65
+msgid ""
+"When ``recursive`` is ``false``, the included file's own tasks and "
+"environment variables are still loaded, but any ``include`` entries within "
+"that file are not followed."
+msgstr ""
+
+#: ../../../guides/migrations.rst:69
+msgid "0.43.0"
+msgstr ""
+
+#: ../../../guides/migrations.rst:71
+msgid ""
+"This release included a major refactor of how variables are managed which "
+"could unexpectedly change behavior in some situations."
+msgstr ""
+
+#: ../../../guides/migrations.rst:74
+msgid "Change in handling of boolean args"
+msgstr ""
+
+#: ../../../guides/migrations.rst:76
+msgid ""
+"To better support usage of boolean args in task logic, instead of mapping "
+"the arg value ``false`` to the string value ``False`` in the corresponding "
+"environment variable, it is instead mapped to *the environment variable "
+"being unset*, even if it was previously set on the environment. This allows "
+"more natural usage from most contexts, such as parameter expansion logic in "
+"cmd or shell tasks."
+msgstr ""
+
+#: ../../../guides/migrations.rst:78
+msgid ""
+"However some tasks or scripts may need to be updated if they previously "
+"checked for ``\"False\"`` specifically, or if they use ``set -u``."
+msgstr ""
+
+#: ../../../guides/migrations.rst:80
+msgid ""
+"Additionally if the variable was accessed from a python script via :python:"
+"`os.environ[\"flag\"]` then this will break now. It is recommended to "
+"instead use :python:`\"flag\" in os.environ` or :python:`os.environ."
+"get(\"flag\")` to check if the flag is set to true."
+msgstr ""
+
+#: ../../../guides/migrations.rst:82
+msgid ""
+"Note that as of this release you can reference the flag directly like a "
+"local python variable with a bool value in expr or script tasks, even if the "
+"arg was provided to a parent task, like a switch or sequence."
+msgstr ""
+
+#: ../../../guides/migrations.rst:84
+msgid ""
+"[tool.poe.tasks.check-flag]\n"
+"expr = \"flag and 'cli flag was set' or 'cli flag was not set'\"\n"
+"args = [{ name = \"flag\", type = \"boolean\"}]"
+msgstr ""
+
+#: ../../../guides/migrations.rst:92
+msgid "Introduction of private variables"
+msgstr ""
+
+#: ../../../guides/migrations.rst:94
+msgid ""
+"Any variable set within the project or task config (including referenced "
+"envfiles) that contains no uppercase letters and starts with an underscore, "
+"e.g. ``_private`` will not be exposed as an environment variable accessible "
+"to the task at runtime."
+msgstr ""
+
+#: ../../../guides/migrations.rst:96
+msgid ""
+"It seems unlikely that anyone would specifically need to pass variables like "
+"this to a task."
+msgstr ""
+
+#: ../../../guides/migrations.rst:98
+msgid ""
+"Using private variables is now encouraged as a best practice to avoid "
+"unintentionally setting environment variables on task subprocesses."
+msgstr ""
+
+#: ../../../guides/migrations.rst:100
+msgid ""
+"Arg names are typically referenced within task content, and normally set as "
+"environment variables. However if an arg name is prefixed with an underscore "
+"to make it private, and there are no options explicitly configured for that "
+"arg, then any leading underscores will be stripped from the name when "
+"generating an option name from it. For example the arg name ``_flag`` will "
+"result in the cli option ``--flag``. The same applies to positional args: a "
+"private positional arg called ``_target`` will be displayed as ``target`` in "
+"help, while still being treated as a private variable inside the task."
+msgstr ""
+
+#: ../../../guides/migrations.rst:102
+msgid ""
+"Since this can cause collisions between options, there is now a config "
+"validation to prevent collisions between cli options."
+msgstr ""

@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/help_guide.rst:2
+msgid "Documenting tasks"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:4
+msgid ""
+"You can add help text to your tasks by adding the ``help`` option to the "
+"task definition, like so:"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:6
+msgid ""
+"[tool.poe.tasks.test]\n"
+"help = \"Run the test suite\"\n"
+"cmd  = \"pytest --cov=poethepoet\"\n"
+"\n"
+"[tool.poe.tasks.serve]\n"
+"help   = \"Run the app in debug mode\"\n"
+"script = \"my_app.service:run(debug=True)\"\n"
+"\n"
+"[tool.poe.tasks.tunnel]\n"
+"help  = \"Create an SSH tunnel to the production server\"\n"
+"shell = \"ssh -N -L 0.0.0.0:8080:$prod_host:8080 $prod_host &\"\n"
+"args   = [\n"
+"  {name = \"prod_host\", help = \"Hostname of the production server\", "
+"default = \"myapp.com\"}\n"
+"]"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:23
+msgid ""
+"This help text will be displayed alongside the task name in the list of "
+"configured tasks when ``poe`` is run without specifying a task."
+msgstr ""
+
+#: ../../../guides/help_guide.rst:25
+msgid ""
+"<div class=\"highlight-sh notranslate\">\n"
+"<div class=\"highlight\">\n"
+"<pre>$ poe --help\n"
+"<strong>Poe the Poet</strong> (version <span style=\"color:#56B6C2\">0.43.0</"
+"span>)\n"
+"\n"
+"<strong>Usage:</strong>\n"
+"  <span style=\"text-decoration:underline\">poe</span> [global options] task "
+"[task arguments]\n"
+"\n"
+"<strong>Global options:</strong>\n"
+"  <strong>-h, --help [TASK]</strong>     Show this help page and exit, "
+"optionally supply a\n"
+"                        task.\n"
+"  <strong>--version</strong>             Print the version and exit\n"
+"  <strong>-v, --verbose</strong>         Increase output (repeatable)\n"
+"  <strong>-q, --quiet</strong>           Decrease output (repeatable)\n"
+"  <strong>-d, --dry-run</strong>         Print the task contents but don't "
+"actually run it\n"
+"  <strong>-C, --directory PATH</strong>  Specify where to find the pyproject."
+"toml\n"
+"  <strong>-e, --executor EXECUTOR</strong>\n"
+"                        Override the default task executor\n"
+"  <strong>-X, --executor-opt KEY[=VALUE]</strong>\n"
+"                        Set executor configuration for this run.\n"
+"  <strong>--ansi</strong>                Force enable ANSI output\n"
+"  <strong>--no-ansi</strong>             Force disable ANSI output\n"
+"\n"
+"<strong>Configured tasks:</strong>\n"
+"  <span style=\"color:#56B6C2\">test</span>           Run the test suite\n"
+"  <span style=\"color:#56B6C2\">serve</span>          Run the app in debug "
+"mode\n"
+"  <span style=\"color:#56B6C2\">tunnel</span>         Create an SSH tunnel "
+"to the production server\n"
+"   <span style=\"color:#4B78CC\">--prod_host</span>  Hostname of the "
+"production server [default: myapp.com]\n"
+"</pre>\n"
+"</div>\n"
+"</div>"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:60
+msgid "Display help for a single task"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:62
+msgid ""
+"Passing the ``--help`` option normally has the same effect as running poe "
+"with no arguments. However you can also supply the name of a task to display "
+"documentation for just that task."
+msgstr ""
+
+#: ../../../guides/help_guide.rst:64
+msgid ""
+"<div class=\"highlight-sh notranslate\">\n"
+"<div class=\"highlight\">\n"
+"<pre>$ poe --help tunnel\n"
+"\n"
+"<strong>Description:</strong>\n"
+"  Create an SSH tunnel to the production server\n"
+"\n"
+"<strong>Usage:</strong>\n"
+"  <span style=\"text-decoration:underline\">poe</span> [global options] "
+"<span style=\"color:#56B6C2\">tunnel</span> [named arguments] -- [free "
+"arguments]\n"
+"\n"
+"<strong>Named arguments:</strong>\n"
+"  <span style=\"color:#4B78CC\">--prod_host</span>    Hostname of the "
+"production server [default: myapp.com]\n"
+"</pre>\n"
+"</div>\n"
+"</div>"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:83
+msgid "Grouping tasks"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:85
+msgid ""
+"You can organize tasks into groups by defining them within group tables. "
+"This makes it easier to navigate large task lists and allows you to apply "
+"shared configuration (like an executor) to all tasks in a group."
+msgstr ""
+
+#: ../../../guides/help_guide.rst:87
+msgid ""
+"[tool.poe.tasks.test]\n"
+"help = \"Run the tests\"\n"
+"cmd = \"pytest\"\n"
+"\n"
+"[tool.poe.groups.server]\n"
+"heading = \"Application Serving\"\n"
+"executor = { type = \"uv\", group = \"server\" }  # Tasks in this group will "
+"run with uv's \"server\" dependency-group\n"
+"\n"
+"[tool.poe.groups.server.tasks.dev]\n"
+"help = \"Run the app in debug mode\"\n"
+"cmd  = \"uvicorn my_app:app --reload\"\n"
+"\n"
+"[tool.poe.groups.server.tasks.prod]\n"
+"help = \"Run the app in production mode\"\n"
+"cmd  = \"uvicorn my_app:app\"\n"
+"\n"
+"[tool.poe.groups.testing]\n"
+"heading = \"Testing & Quality\"\n"
+"\n"
+"[tool.poe.groups.testing.tasks.test]\n"
+"help = \"Run the test suite\"\n"
+"cmd  = \"pytest --cov=my_app\"\n"
+"\n"
+"[tool.poe.groups.testing.tasks.lint]\n"
+"help = \"Run the linter\"\n"
+"cmd  = \"ruff check .\""
+msgstr ""
+
+#: ../../../guides/help_guide.rst:116
+msgid ""
+"When you run ``poe`` without specifying a task, ungrouped tasks appear "
+"first, followed by groups sorted alphabetically by group name:"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:118
+msgid ""
+"<div class=\"highlight-sh notranslate\">\n"
+"<div class=\"highlight\">\n"
+"<pre><strong>Configured tasks:</strong>\n"
+"  <span style=\"color:#56B6C2\">test</span>           Run the tests\n"
+"\n"
+"<span style=\"color:#98C379\">Application Serving</span>\n"
+"  <span style=\"color:#56B6C2\">dev</span>            Run the app in debug "
+"mode\n"
+"  <span style=\"color:#56B6C2\">prod</span>           Run the app in "
+"production mode\n"
+"\n"
+"<span style=\"color:#98C379\">Testing &amp; Quality</span>\n"
+"  <span style=\"color:#56B6C2\">unit</span>           Run the test suite\n"
+"  <span style=\"color:#56B6C2\">lint</span>           Run the linter\n"
+"</pre>\n"
+"</div>\n"
+"</div>"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:137
+msgid ""
+"Group names must consist of only alphanumeric characters, dashes, or "
+"underscores."
+msgstr ""
+
+#: ../../../guides/help_guide.rst:141
+msgid "Group options"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:143
+msgid ""
+"**heading**: A human-readable name for the group displayed in help output. "
+"If not specified, the group name is used."
+msgstr ""
+
+#: ../../../guides/help_guide.rst:144
+msgid ""
+"**executor**: Executor configuration that applies to all tasks in the group. "
+"Group executor config has higher precedence than project level, and lower "
+"precedence than task level config."
+msgstr ""
+
+#: ../../../guides/help_guide.rst:145
+msgid "**tasks**: A table of task definitions within the group."
+msgstr ""
+
+#: ../../../guides/help_guide.rst:149
+msgid "Merging groups"
+msgstr ""
+
+#: ../../../guides/help_guide.rst:151
+msgid ""
+"When an :ref:`included config file<Running tasks from another file>` defines "
+"a group with the same name as one in the main project config, the tasks from "
+"both are merged under a single heading. Only group config (e.g. heading and "
+"executor) from the config file with the highest precedence is preserved when "
+"merging groups."
+msgstr ""
