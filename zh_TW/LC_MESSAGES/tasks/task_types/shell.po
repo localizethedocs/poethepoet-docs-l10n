@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tasks/task_types/shell.rst:2
+msgid "``shell`` tasks"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:4
+msgid ""
+"**Shell tasks** are similar to simple command tasks except that they are "
+"executed inside a new shell, and so are interpreted as a shell script "
+"instead of a single command. This means they can leverage the full syntax of "
+"the shell interpreter such as command substitution, pipes, background "
+"processes, etc."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:6
+msgid ""
+"An example use case for this might be opening some ssh tunnels in the "
+"background with one task and closing them with another like so:"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:8
+msgid ""
+"[tool.poe.tasks.pfwd]\n"
+"shell = \"\"\"\n"
+"  ssh -N -L 0.0.0.0:8080:$STAGING:8080 $STAGING &\n"
+"  ssh -N -L 0.0.0.0:5432:$STAGINGDB:5432 $STAGINGDB &\n"
+"\"\"\"\n"
+"\n"
+"[tool.poe.tasks.pfwdstop]\n"
+"shell = \"\"\"kill $(pgrep -f \"ssh -N -L .*:(8080|5432)\")\"\"\""
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:21
+msgid ""
+"By default poe attempts to find a POSIX shell (sh, bash, or zsh in that "
+"order) on the system and uses that. When running on Windows, poe will first "
+"look for |git_bash_link| at the usual location, and otherwise attempt to "
+"find it via the PATH, though this might not always be possible."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:89
+msgid "<a href=\"https://gitforwindows.org\" target=\"_blank\">git bash</a>"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:25
+msgid "Available task options"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:27
+msgid ""
+"``shell`` tasks support all of the :doc:`standard task options <../options>` "
+"with the exception of ``use_exec``."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:29
+msgid "The following options are also accepted:"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:31
+msgid ""
+"**interpreter** : ``str`` | ``list[str]`` :ref:`📖<Using a different shell "
+"interpreter>`"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:30
+msgid "str | list[str] 📖"
+msgstr "str | list[str] 📖"
+
+#: ../../../tasks/task_types/shell.rst:32
+msgid ""
+"Specify the shell interpreter that this task should execute with, or a list "
+"of interpreters in order of preference."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:34
+msgid ""
+"**ignore_fail** : ``bool`` | ``list[int]``  :ref:`📖<Ignore task failure>`"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:33
+msgid "bool | list[int]  📖"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:35
+msgid ""
+"Return exit code 0 even if the task fails, or specify a list of task exit "
+"codes to ignore."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:39
+msgid "Using a different shell interpreter"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:41
+msgid ""
+"It is also possible to specify an alternative interpreter (or list of "
+"compatible interpreters ordered by preference) to be invoked to execute "
+"shell task content. For example if you only expect the task to be executed "
+"on Windows or other environments with PowerShell installed then you can "
+"specify a PowerShell-based task like so:"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:43
+msgid ""
+"[tool.poe.tasks.install-poetry]\n"
+"shell = \"\"\"\n"
+"(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/"
+"poetry/master/get-poetry.py -UseBasicParsing).Content | python -\n"
+"\"\"\"\n"
+"interpreter = \"pwsh\""
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:51
+msgid ""
+"If your task content is restricted to syntax that is valid for both POSIX "
+"shells and PowerShell then you can maximise the likelihood of it working on "
+"any system by specifying the interpreter as:"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:53
+msgid "interpreter = [\"posix\", \"pwsh\"]"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:57
+msgid ""
+"It is also possible to specify python code as the shell task code as in the "
+"following example. However it is recommended to use a :doc:`script<script>` "
+"or :doc:`expr<expr>` task rather than writing complex code inline within "
+"your pyproject.toml."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:59
+msgid ""
+"[tool.poe.tasks.time]\n"
+"shell = \"\"\"\n"
+"from datetime import datetime\n"
+"\n"
+"print(datetime.now())\n"
+"\"\"\"\n"
+"interpreter = \"python\""
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:69
+msgid "The following interpreter values may be used:"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:71
+msgid "posix"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:72
+msgid ""
+"This is the default behavior, equivalent to ``[\"sh\", \"bash\", \"zsh\"]``, "
+"meaning that poe will try to find sh, and fallback to bash, then zsh."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:73
+msgid "sh"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:74
+msgid ""
+"Use the basic POSIX shell. This is often an alias for either bash or dash "
+"depending on the operating system."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:75
+msgid "bash"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:76
+msgid ""
+"Uses whatever version of bash can be found. This is usually the most "
+"portable option."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:77
+msgid "zsh"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:78
+msgid "Uses whatever version of zsh can be found."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:79
+msgid "fish"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:80
+msgid "Uses whatever version of fish can be found."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:81
+msgid "pwsh"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:82
+msgid "Uses powershell version 6 or higher."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:83
+msgid "powershell"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:84
+msgid "Uses the newest version of powershell that can be found."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:86
+msgid ""
+"The default value can be changed with the global ``shell_interpreter`` "
+"option."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:95
+msgid "Task arguments"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:97
+msgid ""
+"As with other task types, shell tasks support configuring named arguments "
+"via the ``args`` option. Argument values are set as environment variables on "
+"the shell subprocess."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:99
+msgid ""
+"[tool.poe.tasks.greet]\n"
+"shell = \"\"\"\n"
+"echo \"${GREETING} ${NAME}\"\n"
+"echo \"How are you?\"\n"
+"\"\"\"\n"
+"args = [\n"
+"  { name = \"NAME\", default = \"world\" },\n"
+"  { name = \"GREETING\", default = \"Hi\" },\n"
+"]"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:111
+msgid ""
+"See the :doc:`args guide<../../guides/args_guide>` for full details on "
+"configuring arguments."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:115
+msgid ""
+"Unlike cmd, script, or expr tasks, shell tasks only access variables from "
+"the environment at runtime via the shell interpreter. Therefore ``_private`` "
+"environment variables cannot be accessed from shell task content, unless "
+"they are remapped to a normal environment variable via the ``env`` option."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:119
+msgid "Accessing free arguments via ``$POE_EXTRA_ARGS``"
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:121
+msgid ""
+"Free arguments (arguments not matched by any named arg definition, or "
+"arguments passed after :sh:`--`) are available inside shell task scripts as "
+"the ``$POE_EXTRA_ARGS`` environment variable. The value is a shell-quoted, "
+"space-delimited string, ready to be expanded inline."
+msgstr ""
+
+#: ../../../tasks/task_types/shell.rst:123
+msgid ""
+"See the :ref:`forwarding-free-arguments-via-poe-extra-args` section of the "
+"args guide for details and examples."
+msgstr ""

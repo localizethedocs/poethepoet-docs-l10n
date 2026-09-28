@@ -1,0 +1,274 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tasks/task_types/expr.rst:2
+msgid "``expr`` tasks"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:4
+msgid ""
+"**Expr tasks** consist of a single `Python expression <https://docs.python."
+"org/3/reference/expressions.html>`_. Running the task evaluates the "
+"expression and outputs the resulting value. Here's a trivial example of an "
+"expr task that will print `2` when run:"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:6
+msgid ""
+"[tool.poe.tasks.trivial-example]\n"
+"expr = \"1 + 1\""
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:11
+msgid ""
+"$ poe trivial-example\n"
+"Poe => 1 + 1\n"
+"2"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:17
+msgid "**Expressions can:**"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:19
+msgid ""
+"use most Python expression constructs with the exception of yield, await, or "
+"named expressions"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:21
+msgid ""
+"use most builtin functions including all members of `this collection "
+"<https://github.com/nat-n/poethepoet/blob/main/poethepoet/helpers/python."
+"py#L13>`_"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:23
+msgid ""
+"reference the |sys_module_link| module without having to specify it as an "
+"import"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:131
+msgid ""
+"<a href=\"https://docs.python.org/3/library/sys.html\" target=\"_blank\">sys "
+"module</a>"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:24
+msgid ""
+"directly access whatever arguments were passed to the task from `sys.argv`"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:25
+msgid ""
+"reference values of named args as Python variables with a Python type "
+"matching the configured arg type"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:26
+msgid ""
+"include environment variables as string values that are injected into the "
+"expression using the usual templating syntax ``${...}``, including the :ref:"
+"`default and alternate value operators <parameter-expansion-operators>`"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:30
+msgid "Available task options"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:32
+msgid ""
+"``expr`` tasks support all of the :doc:`standard task options <../options>`."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:34
+msgid "The following options are also accepted:"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:36
+msgid ""
+"**imports** : ``list[str]`` :ref:`📖<Referencing imported modules in an "
+"expression>`"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:35
+msgid "list[str] 📖"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:37
+msgid "A list of modules to import for use in the expression."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:39
+msgid ""
+"**assert** : ``bool`` :ref:`📖<Fail if the expression result is falsey>`"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:38
+msgid "bool 📖"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:40
+msgid ""
+"If set to true and the result of the expression is found to be a falsey "
+"value then the task will fail with a non-zero return value."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:42
+msgid ""
+"**ignore_fail** : ``bool`` | ``list[int]``  :ref:`📖<Ignore task failure>`"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:41
+msgid "bool | list[int]  📖"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:43
+msgid ""
+"Return exit code 0 even if the task fails, or specify a list of task exit "
+"codes to ignore."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:47
+msgid "Referencing arguments and environment variables"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:49
+msgid ""
+"The expression can reference environment variables using templating syntax "
+"as in :doc:`cmd<cmd>` tasks, and named arguments as Python variables in "
+"scope as in :doc:`script<script>` tasks."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:51
+msgid ""
+"[tool.poe.tasks.venv-active]\n"
+"expr = \"\"\"(\n"
+"  f'{target_venv} is active'\n"
+"  if '${VIRTUAL_ENV}'.endswith(target_venv)\n"
+"  else f'{target_venv} is not active'\n"
+")\"\"\"\n"
+"args = [{ name = \"target-venv\", default = \".venv\", positional = true }]"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:61
+msgid ""
+"$ poe venv-active poethepoet-LCpCQf8S-py3.10\n"
+"Poe => (\n"
+"  f'{target_venv} is active'\n"
+"  if '${VIRTUAL_ENV}'.endswith(target_venv)\n"
+"  else f'{target_venv} is not active'\n"
+")\n"
+"poethepoet-LCpCQf8S-py3.10 is not active"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:71
+msgid ""
+"In this example the ``VIRTUAL_ENV`` environment variable is templated into "
+"the expression using the usual templating syntax, and the ``target_venv`` "
+"argument is referenced directly as a variable."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:73
+msgid ""
+"Notice that the expression may be formatted over multiple lines, as in "
+"normal python code."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:77
+msgid "Referencing imported modules in an expression"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:79
+msgid ""
+"By default the sys module is available to the expression which allows access "
+"to ``sys.argv`` or ``sys.platform`` among other useful values. However you "
+"can also reference any other importable Python module via the imports option "
+"as in the following example."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:81
+msgid ""
+"[tool.poe.tasks.count-hidden]\n"
+"help    = \"Count hidden files or subdirectories\"\n"
+"expr    = \"len(list(pathlib.Path('.').glob('.*')))\"\n"
+"imports = [\"pathlib\"]"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:90
+msgid "Fail if the expression result is falsey"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:92
+msgid ""
+"The expression can be made to behave like an assertion that fails if the "
+"result is not truthy by providing the assert option. The task defined in the "
+"following example will return non-zero if the result is False."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:95
+msgid ""
+"[tool.poe.tasks.venv-active]\n"
+"expr   = \"${VIRTUAL_ENV}.endswith(target_venv)\"\n"
+"assert = true\n"
+"args   = [{ name = \"target-venv\", default = \".venv\", positional = true }]"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:104
+msgid "Referencing the result of other tasks in an expression"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:106
+msgid ""
+"Expr tasks can reference the results of other tasks by leveraging the :doc:"
+"`uses <../../guides/composition_guide>` option."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:108
+msgid ""
+"[tool.poe.tasks._get_active_session]\n"
+"cmd = \"read_session --format json\"\n"
+"\n"
+"[tool.poe.tasks.show-user]\n"
+"expr    = \"\"\"(\n"
+"  f\"User: {json.loads(${SESSION_JSON})['User']}\"\n"
+"  if len(${SESSION_JSON}) > 2\n"
+"  else \"No active session.\"\n"
+")\"\"\"\n"
+"uses    = { SESSION_JSON = \"_get_active_session\" }\n"
+"imports = [\"json\"]"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:124
+msgid "Accessing free arguments via ``_extra_args``"
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:126
+msgid ""
+"Free arguments (arguments not matched by any named arg definition, or "
+"arguments passed after :sh:`--`) are available inside expr tasks as the "
+"``_extra_args`` variable — a ``list[str]``."
+msgstr ""
+
+#: ../../../tasks/task_types/expr.rst:128
+msgid ""
+"See the :ref:`forwarding-free-arguments-via-poe-extra-args` section of the "
+"args guide for details and examples."
+msgstr ""
