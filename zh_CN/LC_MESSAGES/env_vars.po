@@ -1,0 +1,223 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../env_vars.rst:2
+msgid "Environment variables"
+msgstr ""
+
+#: ../../../env_vars.rst:6
+msgid "How Poe the Poet uses environment variables"
+msgstr ""
+
+#: ../../../env_vars.rst:8
+msgid ""
+"Poe tasks inherit environment variables from the host shell, but tasks also "
+"run with additional variables that are provided via the following channels, "
+"ordered with ascending precedence. The principle for precedence is that "
+"variables closer to the task override those further away."
+msgstr ""
+
+#: ../../../env_vars.rst:10
+msgid "Host environment variables (what poe receives as ``os.environ``)"
+msgstr ""
+
+#: ../../../env_vars.rst:11
+msgid ""
+"Project level :ref:`env files<Loading external environment variables>` (in "
+"the order listed)"
+msgstr ""
+
+#: ../../../env_vars.rst:12
+msgid "Project level :ref:`env config<Global environment variables>`"
+msgstr ""
+
+#: ../../../env_vars.rst:13
+msgid "Parent task variables"
+msgstr ""
+
+#: ../../../env_vars.rst:14
+msgid "Task level :ref:`env files<envfile_option>`"
+msgstr ""
+
+#: ../../../env_vars.rst:15
+msgid ""
+"Task level :ref:`env config<Setting task specific environment variables>`"
+msgstr ""
+
+#: ../../../env_vars.rst:16
+msgid ""
+"Output values from tasks configured as dependencies via the :doc:"
+"`uses<guides/composition_guide>` option"
+msgstr ""
+
+#: ../../../env_vars.rst:17
+msgid "Variables set by task :doc:`args<guides/args_guide>`"
+msgstr ""
+
+#: ../../../env_vars.rst:19
+msgid ""
+"As well as being exposed to the task at runtime, environment variables can "
+"also be templated into some other task configuration fields."
+msgstr ""
+
+#: ../../../env_vars.rst:21
+msgid ""
+"For ``cmd`` tasks expansion of variables via bash parameter expansion syntax "
+"is performed as part of resolving the command to run as a subprocess."
+msgstr ""
+
+#: ../../../env_vars.rst:24
+msgid "Private variables"
+msgstr ""
+
+#: ../../../env_vars.rst:26
+msgid ""
+"Variables that start with ``_`` and contain no uppercase characters are "
+"treated as private, which means that they're available for use in "
+"configuration time (which includes parameter expansion within ``cmd`` "
+"tasks), but are not exposed to the task subprocess at runtime. This applies "
+"to all variables set via project or task level configuration."
+msgstr ""
+
+#: ../../../env_vars.rst:28
+msgid ""
+"It is a good practice to use private variable names for ``args`` or ``uses`` "
+"unless you specifically want those values to be set on the task environment."
+msgstr ""
+
+#: ../../../env_vars.rst:30
+msgid ""
+"In the following example, the ``_food`` arg will cause the task to accept an "
+"option like ``--food sausages``, and will be accessible as a variable in the "
+"task config, but not as an environment variable at runtime."
+msgstr ""
+
+#: ../../../env_vars.rst:32
+msgid ""
+"[tool.poe.tasks.cook]\n"
+"script = \"kitchen:frying_pan(_food)\"\n"
+"args = [{ name = \"_food\", default = \"eggs\" }]"
+msgstr ""
+
+#: ../../../env_vars.rst:40
+msgid "Variables managed by Poe the Poet"
+msgstr ""
+
+#: ../../../env_vars.rst:43
+msgid "Internal Environment variables"
+msgstr ""
+
+#: ../../../env_vars.rst:45
+msgid ""
+"The following environment variables are used by Poe the Poet internally, and "
+"can be accessed from within configuration and tasks."
+msgstr ""
+
+#: ../../../env_vars.rst:47
+msgid ""
+"``POE_ROOT``: path to the parent directory of the main tasks file (e.g. "
+"pyproject.toml)."
+msgstr ""
+
+#: ../../../env_vars.rst:48
+msgid ""
+"``POE_PWD``: the current working directory of the poe process (unless "
+"overridden programmatically)."
+msgstr ""
+
+#: ../../../env_vars.rst:49
+msgid ""
+"``POE_CONF_DIR``: the path to the parent directory of the config file that "
+"defines the running task or the :ref:`cwd option<Setting a working directory "
+"for included tasks>` set when including that config."
+msgstr ""
+
+#: ../../../env_vars.rst:50
+msgid ""
+"``POE_ACTIVE``: identifies the active PoeExecutor, so that Poe the Poet can "
+"tell when it is running recursively."
+msgstr ""
+
+#: ../../../env_vars.rst:51
+msgid ""
+"``POE_VERBOSITY``: reflects the current verbosity level. Normally 0 is the "
+"default, 1 means more verbose and -1 means less."
+msgstr ""
+
+#: ../../../env_vars.rst:54
+msgid "Special variables"
+msgstr ""
+
+#: ../../../env_vars.rst:56
+msgid ""
+"The following variables are not set on the environment by default but can be "
+"referenced from task configuration as if they were."
+msgstr ""
+
+#: ../../../env_vars.rst:58
+msgid ""
+"``POE_GIT_DIR``: path of the git repo that the project is part of. This "
+"allows a project in a subdirectory of a monorepo to reference :ref:"
+"`includes<Including files relative to the git repo>`, :ref:`envfiles<Loading "
+"environment variables from an env file>`, or :ref:`virtualenv "
+"location<Configure the executor for a task>` relative to the root of the git "
+"repo. Note that referencing this variable causes poe to attempt to call the "
+"``git`` executable which must be available on the path."
+msgstr ""
+
+#: ../../../env_vars.rst:60
+msgid ""
+"``POE_GIT_ROOT``: just like ``POE_GIT_DIR`` except that if the project is in "
+"a git submodule, then the path will point to the working directory of the "
+"main repo above it."
+msgstr ""
+
+#: ../../../env_vars.rst:63
+msgid "External Environment variables"
+msgstr ""
+
+#: ../../../env_vars.rst:65
+msgid ""
+"The following environment variables can be set to modify Poe the Poet's "
+"behavior."
+msgstr ""
+
+#: ../../../env_vars.rst:67
+msgid ""
+"``POE_PROJECT_DIR``: used as the default value for the ``--directory`` "
+"global argument."
+msgstr ""
+
+#: ../../../env_vars.rst:68
+msgid ""
+"``NO_COLOR``: disables ansi colors in output (unless the ``--ansi`` argument "
+"is provided)."
+msgstr ""
+
+#: ../../../env_vars.rst:69
+msgid ""
+"``FORCE_COLOR``: forces ansi colors in output when set to a non-zero value "
+"(overridden by ``NO_COLOR`` or the ``--no-ansi`` argument)."
+msgstr ""
+
+#: ../../../env_vars.rst:70
+msgid ""
+"``POE_DEBUG``: can be set to ``1`` to enable printing debug messages to "
+"stdout."
+msgstr ""
