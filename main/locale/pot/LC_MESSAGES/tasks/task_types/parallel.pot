@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poe the Poet main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"POT-Creation-Date: 2026-10-19 15:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -208,18 +209,24 @@ msgid ""
 "attempts.ignore_fail = \"return_non_zero\""
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:80
-msgid "Changing the default item type"
+#: ../../../tasks/task_types/parallel.rst:78
+msgid ""
+"A failed parallel task exits with the exit code of the first subtask that "
+"failed."
 msgstr ""
 
 #: ../../../tasks/task_types/parallel.rst:82
+msgid "Changing the default item type"
+msgstr ""
+
+#: ../../../tasks/task_types/parallel.rst:84
 msgid ""
 "If you want strings in the array to be interpreted as a task type other "
 "than :doc:`ref<ref>` you may specify then :toml:`default_item_type` option "
 "like so:"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:84
+#: ../../../tasks/task_types/parallel.rst:86
 msgid ""
 "[tool.poe.tasks]\n"
 "check.parallel = [\n"
@@ -230,11 +237,11 @@ msgid ""
 "default_item_type = \"script\""
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:94
+#: ../../../tasks/task_types/parallel.rst:96
 msgid "Alternatively you can declare other task types inline like so:"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:96
+#: ../../../tasks/task_types/parallel.rst:98
 msgid ""
 "[tool.poe.tasks]\n"
 "check.parallel = [\n"
@@ -244,18 +251,26 @@ msgid ""
 "]"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:107
+#: ../../../tasks/task_types/parallel.rst:109
 msgid ""
 "An array within a parallel task is interpreted as a :doc:"
 "`sequence<sequence>` task, so you can run certain parallel subtasks :ref:"
 "`with strict ordering<Composing tasks to run in parallel>`."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:111
+#: ../../../tasks/task_types/parallel.rst:113
+msgid ""
+"Tasks defined inline within a parallel task may not include the ``args``, "
+"``deps``, ``uses``, or ``uses_env`` options. To use ``deps``, ``uses``, or "
+"``uses_env``, declare a named task with those options and reference it from "
+"the parallel task."
+msgstr ""
+
+#: ../../../tasks/task_types/parallel.rst:117
 msgid "Forwarding free arguments to subtasks"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:113
+#: ../../../tasks/task_types/parallel.rst:119
 msgid ""
 "By default, free arguments passed to a parallel task are not forwarded to "
 "any of its subtasks. However, they can be forwarded selectively by "
@@ -264,44 +279,44 @@ msgid ""
 "``$POE_EXTRA_ARGS`` will receive them."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:115
+#: ../../../tasks/task_types/parallel.rst:121
 msgid ""
 "See the :ref:`forwarding-free-arguments-via-poe-extra-args` section of the "
 "args guide for details and examples."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:119
+#: ../../../tasks/task_types/parallel.rst:125
 msgid "Buffer subtask output"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:121
+#: ../../../tasks/task_types/parallel.rst:127
 msgid ""
 "By default a parallel task forwards each line of task output directly to the "
 "console with the configured prefix, so output lines from different tasks are "
 "interleaved."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:123
+#: ../../../tasks/task_types/parallel.rst:129
 msgid ""
 "If you prefer the output from each task subprocess to print as one "
 "contiguous block after it finishes, set :toml:`output_mode` to :toml:"
 "`\"buffer\"`:"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:125
+#: ../../../tasks/task_types/parallel.rst:131
 msgid ""
 "[tool.poe.tasks]\n"
 "test-matrix.parallel = [\"test-py310\", \"test-py311\"]\n"
 "test-matrix.output_mode = \"buffer\""
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:131
+#: ../../../tasks/task_types/parallel.rst:137
 msgid ""
 "In buffered mode each flushed line still receives the configured prefix, but "
 "stdout is held back until the leaf task exits, fails, or is cancelled."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:133
+#: ../../../tasks/task_types/parallel.rst:139
 msgid ""
 "To avoid unbounded memory use, Poe keeps up to approximately 4MiB of stdout "
 "per leaf task in memory. If adding another complete line would exceed that "
@@ -311,17 +326,17 @@ msgid ""
 "line will be broken."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:137
+#: ../../../tasks/task_types/parallel.rst:143
 msgid "Redirect a subtask's output to a file"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:139
+#: ../../../tasks/task_types/parallel.rst:145
 msgid ""
 "Set :ref:`capture_stdout<Redirect task output to a file>` on an individual "
 "subtask to send its output to a file instead of the console:"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:141
+#: ../../../tasks/task_types/parallel.rst:147
 msgid ""
 "[tool.poe.tasks.checks]\n"
 "parallel = [\n"
@@ -330,29 +345,29 @@ msgid ""
 "]"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:149
+#: ../../../tasks/task_types/parallel.rst:155
 msgid ""
 "The captured subtask writes its stdout to the file and is excluded from the "
 "prefixed console output, while the other subtasks stream to the console as "
 "usual."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:153
+#: ../../../tasks/task_types/parallel.rst:159
 msgid "Customize output prefixing"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:155
+#: ../../../tasks/task_types/parallel.rst:161
 msgid ""
 "When running multiple tasks in parallel a prefix is applied to each line of "
 "output to identify the origin. By default the prefix includes the task name "
 "and has a distinct color applied to it (6 colors in rotation)."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:157
+#: ../../../tasks/task_types/parallel.rst:163
 msgid "Example output:"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:159
+#: ../../../tasks/task_types/parallel.rst:165
 msgid ""
 "<div class=\"highlight-sh notranslate\">\n"
 "<div class=\"highlight\">\n"
@@ -370,34 +385,34 @@ msgid ""
 "</div>"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:176
+#: ../../../tasks/task_types/parallel.rst:182
 msgid "This behavior is customizable with the following options:"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:178
+#: ../../../tasks/task_types/parallel.rst:184
 msgid ""
 "Setting the ``prefix`` changes the prefix content: default ``{name}``. The "
 "``{index}`` tag is also available which indicates the index of the subtask "
 "within the parallel array."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:179
+#: ../../../tasks/task_types/parallel.rst:185
 msgid ""
 "Setting the ``prefix_max`` changes the maximum width of the prefix: default "
 "``16``"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:180
+#: ../../../tasks/task_types/parallel.rst:186
 msgid ""
 "Setting the ``prefix_template`` changes how the prefix is formatted: default "
 "``{color_start}{prefix}{color_end} |``"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:182
+#: ../../../tasks/task_types/parallel.rst:188
 msgid "For example:"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:184
+#: ../../../tasks/task_types/parallel.rst:190
 msgid ""
 "[tool.poe.tasks]\n"
 "parallel = [\"build\", \"test\", \"deploy-to-prod\"]\n"
@@ -406,34 +421,34 @@ msgid ""
 "prefix_template = \"[{prefix}] \""
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:192
+#: ../../../tasks/task_types/parallel.rst:198
 msgid "will result in output rendered like:"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:194
+#: ../../../tasks/task_types/parallel.rst:200
 msgid ""
 "[1:build] first task output line\n"
 "[2:test] second task output line\n"
 "[3:deploy_…] third task output line"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:200
+#: ../../../tasks/task_types/parallel.rst:206
 msgid "Note that:"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:202
+#: ../../../tasks/task_types/parallel.rst:208
 msgid ""
 "When the ``{prefix}`` portion of the tempalate is longer that the configured "
 "``prefix_max`` then it is truncated with ellipsis"
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:203
+#: ../../../tasks/task_types/parallel.rst:209
 msgid ""
 "omitting the ``{color_start}`` and ``{color_end}`` tags from the template "
 "disables prefix coloring."
 msgstr ""
 
-#: ../../../tasks/task_types/parallel.rst:207
+#: ../../../tasks/task_types/parallel.rst:213
 msgid ""
 "If :ref:`capture_stdout<Redirect task output to a file>` is set on a subtask "
 "then its output will of course be excluded."

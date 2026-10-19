@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poe the Poet main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"POT-Creation-Date: 2026-10-19 15:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,10 +47,10 @@ msgstr ""
 
 #: ../../../tasks/task_types/script.rst:14
 msgid ""
-"If extra arguments are passed to task on the command line (and no CLI args "
-"are declared), then they will be available within the called Python function "
-"via :python:`sys.argv`. If :doc:`args <../options>` are configured for the "
-"task then they will be available as Python variables."
+"Arguments passed to the task on the command line are available within the "
+"called Python function via :python:`sys.argv`. If :doc:`args <../options>` "
+"are declared for the task then they are also available as Python variables "
+"(see `Task arguments`_ below)."
 msgstr ""
 
 #: ../../../tasks/task_types/script.rst:16
@@ -162,10 +163,8 @@ msgstr ""
 
 #: ../../../tasks/task_types/script.rst:63
 msgid ""
-"When :doc:`args <../options>` are declared on the task, the parsed values "
-"(with defaults applied) are re-emitted onto the module's :python:`sys.argv`. "
-"CLI tokens that aren't matched by a declared arg, and any tokens that "
-"follow :sh:`--`, are forwarded to the module verbatim."
+"Arguments are passed to the module via :python:`sys.argv`, in the same form "
+"as for a callable script task (see `Task arguments`_ below)."
 msgstr ""
 
 #: ../../../tasks/task_types/script.rst:65
@@ -347,8 +346,13 @@ msgstr ""
 
 #: ../../../tasks/task_types/script.rst:134
 msgid ""
-"Via **sys.argv** which is populated with the full invocation including any "
-"extra arguments."
+"Via **sys.argv**, in the same form whether the script task calls a function "
+"or runs a module. Each declared arg is re-emitted from its parsed value with "
+"defaults applied, using its first option or its position, except that a "
+"boolean flag is included only if it was passed on the command line. Any free "
+"arguments given after :sh:`--` follow, without the :sh:`--` itself; give :sh:"
+"`--` twice to pass a literal :sh:`--`. Without declared args, the arguments "
+"are passed as given."
 msgstr ""
 
 #: ../../../tasks/task_types/script.rst:135

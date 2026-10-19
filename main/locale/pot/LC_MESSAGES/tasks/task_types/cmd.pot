@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poe the Poet main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"POT-Creation-Date: 2026-10-19 15:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -187,8 +188,9 @@ msgstr ""
 
 #: ../../../tasks/task_types/cmd.rst:84
 msgid ""
-"When you want to switch the value based on whether a flag is present, it’s "
-"best to use the ``:-`` operator."
+"To choose between two strings using a boolean flag, configure "
+"``true_string`` and ``false_string`` on the argument and reference its value "
+"directly."
 msgstr ""
 
 #: ../../../tasks/task_types/cmd.rst:86
@@ -200,41 +202,51 @@ msgstr ""
 #: ../../../tasks/task_types/cmd.rst:88
 msgid ""
 "[tool.poe.tasks.greet]\n"
-"cmd = \"echo ${hello:-hello!}\"\n"
-"args = [{ name = \"hello\", type = \"boolean\", default = \"hi!\" }]"
+"cmd = 'echo \"${hello}\"'\n"
+"args = [{ name = \"hello\", type = \"boolean\", true_string = \"hello!\", "
+"false_string = \"hi!\" }]"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:96
+#: ../../../tasks/task_types/cmd.rst:94
+msgid ""
+"These strings are literal values, without template interpolation. The "
+"argument remains a boolean when passed to Python code. Expansion operators "
+"still test whether the resulting string is nonempty: with ``false_string = "
+"\"hi!\"``, ``${hello:+hello!}`` expands to ``hello!`` even when the flag is "
+"false. See the :doc:`argument options <../../guides/args_guide>` for details."
+msgstr ""
+
+#: ../../../tasks/task_types/cmd.rst:98
 msgid ""
 "Unlike bash, glob patterns (``*``, ``?``, ``[...]``) inside ``:-`` and ``:"
 "+`` operator arguments are treated as literal text and are not expanded."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:99
+#: ../../../tasks/task_types/cmd.rst:101
 msgid "Glob expansion"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:101
+#: ../../../tasks/task_types/cmd.rst:103
 msgid ""
 "Glob patterns in cmd tasks are expanded and replaced with the list of "
 "matching files and directories. Glob patterns are evaluated relative to the "
 "working directory of the task."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:103
+#: ../../../tasks/task_types/cmd.rst:105
 msgid ""
 "The supported glob syntax is that of the |glob_link|, which differs from "
-"bash in that square bracket patterns don't support character classes, don't "
-"break on whitespace, and don't allow escaping of contained characters."
+"bash in that wildcards also match hidden files, and square bracket patterns "
+"don't support character classes or negation with ``^``."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:132
+#: ../../../tasks/task_types/cmd.rst:134
 msgid ""
-"<a href=\"https://docs.python.org/3/library/glob.html\" "
-"target=\"_blank\">python standard library glob module</a>"
+"<a href=\"https://docs.python.org/3/library/pathlib.html#pathlib.Path.glob\" "
+"target=\"_blank\">python standard library pathlib module</a>"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:105
+#: ../../../tasks/task_types/cmd.rst:107
 msgid ""
 "If there are no matches then by default the pattern is passed through to the "
 "command unchanged (just like in bash). This behavior can be overridden for a "
@@ -245,13 +257,13 @@ msgid ""
 "execution to fail with an error."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:136
+#: ../../../tasks/task_types/cmd.rst:138
 msgid ""
 "<a href=\"https://www.gnu.org/software/bash/manual/html_node/Filename-"
 "Expansion.html\" target=\"_blank\">nullglob option</a>"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:107
+#: ../../../tasks/task_types/cmd.rst:109
 msgid ""
 "The following task uses glob patterns to specify all ``.pyc`` files and "
 "``__pycache__`` directories in the project for removal, and thanks to the :"
@@ -259,7 +271,7 @@ msgid ""
 "no arguments will be passed to the ``rm`` command."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:109
+#: ../../../tasks/task_types/cmd.rst:111
 msgid ""
 "[tool.poe.tasks.clean]\n"
 "cmd = \"\"\"\n"
@@ -270,30 +282,30 @@ msgid ""
 "empty_glob = \"null\""
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:118
+#: ../../../tasks/task_types/cmd.rst:120
 msgid ""
 "$ poe clean\n"
 "Poe => rm -rf ./tests/__pycache__ ./docs/__pycache__ ..."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:125
+#: ../../../tasks/task_types/cmd.rst:127
 msgid ""
 "Notice that this example also demonstrates that comments and excess "
 "whitespace (including new lines) are ignored, without needing to escape new "
 "lines."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:129
+#: ../../../tasks/task_types/cmd.rst:131
 msgid ""
 "Just like in bash, the glob pattern can be escaped by wrapping it in quotes, "
 "or preceding it with a backslash."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:142
+#: ../../../tasks/task_types/cmd.rst:144
 msgid "Ignore task failure"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:146
+#: ../../../tasks/task_types/cmd.rst:148
 msgid ""
 "This option works the same for all *Execution task types* including :doc:"
 "`cmd<cmd>`, :doc:`script<script>`, :doc:`expr<expr>`, and :doc:"
@@ -301,7 +313,7 @@ msgid ""
 "`sequence<sequence>`, :doc:`parallel<parallel>`, and :doc:`ref<ref>` tasks."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:148
+#: ../../../tasks/task_types/cmd.rst:150
 msgid ""
 "Normally if a task subprocess returns a non-zero exit code, then the task is "
 "considered to have failed. This failure propagates to the parent task (if "
@@ -310,31 +322,31 @@ msgid ""
 "zero regardless, by setting the ``ignore_fail`` option like so:"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:150
+#: ../../../tasks/task_types/cmd.rst:152
 msgid ""
 "[tool.poe.tasks.clean]\n"
 "cmd         = \"rm -rf ./src/**/*.pyc\"\n"
 "ignore_fail = true"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:156
+#: ../../../tasks/task_types/cmd.rst:158
 msgid ""
 "You can also ignore task failures just in case of one or more specific exit "
 "codes by providing a list of integers:"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:158
+#: ../../../tasks/task_types/cmd.rst:160
 msgid ""
 "[tool.poe.tasks.serve]\n"
 "cmd        = \"pytest\"\n"
 "ignore_fail = [4, 5] # don't fail if no tests are found"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:166
+#: ../../../tasks/task_types/cmd.rst:168
 msgid "Controlling placement of free arguments via ``$POE_EXTRA_ARGS``"
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:168
+#: ../../../tasks/task_types/cmd.rst:170
 msgid ""
 "By default, any free arguments passed to a ``cmd`` task are appended to the "
 "end of the command. However, if you reference ``$POE_EXTRA_ARGS`` explicitly "
@@ -343,7 +355,7 @@ msgid ""
 "options must follow the free arguments."
 msgstr ""
 
-#: ../../../tasks/task_types/cmd.rst:170
+#: ../../../tasks/task_types/cmd.rst:172
 msgid ""
 "See the :ref:`forwarding-free-arguments-via-poe-extra-args` section of the "
 "args guide for details and examples."
