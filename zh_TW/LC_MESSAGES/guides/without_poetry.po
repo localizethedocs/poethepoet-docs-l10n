@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) Nat Noordanus
+# This file is distributed under the same license as the Poe the Poet package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Poe the Poet main\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../guides/without_poetry.rst:2
+msgid "Usage without poetry"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:4
+msgid ""
+"Poe the Poet was originally intended as the missing task runner for |"
+"poetry_link|. But it also works great with |uv_link|, or any other kind of "
+"virtualenv, or as a general purpose task runner! This behaviour is "
+"configurable via the :ref:`tool.poe.executor global option<Configure the "
+"executor for a task>`."
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:84
+msgid "<a href=\"https://python-poetry.org/\" target=\"_blank\">poetry</a>"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:80
+msgid "<a href=\"https://docs.astral.sh/uv/\" target=\"_blank\">uv</a>"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:6
+msgid ""
+"By default poe will run tasks in your project's virtual environment. Poe "
+"will deduce what kind of project is present by detecting tool specific "
+"tables in ``pyproject.toml`` such as :toml:`tool.poetry`, lock files such as "
+"``uv.lock``, or a virtualenv at ``./.venv`` or ``./venv`` relative to the "
+"``pyproject.toml``. If no virtualenv is found then poe will run tasks "
+"without any special environment management."
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:8
+msgid ""
+"Poe the Poet can also be used as a :doc:`global task runner<./"
+"global_tasks>`, scoped to your system rather than any particular project, "
+"like shell aliases by sweeter."
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:12
+msgid "Usage with uv"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:14
+msgid ""
+"|uv_link| is another popular tool for managing project dependencies with a "
+"``pyproject.toml`` file. If the ``pyproject.toml`` contains a ``[tool.uv]`` "
+"table, or the project directory contains a ``uv.lock`` files then Poe the "
+"Poet will recognise this and activate the UvExecutor to execute tasks using "
+"``uv run``."
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:16
+msgid ""
+"In case your uv project doesn't have a lockfile or any uv specific config, "
+"you can still force poe to use the uv executor like so:"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:18
+msgid ""
+"[tool.poe]\n"
+"executor.type = \"uv\""
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:23
+msgid "So Poe the Poet also works well with uv."
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:27
+msgid "Usage without pyproject.toml"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:29
+msgid ""
+"When using Poe the Poet outside of a poetry (or other |pep518_link|) "
+"project, you can avoid the potential confusion of creating a ``pyproject."
+"toml`` file and instead name the file ``poe_tasks.toml``."
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:88
+msgid ""
+"<a href=\"https://peps.python.org/pep-0518/\" target=\"_blank\">PEP 518</a>"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:33
+msgid "Usage with with json or yaml instead of toml"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:35
+msgid ""
+"As an alternative to toml, poethepoet configuration can also be provided via "
+"yaml or json files. When searching for a tasks file to load within a certain "
+"directory poe will try the following file names in order:"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:37
+msgid "pyproject.toml"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:38
+msgid "poe_tasks.toml"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:39 ../../../guides/without_poetry.rst:46
+#: ../../../guides/without_poetry.rst:62
+msgid "poe_tasks.yaml"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:40
+msgid "poe_tasks.json"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:42
+msgid ""
+"If ``pyproject.toml`` exists but does not contain the key prefix ``tool."
+"poe`` then the search continues with `poe_tasks.toml`. If one of the listed "
+"``poe_tasks.*`` files exist then the search is terminated, even if the file "
+"is empty."
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:44
+msgid ""
+"When config is loaded from a file other than ``pyproject.toml`` the ``tool."
+"poe`` namespace for poe config is optional. So for example the following two "
+"``poe_tasks.yaml`` files are equivalent and both valid:"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:46
+msgid ""
+"env:\n"
+"  VAR0: FOO\n"
+"\n"
+"tasks:\n"
+"  show-vars:\n"
+"    cmd: \"echo $VAR0 $VAR1 $VAR2\"\n"
+"    env:\n"
+"      VAR1: BAR\n"
+"    args:\n"
+"      - name: VAR2\n"
+"        options: [\"--var\"]\n"
+"        default: BAZ"
+msgstr ""
+
+#: ../../../guides/without_poetry.rst:62
+msgid ""
+"tool:\n"
+"  poe:\n"
+"    env:\n"
+"      VAR0: FOO\n"
+"\n"
+"    tasks:\n"
+"      show-vars:\n"
+"        cmd: \"echo $VAR0 $VAR1 $VAR2\"\n"
+"        env:\n"
+"          VAR1: BAR\n"
+"        args:\n"
+"          - name: VAR2\n"
+"            options: [\"--var\"]\n"
+"            default: BAZ"
+msgstr ""
