@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poe the Poet main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"POT-Creation-Date: 2026-10-26 14:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,8 +29,8 @@ msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:6
 msgid ""
-"The array items can be sub-tables that declare inline tasks, or strings :doc:"
-"`referencing<ref>` to other tasks."
+"The array items can be sub-tables that declare inline tasks, or "
+"strings :doc:`referencing<ref>` to other tasks."
 msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:8
@@ -55,8 +56,8 @@ msgid ""
 "By default the contents of the array are interpreted as references to other "
 "tasks (actually an inline :doc:`ref<ref>` task). However, this behaviour can "
 "be altered by setting the global :toml:`default_array_item_task_type` option "
-"to the name of another task type such as ``\"cmd\"``, or by setting the :"
-"toml:`default_item_type` option locally on the sequence task."
+"to the name of another task type such as ``\"cmd\"``, or by setting "
+"the :toml:`default_item_type` option locally on the sequence task."
 msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:24
@@ -111,8 +112,8 @@ msgstr ""
 msgid ""
 "A failure (non-zero result) will result in the rest of the tasks in the "
 "sequence being skipped, unless the :toml:`ignore_fail` option is set on the "
-"task to :toml:`true`, :toml:`\"return_zero\"`, or :toml:"
-"`\"return_non_zero\"` like so:"
+"task to :toml:`true`, :toml:`\"return_zero\"`, "
+"or :toml:`\"return_non_zero\"` like so:"
 msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:42
@@ -136,18 +137,23 @@ msgid ""
 "attempts.ignore_fail = \"return_non_zero\""
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:62
-msgid "Changing the default item type"
+#: ../../../tasks/task_types/sequence.rst:56
+msgid ""
+"A failed sequence exits with the exit code of the first subtask that failed."
 msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:64
+msgid "Changing the default item type"
+msgstr ""
+
+#: ../../../tasks/task_types/sequence.rst:66
 msgid ""
 "If you want strings in the array to be interpreted as a task type other "
 "than :doc:`ref<ref>` you may specify then :toml:`default_item_type` option "
 "like so:"
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:66
+#: ../../../tasks/task_types/sequence.rst:68
 msgid ""
 "release.sequence = [\n"
 "  \"devtasks:run_tests(all=True)\",\n"
@@ -157,17 +163,17 @@ msgid ""
 "release.default_item_type = \"script\""
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:77
+#: ../../../tasks/task_types/sequence.rst:79
 msgid "Sequence task as an array of tables"
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:79
+#: ../../../tasks/task_types/sequence.rst:81
 msgid ""
 "When declaring more complex sequences the following syntax is often "
 "preferred."
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:81
+#: ../../../tasks/task_types/sequence.rst:83
 msgid ""
 "[tool.poe.tasks]\n"
 "\n"
@@ -181,23 +187,23 @@ msgid ""
 "  ref = \"_publish\""
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:96
+#: ../../../tasks/task_types/sequence.rst:98
 msgid "Double square brackets in toml specify an |array_of_tables_link|."
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:56
+#: ../../../tasks/task_types/sequence.rst:58
 msgid ""
 "<a href=\"https://toml.io/en/v1.0.0#array-of-tables\" "
 "target=\"_blank\">array of tables</a>"
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:100
+#: ../../../tasks/task_types/sequence.rst:102
 msgid ""
 "Using sequences in this way is sometimes a good alternative to a :doc:`shell "
 "<shell>` task, which may be less portable."
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:104
+#: ../../../tasks/task_types/sequence.rst:106
 msgid ""
 "Note that tasks defined inline within a sequence may not include some "
 "options that would otherwise be available to them, for example ``help`` and "
@@ -205,10 +211,17 @@ msgid ""
 msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:108
+msgid ""
+"The ``deps``, ``uses``, and ``uses_env`` options are also forbidden on "
+"inline tasks. To use them, declare a named task with those options and "
+"reference it from the sequence."
+msgstr ""
+
+#: ../../../tasks/task_types/sequence.rst:112
 msgid "Forwarding free arguments to subtasks"
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:110
+#: ../../../tasks/task_types/sequence.rst:114
 msgid ""
 "By default, free arguments passed to a sequence task are not forwarded to "
 "any of its subtasks. However, they can be forwarded selectively by "
@@ -217,23 +230,23 @@ msgid ""
 "``$POE_EXTRA_ARGS`` will receive them."
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:112
+#: ../../../tasks/task_types/sequence.rst:116
 msgid ""
 "See the :ref:`forwarding-free-arguments-via-poe-extra-args` section of the "
 "args guide for details and examples."
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:116
+#: ../../../tasks/task_types/sequence.rst:120
 msgid "Sequence task as an array of inline tables"
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:118
+#: ../../../tasks/task_types/sequence.rst:122
 msgid ""
 "In some simpler cases a more succinct syntax may be preferred, missing "
 "strings (for ref tasks) and inline tables for other task types like so:"
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:120
+#: ../../../tasks/task_types/sequence.rst:124
 msgid ""
 "[tool.poe.tasks]\n"
 "\n"
@@ -244,9 +257,9 @@ msgid ""
 "]"
 msgstr ""
 
-#: ../../../tasks/task_types/sequence.rst:132
+#: ../../../tasks/task_types/sequence.rst:136
 msgid ""
-"An array within a sequence task is interpreted as a :doc:"
-"`parallel<parallel>` task, so you can run sections of a :ref:`sequence "
-"concurrently<Composing tasks to run in parallel>`."
+"An array within a sequence task is interpreted as "
+"a :doc:`parallel<parallel>` task, so you can run sections of "
+"a :ref:`sequence concurrently<Composing tasks to run in parallel>`."
 msgstr ""

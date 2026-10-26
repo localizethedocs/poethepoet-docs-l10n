@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poe the Poet main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"POT-Creation-Date: 2026-10-26 14:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,84 +31,200 @@ msgid ""
 msgstr ""
 
 #: ../../../guides/migrations.rst:7
+msgid "0.49.0"
+msgstr ""
+
+#: ../../../guides/migrations.rst:10
+msgid "``sys.argv`` in script and expr tasks"
+msgstr ""
+
+#: ../../../guides/migrations.rst:12
+msgid ""
+"Script tasks that call a function, and expr tasks, now get the "
+"same :python:`sys.argv` as script tasks that run a module. If the task "
+"declares args, :python:`sys.argv` holds them as parsed, with defaults "
+"applied, followed by any args given after ``--``. For example, given:"
+msgstr ""
+
+#: ../../../guides/migrations.rst:14
+msgid ""
+"[tool.poe.tasks.serve]\n"
+"script = \"myapp:main()\"\n"
+"args = [{ name = \"port\", default = \"8000\" }]"
+msgstr ""
+
+#: ../../../guides/migrations.rst:20
+msgid ""
+"``poe serve -- --reload`` used to give ``sys.argv[1:] == [\"--\", \"--"
+"reload\"]``, and now gives ``[\"--port\", \"8000\", \"--reload\"]``."
+msgstr ""
+
+#: ../../../guides/migrations.rst:22
+msgid ""
+"Also, ``${VAR}`` templates in arguments given on the command line are no "
+"longer expanded for these tasks, matching other task types."
+msgstr ""
+
+#: ../../../guides/migrations.rst:24
+msgid ""
+"See the :doc:`script task docs<../tasks/task_types/script>` for details."
+msgstr ""
+
+#: ../../../guides/migrations.rst:27
+msgid "Square bracket glob patterns in cmd tasks"
+msgstr ""
+
+#: ../../../guides/migrations.rst:29
+msgid ""
+"Whitespace, backslashes, quotes, and parameter expansions inside a square "
+"bracket pattern are now interpreted like in bash, instead of being taken "
+"literally. To match a space or a backslash, escape it with a backslash, for "
+"example ``[a\\ b]``."
+msgstr ""
+
+#: ../../../guides/migrations.rst:33
+msgid "0.47.0"
+msgstr ""
+
+#: ../../../guides/migrations.rst:36
+msgid "Boolean arg defaults must be boolean values"
+msgstr ""
+
+#: ../../../guides/migrations.rst:38
+msgid ""
+"The ``default`` of an arg with :toml:`type = \"boolean\"` is now validated "
+"when the config is loaded. It must be a TOML boolean, one of the case-"
+"insensitive string literals ``\"t\"``, ``\"true\"``, ``\"1\"``, ``\"f\"``, "
+"``\"false\"``, ``\"0\"``, or ``\"\"``, or a templated string such as ``\"$"
+"{SOME_VAR}\"`` that resolves to one of those literals. Any other string is "
+"rejected as a config error."
+msgstr ""
+
+#: ../../../guides/migrations.rst:40
+msgid ""
+"From 0.43.0 through 0.46.0 an arbitrary string default was accepted and "
+"exposed as the value of the variable when the flag was not provided, which "
+"made it possible to switch between two strings using the ``:-`` operator:"
+msgstr ""
+
+#: ../../../guides/migrations.rst:42
+msgid ""
+"# OLD: no longer supported\n"
+"[tool.poe.tasks.greet]\n"
+"cmd = \"echo ${hello:-hello!}\"\n"
+"args = [{ name = \"hello\", type = \"boolean\", default = \"hi!\" }]"
+msgstr ""
+
+#: ../../../guides/migrations.rst:49
+msgid ""
+"As of 0.49.0 the same result is achieved with the ``true_string`` and "
+"``false_string`` options, which set the string that a boolean arg is exposed "
+"as when its value is true or false respectively. The arg can then be "
+"referenced directly, without an expansion operator:"
+msgstr ""
+
+#: ../../../guides/migrations.rst:51
+msgid ""
+"# NEW: requires 0.49.0 or later\n"
+"[tool.poe.tasks.greet]\n"
+"cmd = 'echo \"${hello}\"'\n"
+"args = [{ name = \"hello\", type = \"boolean\", true_string = \"hello!\", "
+"false_string = \"hi!\" }]"
+msgstr ""
+
+#: ../../../guides/migrations.rst:58
+msgid ""
+"Note that the ``:-`` and ``:+`` operators test the resulting string rather "
+"than the boolean value, so a nonempty ``false_string`` makes ``${hello:+...}"
+"`` expand even when the flag is false. See the :doc:`args guide<../guides/"
+"args_guide>` for details."
+msgstr ""
+
+#: ../../../guides/migrations.rst:60
+msgid ""
+"These options were not available in 0.47.x and 0.48.0, where the workaround "
+"is to make the arg a string type or move the logic into a shell or expr task."
+msgstr ""
+
+#: ../../../guides/migrations.rst:64
 msgid "0.46.0"
 msgstr ""
 
-#: ../../../guides/migrations.rst:9
+#: ../../../guides/migrations.rst:66
 msgid ""
 "This release rewrites the envfile parser to align with standard dotenv "
 "conventions and bash assignment syntax, and adds support for parameter "
 "expansion in env file values. Two edge-case behaviours changed."
 msgstr ""
 
-#: ../../../guides/migrations.rst:12
+#: ../../../guides/migrations.rst:69
 msgid "Whitespace in unquoted values is now preserved"
 msgstr ""
 
-#: ../../../guides/migrations.rst:14
+#: ../../../guides/migrations.rst:71
 msgid ""
 "Previously, whitespace terminated an unquoted value, making it possible to "
 "write multiple assignments on a single line:"
 msgstr ""
 
-#: ../../../guides/migrations.rst:16
+#: ../../../guides/migrations.rst:73
 msgid ""
 "# OLD: two assignments on one line (no longer supported)\n"
 "FOO=bar BAZ=qux"
 msgstr ""
 
-#: ../../../guides/migrations.rst:21
+#: ../../../guides/migrations.rst:78
 msgid ""
 "This is now parsed as a single assignment ``FOO`` with the value ``bar "
 "BAZ=qux``. Move such assignments to separate lines, or quote the value:"
 msgstr ""
 
-#: ../../../guides/migrations.rst:23 ../../../guides/migrations.rst:41
+#: ../../../guides/migrations.rst:80 ../../../guides/migrations.rst:98
 msgid ""
 "# NEW: one assignment per line\n"
 "FOO=bar\n"
 "BAZ=qux"
 msgstr ""
 
-#: ../../../guides/migrations.rst:30
+#: ../../../guides/migrations.rst:87
 msgid "Semicolons are no longer assignment separators"
 msgstr ""
 
-#: ../../../guides/migrations.rst:32
+#: ../../../guides/migrations.rst:89
 msgid ""
 "Previously, ``;`` acted as an assignment separator (similar to shell "
 "statement separators), allowing constructs like:"
 msgstr ""
 
-#: ../../../guides/migrations.rst:34
+#: ../../../guides/migrations.rst:91
 msgid ""
 "# OLD: two assignments separated by ; (no longer supported)\n"
 "FOO=bar;BAZ=qux"
 msgstr ""
 
-#: ../../../guides/migrations.rst:39
+#: ../../../guides/migrations.rst:96
 msgid ""
 "Semicolons are now treated as regular characters in unquoted values, so the "
 "above assigns ``bar;BAZ=qux`` to ``FOO``. Move assignments to separate lines:"
 msgstr ""
 
-#: ../../../guides/migrations.rst:47
+#: ../../../guides/migrations.rst:104
 msgid ""
 "If you have a value that contains a literal semicolon, it now works without "
 "escaping:"
 msgstr ""
 
-#: ../../../guides/migrations.rst:49
+#: ../../../guides/migrations.rst:106
 msgid ""
 "# NEW: semicolons in values need no special treatment\n"
 "JDBC_URL=jdbc:postgresql://localhost:5432/mydb?options=first;second"
 msgstr ""
 
-#: ../../../guides/migrations.rst:56
+#: ../../../guides/migrations.rst:113
 msgid "0.44.0"
 msgstr ""
 
-#: ../../../guides/migrations.rst:58
+#: ../../../guides/migrations.rst:115
 msgid ""
 "This release adds support for recursive includes, which allows included "
 "files to themselves include other files. If a project includes config from "
@@ -119,34 +236,34 @@ msgid ""
 "include_guide>`."
 msgstr ""
 
-#: ../../../guides/migrations.rst:60
+#: ../../../guides/migrations.rst:117
 msgid ""
 "[tool.poe]\n"
 " include = [{ path = \"external/tasks.toml\", recursive = false }]"
 msgstr ""
 
-#: ../../../guides/migrations.rst:65
+#: ../../../guides/migrations.rst:122
 msgid ""
 "When ``recursive`` is ``false``, the included file's own tasks and "
 "environment variables are still loaded, but any ``include`` entries within "
 "that file are not followed."
 msgstr ""
 
-#: ../../../guides/migrations.rst:69
+#: ../../../guides/migrations.rst:126
 msgid "0.43.0"
 msgstr ""
 
-#: ../../../guides/migrations.rst:71
+#: ../../../guides/migrations.rst:128
 msgid ""
 "This release included a major refactor of how variables are managed which "
 "could unexpectedly change behavior in some situations."
 msgstr ""
 
-#: ../../../guides/migrations.rst:74
+#: ../../../guides/migrations.rst:131
 msgid "Change in handling of boolean args"
 msgstr ""
 
-#: ../../../guides/migrations.rst:76
+#: ../../../guides/migrations.rst:133
 msgid ""
 "To better support usage of boolean args in task logic, instead of mapping "
 "the arg value ``false`` to the string value ``False`` in the corresponding "
@@ -156,39 +273,49 @@ msgid ""
 "cmd or shell tasks."
 msgstr ""
 
-#: ../../../guides/migrations.rst:78
+#: ../../../guides/migrations.rst:135
 msgid ""
 "However some tasks or scripts may need to be updated if they previously "
 "checked for ``\"False\"`` specifically, or if they use ``set -u``."
 msgstr ""
 
-#: ../../../guides/migrations.rst:80
+#: ../../../guides/migrations.rst:137
 msgid ""
-"Additionally if the variable was accessed from a python script via :python:"
-"`os.environ[\"flag\"]` then this will break now. It is recommended to "
-"instead use :python:`\"flag\" in os.environ` or :python:`os.environ."
-"get(\"flag\")` to check if the flag is set to true."
+"Additionally if the variable was accessed from a python script "
+"via :python:`os.environ[\"flag\"]` then this will break now. It is "
+"recommended to instead use :python:`\"flag\" in os.environ` "
+"or :python:`os.environ.get(\"flag\")` to check if the flag is set to true."
 msgstr ""
 
-#: ../../../guides/migrations.rst:82
+#: ../../../guides/migrations.rst:139
+msgid ""
+"As of 0.49.0 the string value for each case can be configured per arg with "
+"the ``true_string`` and ``false_string`` options. For example "
+"setting :toml:`false_string = \"\"` results in the variable being set to an "
+"empty string instead of unset when the flag is false, which avoids both of "
+"the problems described above. See the :doc:`args guide<../guides/"
+"args_guide>` for details."
+msgstr ""
+
+#: ../../../guides/migrations.rst:141
 msgid ""
 "Note that as of this release you can reference the flag directly like a "
 "local python variable with a bool value in expr or script tasks, even if the "
 "arg was provided to a parent task, like a switch or sequence."
 msgstr ""
 
-#: ../../../guides/migrations.rst:84
+#: ../../../guides/migrations.rst:143
 msgid ""
 "[tool.poe.tasks.check-flag]\n"
 "expr = \"flag and 'cli flag was set' or 'cli flag was not set'\"\n"
 "args = [{ name = \"flag\", type = \"boolean\"}]"
 msgstr ""
 
-#: ../../../guides/migrations.rst:92
+#: ../../../guides/migrations.rst:151
 msgid "Introduction of private variables"
 msgstr ""
 
-#: ../../../guides/migrations.rst:94
+#: ../../../guides/migrations.rst:153
 msgid ""
 "Any variable set within the project or task config (including referenced "
 "envfiles) that contains no uppercase letters and starts with an underscore, "
@@ -196,19 +323,19 @@ msgid ""
 "to the task at runtime."
 msgstr ""
 
-#: ../../../guides/migrations.rst:96
+#: ../../../guides/migrations.rst:155
 msgid ""
 "It seems unlikely that anyone would specifically need to pass variables like "
 "this to a task."
 msgstr ""
 
-#: ../../../guides/migrations.rst:98
+#: ../../../guides/migrations.rst:157
 msgid ""
 "Using private variables is now encouraged as a best practice to avoid "
 "unintentionally setting environment variables on task subprocesses."
 msgstr ""
 
-#: ../../../guides/migrations.rst:100
+#: ../../../guides/migrations.rst:159
 msgid ""
 "Arg names are typically referenced within task content, and normally set as "
 "environment variables. However if an arg name is prefixed with an underscore "
@@ -220,7 +347,7 @@ msgid ""
 "help, while still being treated as a private variable inside the task."
 msgstr ""
 
-#: ../../../guides/migrations.rst:102
+#: ../../../guides/migrations.rst:161
 msgid ""
 "Since this can cause collisions between options, there is now a config "
 "validation to prevent collisions between cli options."
