@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poe the Poet main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"POT-Creation-Date: 2026-10-26 14:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,8 +38,9 @@ msgstr ""
 
 #: ../../../global_options.rst:7
 msgid ""
-"Define environment variables to be exposed to all tasks. These can be :ref:"
-"`extended on the task level<Setting task specific environment variables>`."
+"Define environment variables to be exposed to all tasks. These can "
+"be :ref:`extended on the task level<Setting task specific environment "
+"variables>`."
 msgstr ""
 
 #: ../../../global_options.rst:9
@@ -105,8 +107,8 @@ msgid ""
 "Load dynamically generated tasks from one or more python functions. This is "
 "similar to the :doc:`include global option<../guides/include_guide>`, except "
 "instead of providing paths to config files, one can reference python "
-"functions that generate task config, using the same syntax as for :doc:"
-"`script tasks<../tasks/task_types/script>`."
+"functions that generate task config, using the same syntax as "
+"for :doc:`script tasks<../tasks/task_types/script>`."
 msgstr ""
 
 #: ../../../global_options.rst:21
@@ -300,9 +302,9 @@ msgstr ""
 #: ../../../global_options.rst:95
 msgid ""
 "Env file values support bash-style parameter expansion. Each variable can "
-"reference variables defined earlier in the same file using ``$VAR`` or "
-"``${VAR}``, as well as variables already set in the environment (host env "
-"vars, global env, or parent task env vars). The standard default/alternate "
+"reference variables defined earlier in the same file using ``$VAR`` or ``$"
+"{VAR}``, as well as variables already set in the environment (host env vars, "
+"global env, or parent task env vars). The standard default/alternate "
 "operators are supported:"
 msgstr ""
 
@@ -356,9 +358,9 @@ msgstr ""
 
 #: ../../../global_options.rst:129
 msgid ""
-"In this example ``shared.env`` is considered mandatory, whereas ``local."
-"env`` may be absent without generating noise. Using :toml:`envfile = \"."
-"env\"` remains equivalent to setting :toml:`envfile.expected = \".env\"` "
+"In this example ``shared.env`` is considered mandatory, whereas "
+"``local.env`` may be absent without generating noise. Using :toml:`envfile = "
+"\".env\"` remains equivalent to setting :toml:`envfile.expected = \".env\"` "
 "explicitly."
 msgstr ""
 
@@ -410,8 +412,8 @@ msgstr ""
 
 #: ../../../global_options.rst:153
 msgid ""
-"You can configure poe to use a specific executor by setting :toml:`tool.poe."
-"executor`. Valid values include:"
+"You can configure poe to use a specific executor by "
+"setting :toml:`tool.poe.executor`. Valid values include:"
 msgstr ""
 
 #: ../../../global_options.rst:156
@@ -430,8 +432,8 @@ msgstr ""
 
 #: ../../../global_options.rst:159
 msgid ""
-"**virtualenv**: to run tasks in the indicated virtualenv (or else \"./."
-"venv\" or \"./venv\" if present)"
+"**virtualenv**: to run tasks in the indicated virtualenv (or else "
+"\"./.venv\" or \"./venv\" if present)"
 msgstr ""
 
 #: ../../../global_options.rst:160
@@ -662,8 +664,8 @@ msgstr ""
 
 #: ../../../global_options.rst:249
 msgid ""
-"The path of the virtual environment to use. Defaults to ``./venv`` or ``./."
-"venv``."
+"The path of the virtual environment to use. Defaults to ``./venv`` or "
+"``./.venv``."
 msgstr ""
 
 #: ../../../global_options.rst:251
@@ -726,8 +728,8 @@ msgstr ""
 #: ../../../global_options.rst:294
 msgid ""
 "You can alter the verbosity level for poe commands by passing :bash:`--"
-"quiet` / :bash:`-q` (which decreases verbosity) or :bash:`--verbose` / :bash:"
-"`-v` (which increases verbosity) on the CLI."
+"quiet` / :bash:`-q` (which decreases verbosity) or :bash:`--"
+"verbose` / :bash:`-v` (which increases verbosity) on the CLI."
 msgstr ""
 
 #: ../../../global_options.rst:298
@@ -753,8 +755,8 @@ msgid ""
 "Note that the command line arguments are incremental: :bash:`-q` subtracts "
 "one from the default verbosity, and :bash:`-v` adds one. So setting the "
 "default verbosity to :toml:`-1` and passing :bash:`-v -v` on the command "
-"line is equivalent to setting the verbosity to :toml:`0` and just passing :"
-"bash:`-v`."
+"line is equivalent to setting the verbosity to :toml:`0` and just "
+"passing :bash:`-v`."
 msgstr ""
 
 #: ../../../global_options.rst:315
@@ -795,11 +797,11 @@ msgstr ""
 
 #: ../../../global_options.rst:340
 msgid ""
-"By default poe will detect when you're inside a project with a pyproject."
-"toml in the root. However if you want to run it from elsewhere then that is "
-"supported by using the :bash:`-C` option to specify an alternate location "
-"for the toml file. The task will run with the given location as the current "
-"working directory."
+"By default poe will detect when you're inside a project with a "
+"pyproject.toml in the root. However if you want to run it from elsewhere "
+"then that is supported by using the :bash:`-C` option to specify an "
+"alternate location for the toml file. The task will run with the given "
+"location as the current working directory."
 msgstr ""
 
 #: ../../../global_options.rst:345

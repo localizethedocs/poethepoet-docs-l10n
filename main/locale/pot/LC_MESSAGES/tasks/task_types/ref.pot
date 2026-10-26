@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poe the Poet main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"POT-Creation-Date: 2026-10-26 14:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,9 +86,9 @@ msgstr ""
 
 #: ../../../tasks/task_types/ref.rst:42
 msgid ""
-"A ref task that references a :doc:`sequence<../task_types/sequence>` or :doc:"
-"`parallel<../task_types/parallel>` task cannot use the ``capture_stdout`` "
-"option."
+"A ref task that references a :doc:`sequence<../task_types/sequence>` "
+"or :doc:`parallel<../task_types/parallel>` task cannot use the "
+"``capture_stdout`` option."
 msgstr ""
 
 #: ../../../tasks/task_types/ref.rst:46
@@ -104,9 +105,9 @@ msgstr ""
 
 #: ../../../tasks/task_types/ref.rst:50
 msgid ""
-"Ref tasks support parameter expansion just like cmd tasks, including the :"
-"ref:`default and alternate value operators <parameter-expansion-operators>`. "
-"This makes it possible to pass arguments to the referenced task "
+"Ref tasks support parameter expansion just like cmd tasks, including "
+"the :ref:`default and alternate value operators <parameter-expansion-"
+"operators>`. This makes it possible to pass arguments to the referenced task "
 "conditionally. For example:"
 msgstr ""
 

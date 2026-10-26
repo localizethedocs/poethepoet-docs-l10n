@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poe the Poet main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"POT-Creation-Date: 2026-10-26 14:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,11 +59,11 @@ msgstr ""
 
 #: ../../../tasks/index.rst:4
 msgid ""
-"Poe the Poet supports several ways of defining tasks under :toml:`[tool.poe."
-"tasks]`, trading off simplicity against configurability. Furthermore toml "
-"syntax supports both more terse or more expressive alternative ways of "
-"writing the same thing, see the guide on :doc:`../guides/toml_guide` for "
-"details."
+"Poe the Poet supports several ways of defining tasks "
+"under :toml:`[tool.poe.tasks]`, trading off simplicity against "
+"configurability. Furthermore toml syntax supports both more terse or more "
+"expressive alternative ways of writing the same thing, see the guide "
+"on :doc:`../guides/toml_guide` for details."
 msgstr ""
 
 #: ../../../tasks/index.rst:6
@@ -80,9 +81,9 @@ msgstr ""
 
 #: ../../../tasks/index.rst:13
 msgid ""
-"A task defined as an array will by default be interpreted as a :doc:"
-"`sequence <task_types/sequence>` of :doc:`references<task_types/ref>` to "
-"other tasks."
+"A task defined as an array will by default be interpreted as "
+"a :doc:`sequence <task_types/sequence>` of :doc:`references<task_types/ref>` "
+"to other tasks."
 msgstr ""
 
 #: ../../../tasks/index.rst:15

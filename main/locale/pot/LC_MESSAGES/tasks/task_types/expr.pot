@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poe the Poet main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 19:05+0000\n"
+"POT-Creation-Date: 2026-10-26 14:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,10 +23,10 @@ msgstr ""
 
 #: ../../../tasks/task_types/expr.rst:4
 msgid ""
-"**Expr tasks** consist of a single `Python expression <https://docs.python."
-"org/3/reference/expressions.html>`_. Running the task evaluates the "
-"expression and outputs the resulting value. Here's a trivial example of an "
-"expr task that will print `2` when run:"
+"**Expr tasks** consist of a single `Python expression <https://"
+"docs.python.org/3/reference/expressions.html>`_. Running the task evaluates "
+"the expression and outputs the resulting value. Here's a trivial example of "
+"an expr task that will print `2` when run:"
 msgstr ""
 
 #: ../../../tasks/task_types/expr.rst:6
@@ -54,8 +55,8 @@ msgstr ""
 #: ../../../tasks/task_types/expr.rst:21
 msgid ""
 "use most builtin functions including all members of `this collection "
-"<https://github.com/nat-n/poethepoet/blob/main/poethepoet/helpers/python."
-"py#L13>`_"
+"<https://github.com/nat-n/poethepoet/blob/main/poethepoet/helpers/"
+"python.py#L13>`_"
 msgstr ""
 
 #: ../../../tasks/task_types/expr.rst:23
@@ -72,7 +73,8 @@ msgstr ""
 
 #: ../../../tasks/task_types/expr.rst:24
 msgid ""
-"directly access whatever arguments were passed to the task from `sys.argv`"
+"access the task's arguments from `sys.argv`, in the same form as "
+"for :doc:`script tasks <script>`"
 msgstr ""
 
 #: ../../../tasks/task_types/expr.rst:25
@@ -84,8 +86,9 @@ msgstr ""
 #: ../../../tasks/task_types/expr.rst:26
 msgid ""
 "include environment variables as string values that are injected into the "
-"expression using the usual templating syntax ``${...}``, including the :ref:"
-"`default and alternate value operators <parameter-expansion-operators>`"
+"expression using the usual templating syntax ``${...}``, including "
+"the :ref:`default and alternate value operators <parameter-expansion-"
+"operators>`"
 msgstr ""
 
 #: ../../../tasks/task_types/expr.rst:30
@@ -236,8 +239,8 @@ msgstr ""
 
 #: ../../../tasks/task_types/expr.rst:106
 msgid ""
-"Expr tasks can reference the results of other tasks by leveraging the :doc:"
-"`uses <../../guides/composition_guide>` option."
+"Expr tasks can reference the results of other tasks by leveraging "
+"the :doc:`uses <../../guides/composition_guide>` option."
 msgstr ""
 
 #: ../../../tasks/task_types/expr.rst:108
