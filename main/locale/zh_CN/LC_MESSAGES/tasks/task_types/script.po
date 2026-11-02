@@ -171,10 +171,10 @@ msgstr ""
 
 #: ../../../tasks/task_types/script.rst:65
 msgid ""
-"Like the callable form, the module form also implicitly adds :sh:"
-"`<project_root>/src` to the subprocess :sh:`PYTHONPATH` so that modules "
-"placed in a ``src/`` directory at the project root are importable without "
-"extra configuration."
+"Like the callable form, the module form also implicitly "
+"adds :sh:`<project_root>/src` to the subprocess :sh:`PYTHONPATH` so that "
+"modules placed in a ``src/`` directory at the project root are importable "
+"without extra configuration."
 msgstr ""
 
 #: ../../../tasks/task_types/script.rst:69

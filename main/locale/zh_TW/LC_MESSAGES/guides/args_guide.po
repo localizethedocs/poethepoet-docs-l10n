@@ -81,9 +81,9 @@ msgstr ""
 msgid ""
 "Private variables can be used via parameter expansion in :doc:`cmd tasks<../"
 "tasks/task_types/cmd>`, as variables in :doc:`expr tasks<../tasks/task_types/"
-"expr>` or :doc:`script tasks<../tasks/task_types/script>`, but not in :doc:"
-"`shell tasks<../tasks/task_types/shell>` tasks which can only evaluate "
-"variables from the environment at runtime."
+"expr>` or :doc:`script tasks<../tasks/task_types/script>`, but not "
+"in :doc:`shell tasks<../tasks/task_types/shell>` tasks which can only "
+"evaluate variables from the environment at runtime."
 msgstr ""
 
 #: ../../../guides/args_guide.rst:27
@@ -475,9 +475,9 @@ msgid ""
 "The type that the provided value will be cast to. If not provided then the "
 "default behaviour is to keep values as strings. Setting the type to "
 "``\"boolean\"`` makes the resulting argument a flag that if provided will "
-"set the value to the boolean opposite of the default value – i.e. :toml:"
-"`true` if no default value is given, or :toml:`false` if :toml:`default = "
-"true`."
+"set the value to the boolean opposite of the default value – "
+"i.e. :toml:`true` if no default value is given, or :toml:`false` "
+"if :toml:`default = true`."
 msgstr ""
 
 #: ../../../guides/args_guide.rst:206
@@ -713,8 +713,8 @@ msgstr ""
 
 #: ../../../guides/args_guide.rst:342
 msgid ""
-"will result in poe parsing the target_dir cli option, but appending the :sh:"
-"`--fix` flag to the ruff command without attempting to interpret it."
+"will result in poe parsing the target_dir cli option, but appending "
+"the :sh:`--fix` flag to the ruff command without attempting to interpret it."
 msgstr ""
 
 #: ../../../guides/args_guide.rst:346
@@ -741,10 +741,10 @@ msgstr ""
 msgid ""
 "``$POE_EXTRA_ARGS`` can be used in any task type that supports environment "
 "variable expansion: :doc:`cmd<../tasks/task_types/cmd>`, :doc:`ref<../tasks/"
-"task_types/ref>`, :doc:`shell<../tasks/task_types/shell>`. In :doc:"
-"`script<../tasks/task_types/script>` and :doc:`expr<../tasks/task_types/"
-"expr>` tasks free arguments are also accessible as the ``_extra_args`` "
-"variable (a ``list[str]``)."
+"task_types/ref>`, :doc:`shell<../tasks/task_types/shell>`. "
+"In :doc:`script<../tasks/task_types/script>` and :doc:`expr<../tasks/"
+"task_types/expr>` tasks free arguments are also accessible as the "
+"``_extra_args`` variable (a ``list[str]``)."
 msgstr ""
 
 #: ../../../guides/args_guide.rst:360
@@ -753,11 +753,12 @@ msgstr ""
 
 #: ../../../guides/args_guide.rst:362
 msgid ""
-"Free arguments passed to a :doc:`sequence<../tasks/task_types/sequence>`, :"
-"doc:`parallel<../tasks/task_types/parallel>`, or :doc:`switch<../tasks/"
-"task_types/switch>` task are not forwarded to subtasks automatically. By "
-"referencing ``$POE_EXTRA_ARGS`` in individual subtask definitions you can "
-"choose which subtasks in the group receive the extra arguments:"
+"Free arguments passed to a :doc:`sequence<../tasks/task_types/"
+"sequence>`, :doc:`parallel<../tasks/task_types/parallel>`, "
+"or :doc:`switch<../tasks/task_types/switch>` task are not forwarded to "
+"subtasks automatically. By referencing ``$POE_EXTRA_ARGS`` in individual "
+"subtask definitions you can choose which subtasks in the group receive the "
+"extra arguments:"
 msgstr ""
 
 #: ../../../guides/args_guide.rst:364
@@ -853,8 +854,8 @@ msgstr ""
 
 #: ../../../guides/args_guide.rst:423
 msgid ""
-"Calling :sh:`poe run-tests tests/unit -x -v` will call ``pytest."
-"main([\"tests/unit\", \"-x\", \"-v\"])``."
+"Calling :sh:`poe run-tests tests/unit -x -v` will call "
+"``pytest.main([\"tests/unit\", \"-x\", \"-v\"])``."
 msgstr ""
 
 #: ../../../guides/args_guide.rst:425

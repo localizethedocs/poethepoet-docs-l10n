@@ -66,8 +66,8 @@ msgstr ""
 
 #: ../../../guides/include_guide.rst:24
 msgid ""
-"Imported files may also specify environment variables via ``tool.poe."
-"envfile`` or entries for ``tool.poe.env``."
+"Imported files may also specify environment variables via "
+"``tool.poe.envfile`` or entries for ``tool.poe.env``."
 msgstr ""
 
 #: ../../../guides/include_guide.rst:29
@@ -139,8 +139,8 @@ msgstr ""
 #: ../../../guides/include_guide.rst:60
 msgid ""
 "[tool.poe]\n"
-"include = [\"modules/acme_common/shared_tasks.toml\", \"generated_tasks."
-"json\"]"
+"include = [\"modules/acme_common/shared_tasks.toml\", "
+"\"generated_tasks.json\"]"
 msgstr ""
 
 #: ../../../guides/include_guide.rst:65

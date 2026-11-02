@@ -88,8 +88,8 @@ msgstr ""
 
 #: ../../../guides/tox_replacement_guide.rst:32
 msgid ""
-"See other installation methods in the `uv installation guide <https://docs."
-"astral.sh/uv/getting-started/installation/>`_ and :ref:`Poe the Poet "
+"See other installation methods in the `uv installation guide <https://"
+"docs.astral.sh/uv/getting-started/installation/>`_ and :ref:`Poe the Poet "
 "installation guide<Installation>`."
 msgstr ""
 

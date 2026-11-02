@@ -247,9 +247,9 @@ msgstr ""
 
 #: ../../../tasks/task_types/parallel.rst:107
 msgid ""
-"An array within a parallel task is interpreted as a :doc:"
-"`sequence<sequence>` task, so you can run certain parallel subtasks :ref:"
-"`with strict ordering<Composing tasks to run in parallel>`."
+"An array within a parallel task is interpreted as "
+"a :doc:`sequence<sequence>` task, so you can run certain parallel "
+"subtasks :ref:`with strict ordering<Composing tasks to run in parallel>`."
 msgstr ""
 
 #: ../../../tasks/task_types/parallel.rst:111
@@ -285,8 +285,8 @@ msgstr ""
 #: ../../../tasks/task_types/parallel.rst:123
 msgid ""
 "If you prefer the output from each task subprocess to print as one "
-"contiguous block after it finishes, set :toml:`output_mode` to :toml:"
-"`\"buffer\"`:"
+"contiguous block after it finishes, set :toml:`output_mode` "
+"to :toml:`\"buffer\"`:"
 msgstr ""
 
 #: ../../../tasks/task_types/parallel.rst:125

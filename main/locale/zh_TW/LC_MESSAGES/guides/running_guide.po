@@ -27,8 +27,8 @@ msgstr ""
 
 #: ../../../guides/running_guide.rst:7
 msgid ""
-"Poe tasks are defined in your **pyproject.toml** file under ``tool.poe."
-"tasks``"
+"Poe tasks are defined in your **pyproject.toml** file under "
+"``tool.poe.tasks``"
 msgstr ""
 
 #: ../../../guides/running_guide.rst:9

@@ -63,8 +63,8 @@ msgstr ""
 #: of poethepoet.app.PoeThePoet:1
 msgid ""
 "The directory that poe should take as the current working directory, this "
-"determines where to look for a pyproject.toml file, defaults to ``Path()."
-"resolve()``"
+"determines where to look for a pyproject.toml file, defaults to "
+"``Path().resolve()``"
 msgstr ""
 
 #: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
@@ -78,8 +78,8 @@ msgstr ""
 #: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring
 #: of poethepoet.app.PoeThePoet:13
 msgid ""
-"A stream for the application to write its own output to, defaults to sys."
-"stdout"
+"A stream for the application to write its own output to, defaults to "
+"sys.stdout"
 msgstr ""
 
 #: ../../../../../../.conda/lib/python3.11/site-packages/poethepoet/app.py:docstring

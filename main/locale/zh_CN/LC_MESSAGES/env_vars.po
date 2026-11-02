@@ -62,8 +62,8 @@ msgstr ""
 
 #: ../../../env_vars.rst:16
 msgid ""
-"Output values from tasks configured as dependencies via the :doc:"
-"`uses<guides/composition_guide>` option"
+"Output values from tasks configured as dependencies via "
+"the :doc:`uses<guides/composition_guide>` option"
 msgstr ""
 
 #: ../../../env_vars.rst:17
@@ -173,12 +173,12 @@ msgstr ""
 #: ../../../env_vars.rst:58
 msgid ""
 "``POE_GIT_DIR``: path of the git repo that the project is part of. This "
-"allows a project in a subdirectory of a monorepo to reference :ref:"
-"`includes<Including files relative to the git repo>`, :ref:`envfiles<Loading "
-"environment variables from an env file>`, or :ref:`virtualenv "
-"location<Configure the executor for a task>` relative to the root of the git "
-"repo. Note that referencing this variable causes poe to attempt to call the "
-"``git`` executable which must be available on the path."
+"allows a project in a subdirectory of a monorepo to "
+"reference :ref:`includes<Including files relative to the git "
+"repo>`, :ref:`envfiles<Loading environment variables from an env file>`, "
+"or :ref:`virtualenv location<Configure the executor for a task>` relative to "
+"the root of the git repo. Note that referencing this variable causes poe to "
+"attempt to call the ``git`` executable which must be available on the path."
 msgstr ""
 
 #: ../../../env_vars.rst:60

@@ -128,8 +128,9 @@ msgstr ""
 
 #: ../../../installation.rst:64
 msgid ""
-"See the |poetry_plugin_link| for more installation options, or see the :doc:"
-"`poetry plugin docs <poetry_plugin>` for more details about this option."
+"See the |poetry_plugin_link| for more installation options, or see "
+"the :doc:`poetry plugin docs <poetry_plugin>` for more details about this "
+"option."
 msgstr ""
 
 #: ../../../installation.rst:251
@@ -286,8 +287,8 @@ msgstr ""
 #: ../../../installation.rst:165
 msgid ""
 "If completions don't work after installing to a file, ensure you have the "
-"``bash-completion`` package installed and that it's sourced in your ``~/."
-"bashrc``. You may need to start a new shell session."
+"``bash-completion`` package installed and that it's sourced in your "
+"``~/.bashrc``. You may need to start a new shell session."
 msgstr ""
 
 #: ../../../installation.rst:168
@@ -300,8 +301,8 @@ msgid ""
 "poe _fish_completion > ~/.config/fish/completions/poe.fish\n"
 "\n"
 "# Homebrew fish\n"
-"poe _fish_completion > (brew --prefix)/share/fish/vendor_completions.d/poe."
-"fish"
+"poe _fish_completion > (brew --prefix)/share/fish/vendor_completions.d/"
+"poe.fish"
 msgstr ""
 
 #: ../../../installation.rst:179
@@ -347,8 +348,8 @@ msgstr ""
 
 #: ../../../installation.rst:208
 msgid ""
-"poe _install_skill                         # auto-detects .claude/.codex/."
-"pi/.agents and prompts\n"
+"poe _install_skill                         # auto-"
+"detects .claude/.codex/.pi/.agents and prompts\n"
 "poe _install_skill ~/.claude/skills        # explicit path (substitute your "
 "agent's dir)\n"
 "poe _install_skill <skills-dir> --upgrade  # non-interactive upgrade (skips "

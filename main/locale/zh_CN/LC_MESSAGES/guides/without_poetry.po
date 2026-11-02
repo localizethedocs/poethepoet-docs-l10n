@@ -91,8 +91,8 @@ msgstr ""
 #: ../../../guides/without_poetry.rst:29
 msgid ""
 "When using Poe the Poet outside of a poetry (or other |pep518_link|) "
-"project, you can avoid the potential confusion of creating a ``pyproject."
-"toml`` file and instead name the file ``poe_tasks.toml``."
+"project, you can avoid the potential confusion of creating a "
+"``pyproject.toml`` file and instead name the file ``poe_tasks.toml``."
 msgstr ""
 
 #: ../../../guides/without_poetry.rst:88
@@ -130,17 +130,17 @@ msgstr ""
 
 #: ../../../guides/without_poetry.rst:42
 msgid ""
-"If ``pyproject.toml`` exists but does not contain the key prefix ``tool."
-"poe`` then the search continues with `poe_tasks.toml`. If one of the listed "
-"``poe_tasks.*`` files exist then the search is terminated, even if the file "
-"is empty."
+"If ``pyproject.toml`` exists but does not contain the key prefix "
+"``tool.poe`` then the search continues with `poe_tasks.toml`. If one of the "
+"listed ``poe_tasks.*`` files exist then the search is terminated, even if "
+"the file is empty."
 msgstr ""
 
 #: ../../../guides/without_poetry.rst:44
 msgid ""
-"When config is loaded from a file other than ``pyproject.toml`` the ``tool."
-"poe`` namespace for poe config is optional. So for example the following two "
-"``poe_tasks.yaml`` files are equivalent and both valid:"
+"When config is loaded from a file other than ``pyproject.toml`` the "
+"``tool.poe`` namespace for poe config is optional. So for example the "
+"following two ``poe_tasks.yaml`` files are equivalent and both valid:"
 msgstr ""
 
 #: ../../../guides/without_poetry.rst:46

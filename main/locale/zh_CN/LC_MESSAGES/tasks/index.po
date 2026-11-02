@@ -59,11 +59,11 @@ msgstr ""
 
 #: ../../../tasks/index.rst:4
 msgid ""
-"Poe the Poet supports several ways of defining tasks under :toml:`[tool.poe."
-"tasks]`, trading off simplicity against configurability. Furthermore toml "
-"syntax supports both more terse or more expressive alternative ways of "
-"writing the same thing, see the guide on :doc:`../guides/toml_guide` for "
-"details."
+"Poe the Poet supports several ways of defining tasks "
+"under :toml:`[tool.poe.tasks]`, trading off simplicity against "
+"configurability. Furthermore toml syntax supports both more terse or more "
+"expressive alternative ways of writing the same thing, see the guide "
+"on :doc:`../guides/toml_guide` for details."
 msgstr ""
 
 #: ../../../tasks/index.rst:6
@@ -81,9 +81,9 @@ msgstr ""
 
 #: ../../../tasks/index.rst:13
 msgid ""
-"A task defined as an array will by default be interpreted as a :doc:"
-"`sequence <task_types/sequence>` of :doc:`references<task_types/ref>` to "
-"other tasks."
+"A task defined as an array will by default be interpreted as "
+"a :doc:`sequence <task_types/sequence>` of :doc:`references<task_types/ref>` "
+"to other tasks."
 msgstr ""
 
 #: ../../../tasks/index.rst:15

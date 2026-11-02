@@ -255,9 +255,9 @@ msgstr ""
 #: ../../../tasks/task_types/cmd.rst:107
 msgid ""
 "The following task uses glob patterns to specify all ``.pyc`` files and "
-"``__pycache__`` directories in the project for removal, and thanks to the :"
-"toml:`empty_glob` option it will succeed even if there are no matches since "
-"no arguments will be passed to the ``rm`` command."
+"``__pycache__`` directories in the project for removal, and thanks to "
+"the :toml:`empty_glob` option it will succeed even if there are no matches "
+"since no arguments will be passed to the ``rm`` command."
 msgstr ""
 
 #: ../../../tasks/task_types/cmd.rst:109
@@ -296,10 +296,11 @@ msgstr ""
 
 #: ../../../tasks/task_types/cmd.rst:146
 msgid ""
-"This option works the same for all *Execution task types* including :doc:"
-"`cmd<cmd>`, :doc:`script<script>`, :doc:`expr<expr>`, and :doc:"
-"`shell<shell>`, but has a slightly different interpretation for :doc:"
-"`sequence<sequence>`, :doc:`parallel<parallel>`, and :doc:`ref<ref>` tasks."
+"This option works the same for all *Execution task types* "
+"including :doc:`cmd<cmd>`, :doc:`script<script>`, :doc:`expr<expr>`, "
+"and :doc:`shell<shell>`, but has a slightly different interpretation "
+"for :doc:`sequence<sequence>`, :doc:`parallel<parallel>`, "
+"and :doc:`ref<ref>` tasks."
 msgstr ""
 
 #: ../../../tasks/task_types/cmd.rst:148

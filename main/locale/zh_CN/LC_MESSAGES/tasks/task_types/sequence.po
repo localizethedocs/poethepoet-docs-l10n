@@ -29,8 +29,8 @@ msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:6
 msgid ""
-"The array items can be sub-tables that declare inline tasks, or strings :doc:"
-"`referencing<ref>` to other tasks."
+"The array items can be sub-tables that declare inline tasks, or "
+"strings :doc:`referencing<ref>` to other tasks."
 msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:8
@@ -56,8 +56,8 @@ msgid ""
 "By default the contents of the array are interpreted as references to other "
 "tasks (actually an inline :doc:`ref<ref>` task). However, this behaviour can "
 "be altered by setting the global :toml:`default_array_item_task_type` option "
-"to the name of another task type such as ``\"cmd\"``, or by setting the :"
-"toml:`default_item_type` option locally on the sequence task."
+"to the name of another task type such as ``\"cmd\"``, or by setting "
+"the :toml:`default_item_type` option locally on the sequence task."
 msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:24
@@ -112,8 +112,8 @@ msgstr ""
 msgid ""
 "A failure (non-zero result) will result in the rest of the tasks in the "
 "sequence being skipped, unless the :toml:`ignore_fail` option is set on the "
-"task to :toml:`true`, :toml:`\"return_zero\"`, or :toml:"
-"`\"return_non_zero\"` like so:"
+"task to :toml:`true`, :toml:`\"return_zero\"`, "
+"or :toml:`\"return_non_zero\"` like so:"
 msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:42
@@ -247,7 +247,7 @@ msgstr ""
 
 #: ../../../tasks/task_types/sequence.rst:132
 msgid ""
-"An array within a sequence task is interpreted as a :doc:"
-"`parallel<parallel>` task, so you can run sections of a :ref:`sequence "
-"concurrently<Composing tasks to run in parallel>`."
+"An array within a sequence task is interpreted as "
+"a :doc:`parallel<parallel>` task, so you can run sections of "
+"a :ref:`sequence concurrently<Composing tasks to run in parallel>`."
 msgstr ""

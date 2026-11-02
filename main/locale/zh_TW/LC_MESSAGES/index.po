@@ -42,8 +42,8 @@ msgid ""
 "Poe the Poet is a batteries included task runner that works well with |"
 "poetry_link| or with :ref:`uv<Usage with uv>`."
 msgstr ""
-"Poe the Poet 是一款功能齊全的任務執行工具，能與 |poetry_link| 或 :ref:"
-"`uv<Usage with uv>` 良好搭配使用。"
+"Poe the Poet 是一款功能齊全的任務執行工具，能與 |poetry_link| "
+"或 :ref:`uv<Usage with uv>` 良好搭配使用。"
 
 #: ../../../index.rst:143
 msgid "<a href=\"https://python-poetry.org/\" target=\"_blank\">poetry</a>"
@@ -125,8 +125,8 @@ msgstr ""
 #: ../../../index.rst:65
 msgid ""
 "|V| Tasks can be composed to run in :ref:`sequence<sequence_composition>`, "
-"in :ref:`parallel<Composing tasks to run in parallel>`, or as a :ref:"
-"`DAG<graph_composition>`"
+"in :ref:`parallel<Composing tasks to run in parallel>`, or as "
+"a :ref:`DAG<graph_composition>`"
 msgstr ""
 
 #: ../../../index.rst:67
@@ -203,8 +203,8 @@ msgid ""
 "args = [\n"
 "   # Allow $AWS_REGION to be overridden with a CLI option when calling the "
 "task\n"
-"   {name = \"AWS_REGION\", options = [\"--region\", \"-r\"], default = "
-"\"${AWS_REGION}\"}\n"
+"   {name = \"AWS_REGION\", options = [\"--region\", \"-r\"], default = \"$"
+"{AWS_REGION}\"}\n"
 "]"
 msgstr ""
 
@@ -243,11 +243,11 @@ msgstr "從任意位置執行 poe"
 
 #: ../../../index.rst:132
 msgid ""
-"By default poe will detect when you're inside a project with a pyproject."
-"toml or poe_tasks file in the root. However if you want to run it from "
-"elsewhere then that is supported by using the :sh:`-C/--directory` option to "
-"specify an alternate location for the toml file. The task will run with the "
-"given location as the current working directory."
+"By default poe will detect when you're inside a project with a "
+"pyproject.toml or poe_tasks file in the root. However if you want to run it "
+"from elsewhere then that is supported by using the :sh:`-C/--directory` "
+"option to specify an alternate location for the toml file. The task will run "
+"with the given location as the current working directory."
 msgstr ""
 
 #: ../../../index.rst:134

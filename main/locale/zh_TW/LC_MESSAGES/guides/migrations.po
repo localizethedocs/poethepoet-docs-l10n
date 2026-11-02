@@ -165,10 +165,10 @@ msgstr ""
 
 #: ../../../guides/migrations.rst:80
 msgid ""
-"Additionally if the variable was accessed from a python script via :python:"
-"`os.environ[\"flag\"]` then this will break now. It is recommended to "
-"instead use :python:`\"flag\" in os.environ` or :python:`os.environ."
-"get(\"flag\")` to check if the flag is set to true."
+"Additionally if the variable was accessed from a python script "
+"via :python:`os.environ[\"flag\"]` then this will break now. It is "
+"recommended to instead use :python:`\"flag\" in os.environ` "
+"or :python:`os.environ.get(\"flag\")` to check if the flag is set to true."
 msgstr ""
 
 #: ../../../guides/migrations.rst:82

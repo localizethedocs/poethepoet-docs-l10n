@@ -52,8 +52,9 @@ msgstr ""
 
 #: ../../../poetry_plugin.rst:22
 msgid ""
-"See the |poetry_plugin_link| for more installation options, or see the :doc:"
-"`poetry plugin docs <poetry_plugin>` for more details about this option."
+"See the |poetry_plugin_link| for more installation options, or see "
+"the :doc:`poetry plugin docs <poetry_plugin>` for more details about this "
+"option."
 msgstr ""
 
 #: ../../../poetry_plugin.rst:139
