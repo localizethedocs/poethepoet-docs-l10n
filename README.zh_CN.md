@@ -1,5 +1,5 @@
 <div align="center">
-<h1 id="localization-of-the-poe-the-poet-documentation">Localization of The Poe the Poet Documentation</h1>
+<h1 id="localization-of-the-poe-the-poet-documentation">Poe the Poet 文档的本地化</h1>
 </div>
 
 <details><summary><strong>切换语言</strong></summary>
@@ -61,7 +61,7 @@
 The goal of this project is to translate The Poe the Poet Documentation into multiple languages. 翻译是通过 Crowdin 平台进行贡献，并自动与 GitHub 仓库进行同步，且可以在 GitHub Pages 进行预览。
 
 > [!NOTE]
-> The translation is <strong>unofficial</strong> and <strong>community-driven</strong>. If you find any inaccuracies, always refer to the <a href="https://poethepoet.natn.io/">official documentation</a> or the <a href="https://github.com/nat-n/poethepoet">source repository</a> of the upstream project for the most reliable information.
+> 翻译为<strong>非官方</strong>且<strong>由社区驱动的</strong>。 If you find any inaccuracies, always refer to the <a href="https://poethepoet.natn.io/">official documentation</a> or the <a href="https://github.com/nat-n/poethepoet">source repository</a> of the upstream project for the most reliable information.
 
 <div align="center">
 <table>
@@ -332,7 +332,7 @@ The goal of this project is to translate The Poe the Poet Documentation into mul
 
 <h2 id="preview-translations"><a href="#table-of-contents">预览翻译</a></h2>
 
-You can preview translations in <a href="https://projects.localizethedocs.org/poethepoet-docs-l10n">GitHub Pages</a>:
+您可以在 <a href="https://projects.localizethedocs.org/poethepoet-docs-l10n">GitHub Pages</a> 中预览翻译：
 
 <div align="center">
 <table>
