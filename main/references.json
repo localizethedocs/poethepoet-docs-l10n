@@ -37,9 +37,9 @@
     "branch" : "main",
     "commit" : 
     {
-      "date" : "2026-07-05 23:29:33 +0200",
-      "hash" : "e4d032ce63f6a80cef9b7fc9a956c5f4de04c9b2",
-      "title" : "Bump version to 0.48.0"
+      "date" : "2026-10-14 23:25:40 +0200",
+      "hash" : "b8e96a9c244b6dd1d8b8b46f36957f4420cfa7fd",
+      "title" : "Bump version to 0.49.0"
     }
   },
   "type" : "branch",
